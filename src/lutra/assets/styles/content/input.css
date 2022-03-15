@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+/* Various search-related inputs */
+[role="main"] {
+  input[type="text"] {
+    @apply inline-block relative w-full p-2 rounded;
+
+    background: var(--color_bg-search);
+    color: var(--color_text-search);
+    z-index: 1;
+
+    &:hover {
+      background: var(--color_bg-search--hover);
+    }
+    &:focus {
+      background: var(--color_bg-search--focus);
+      color: var(--color_text-search--focus);
+    }
+  }
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    @apply inline-block relative p-1 rounded border;
+
+    background: var(--color_bg-search);
+    color: var(--color_text-search);
+    z-index: 1;
+
+    &:hover {
+      background: var(--color_bg-search--hover);
+    }
+    &:focus {
+      background: var(--color_bg-search--focus);
+      color: var(--color_text-search--focus);
+    }
+  }
+}

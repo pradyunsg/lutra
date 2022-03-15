@@ -1,0 +1,28 @@
+{#-
+ Copyright (c) 2021 Pradyun Gedam
+ Licensed under MIT License
+ SPDX-License-Identifier: MIT
+
+ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+-#}
+
+{#
+  This is where user-provided CSS variables get converted into actual values.
+#}
+{% macro declare_css_variables(user_customisations, pygments_theme) -%}
+  --color_bg-code_block: {{ pygments_theme.background }};--color_text-code_block: {{ pygments_theme.foreground }};
+  {% if user_customisations -%}
+  {%- for name, value in user_customisations.items() %}--{{ name }}:{{ value }};{% endfor -%}
+  {%- endif %}
+{%- endmacro %}
+
+<style>
+html:not(.dark) { {{ declare_css_variables(theme_light_css_variables, lutra_pygments.light) }} }
+html.dark { {{ declare_css_variables(theme_dark_css_variables, lutra_pygments.dark) }} }
+</style>

@@ -1,0 +1,139 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+#lutra-main-content:target,
+.prose :target {
+  scroll-margin-top: 6.5rem;
+}
+
+.prose {
+  /* Permalinks */
+  .headerlink {
+    font-weight: 100;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  dl dt,
+  p.caption,
+  figcaption p,
+  table > caption,
+  .code-block-caption {
+    /* Anchors! */
+    > .headerlink {
+      @apply ml-2 invisible;
+      color: var(--color_text-link--hover);
+      &:visited {
+        color: var(--color_text-link--visited--hover);
+      }
+    }
+    &:hover > .headerlink {
+      @apply visible;
+    }
+    /* Don't change to link-like, if someone adds contents. */
+    > .toc-backref {
+      @apply no-underline;
+      @apply text-inherit;
+    }
+  }
+
+  /* Figure and table captions are special. */
+  figure:hover > figcaption > p > .headerlink,
+  table:hover > caption > .headerlink {
+    @apply visible;
+  }
+
+  /* When a heading is selected */
+  :target >,  /* Regular section[id] style anchors */
+  span:target ~ /* Non-regular span[id] style "extra" anchors */ {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      &:nth-of-type(1) {
+        background-color: var(--color_bg-target);
+        /* .headerlink {
+          visibility: visible;
+        } */
+      }
+    }
+  }
+
+  section > span:target {
+    scroll-margin-top: 5.5rem;
+  }
+
+  table:target > caption,
+  figure:target {
+    background-color: var(--color_bg-target);
+  }
+
+  /* Inline page contents */
+  .this-is-redundant-but-useful li :target {
+    background-color: var(--color_bg-target);
+  }
+
+  /* Code block permalinks */
+  .literal-block-wrapper:target .code-block-caption {
+    background-color: var(--color_bg-target);
+  }
+
+  /* When a definition list item is selected
+
+    There isn't really an alternative to !important here, due to the
+    high-specificity of API documentation's selector.
+  */
+  dt:target {
+    background-color: var(--color_bg-target) !important;
+  }
+
+  /* When a footnote is selected, highlight the content too */
+  .footnote > dt:target + dd {
+    background-color: var(--color_bg-target);
+  }
+
+  @keyframes attention-seeking-footnote {
+    0% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.5);
+    }
+    50% {
+      transform: scale(1);
+    }
+    75% {
+      transform: scale(1.5);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  .footnote-reference:target {
+    @apply px-1 inline-block py-0 leading-none;
+    background-color: var(--color_bg-target);
+    scroll-margin-top: 8.5rem;
+
+    animation: attention-seeking-footnote;
+    animation-duration: 1s;
+    animation-delay: 250ms;
+  }
+}

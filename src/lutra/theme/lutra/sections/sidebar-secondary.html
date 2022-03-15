@@ -1,0 +1,42 @@
+{#-
+ Copyright (c) 2021 Pradyun Gedam
+ Licensed under MIT License
+ SPDX-License-Identifier: MIT
+
+ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+-#}
+
+<div class="page-navigation-container sidebar-sticky">
+  <div class="sidebar-scroll">
+    {% if READTHEDOCS %}
+    <div
+      id="lutra-sidebar-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true"
+    ></div>
+    {% endif %}
+    <div class="sidebar-link-container">
+      <span id="searchbox"></span>
+      {% include "components/edit-this-page.html" with context %}
+      {%- if theme_sidebar_links -%}
+        {%- for link in theme_sidebar_links -%}
+          <a href="{{ link['href'] }}" alt="{{ link['alt']|e }}">{{ _(link['text'])|e }}</a>
+        {%- endfor %}
+      {%- endif %}
+    </div>
+    {% if not lutra_hide_toc %}
+    <div class="toc-container">
+      <p class="page-navigation-prompt">On this page</p>
+      {{ toc }}
+    </div>
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,56 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+.prose {
+  .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem 0.2rem 0.75rem;
+  }
+  table.docutils {
+    @apply rounded border-collapse shadow shadow-transparent;
+    border-spacing: 0;
+    --tw-shadow-color: var(--shadow-table);
+
+    th {
+      background: var(--color_bg-table-header);
+    }
+    td,
+    th {
+      /* Space things out properly */
+      padding: 0 0.25rem;
+
+      /* Get the borders looking just-right. */
+      border-left: 1px solid var(--border-table);
+      border-right: 1px solid var(--border-table);
+      border-bottom: 1px solid var(--border-table);
+
+      p {
+        margin: 0.25rem;
+      }
+
+      &:first-child {
+        border-left: none;
+      }
+      &:last-child {
+        border-right: none;
+      }
+    }
+    tr:first-child {
+      border-top: 1px solid var(--border-table);
+    }
+  }
+}

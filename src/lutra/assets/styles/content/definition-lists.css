@@ -1,0 +1,95 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+/* Definition lists */
+.prose {
+  /* Indent the definitions */
+  dl > dd {
+    @apply pl-8;
+    > :first-child {
+      @apply mt-1;
+    }
+  }
+
+  dl.simple dd > p {
+    @apply my-1;
+  }
+
+  .field-list,
+  .option-list,
+  dl:not([class]),
+  dl.simple,
+  dl.glossary {
+    > dt {
+      @apply font-bold;
+    }
+  }
+
+  /* For better :target highlighting */
+  dl > dt[id] {
+    @apply rounded -mx-1 px-1;
+  }
+
+  /* Side-by-side lists */
+  dl.field-list,
+  dl.footnote {
+    display: grid;
+    grid-template-columns: max-content auto;
+    > dd {
+      @apply pl-3;
+      > :first-child {
+        @apply mt-0;
+      }
+    }
+  }
+
+  /* Footnotes */
+  .footnote-reference {
+    @apply relative;
+    top: -0.5em;
+
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+  }
+
+  dl.footnote {
+    @apply text-xs;
+    dt {
+      @apply m-0;
+
+      &::after {
+        content: ":\a0";
+      }
+
+      > .brackets {
+        &::before {
+          content: "[";
+        }
+        &::after {
+          content: "]";
+        }
+      }
+    }
+  }
+  /* Rule above MyST's footnotes at the end of page */
+  hr.footnotes {
+    @apply mt-12 mb-3;
+  }
+
+  /* Field lists */
+  dl.field-list > dt::after {
+    content: ":";
+  }
+}

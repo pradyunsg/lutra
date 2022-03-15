@@ -1,0 +1,350 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+.sidebar-sticky {
+  /* Align with the header */
+  @apply sticky;
+}
+
+.sidebar-scroll {
+  @apply px-2;
+  @apply overflow-y-hidden hover:overflow-y-auto focus-within:overflow-y-auto;
+
+  scrollbar-gutter: stable both-edges;
+  scrollbar-width: thin;
+  /* TODO: Do this for webkit! */
+  scrollbar-color: var(--color_text-sidebar_collapse) var(--color_bg);
+  /* &::-webkit-scrollbar-thumb {
+    background: var(--color_text-sidebar_collapse);
+  }
+  &::-webkit-scrollbar-track {
+    background: var(--color_bg);
+  } */
+
+  /*
+    HACK: This value is tied to the top-bar design, and assumes it will have a
+          consistent height. This is a sane assumption for the regular layout,
+          but will break down if someone customises the top-bar stuff. That's
+          their problem. :shrug:
+  */
+  max-height: calc(100vh - 3.5rem);
+}
+
+.toctree-container,
+.toc-container {
+  @apply leading-4;
+
+  /* Indent nested lists */
+  ul ul {
+    @apply ml-4;
+  }
+  /* Stylize links */
+  a {
+    @apply px-3 transition-colors duration-200 relative block rounded-md cursor-pointer;
+    color: var(--color_text-link-sidebar);
+    background: var(--color_bg-link-sidebar);
+    &:hover {
+      color: var(--color_text-link-sidebar--hover);
+      background: var(--color_bg-link-sidebar--hover);
+    }
+    &.current,
+    &.active {
+      @apply font-semibold;
+      color: var(--color_text-link-sidebar--active);
+      background: var(--color_bg-link-sidebar--active);
+      &:hover {
+        color: var(--color_text-link-sidebar--active--hover);
+        background: var(--color_bg-link-sidebar--active--hover);
+      }
+    }
+    &:focus-visible {
+      @apply shadow-lg;
+      z-index: 1;
+    }
+  }
+}
+
+.toc-container {
+  a,
+  a.active {
+    @apply bg-transparent;
+    &:hover {
+      @apply bg-transparent;
+    }
+  }
+}
+
+/* Left */
+.sb-sidebar-primary {
+  @apply border-r;
+  background: var(--color_bg);
+  border-right-color: var(--border-site_sidebar);
+
+  .sidebar-sticky {
+    @apply top-16;
+  }
+}
+
+.site-navigation-container {
+  @apply text-sm;
+  .sidebar-scroll {
+    @apply pt-12 pb-12;
+    @media (min-width: 76rem) {
+      @apply pt-12 pb-12;
+    }
+  }
+  p.caption {
+    @apply px-3 mb-1 tracking-wide font-semibold text-xxs uppercase;
+    color: var(--color_text-sidebar_caption);
+  }
+  ul + p.caption {
+    @apply mt-6;
+  }
+  ul li a {
+    @apply py-1.5;
+  }
+
+  /*
+    If I ever decide that the sidebar should have a border to the left.
+  */ /*
+  [class^="toctree-l"]:not(.toctree-l1) {
+    @apply border-l;
+    border-left-color: var(--border-site_sidebar);
+  } */
+}
+
+/* Collapsing sidebar motion */
+@keyframes width-reduce {
+  0% {
+    width: 17rem;
+  }
+  to {
+    width: 1rem;
+  }
+}
+
+@keyframes width-increase {
+  0% {
+    width: 1rem;
+  }
+  to {
+    width: 17rem;
+  }
+}
+
+/* Collapse */
+#lutra-site-navigation-collapse-icon {
+  @apply absolute top-12 right-0 h-6 w-6 rounded cursor-pointer translate-x-1/2 focus:outline;
+  @apply border;
+  @apply text-black border-gray-50 bg-white;
+
+  background: var(--color_bg-sidebar_collapse);
+  color: var(--color_text-sidebar_collapse);
+  border-color: var(--border-sidebar_collapse);
+
+  z-index: 1;
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-color: var(--color_text-sidebar_collapse);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fillRule='evenodd' d='M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z' clipRule='evenodd' /%3E%3C/svg%3E");
+    mask-size: contain;
+    transform: rotate(0deg);
+    transition: transform 300ms ease-in-out;
+  }
+  .collapsed-site-navigation &::after {
+    transform: rotate(180deg);
+  }
+  .no-js & {
+    display: none;
+  }
+}
+
+@keyframes width-reduce {
+  0% {
+    width: 17rem;
+  }
+  25% {
+    width: 17rem;
+  }
+  to {
+    width: 1rem;
+  }
+}
+@keyframes content-hiding {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    width: 17rem;
+  }
+  75% {
+    opacity: 0;
+    visibility: hidden;
+    width: 17rem;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+  }
+}
+
+@keyframes width-increase {
+  0% {
+    width: 1rem;
+  }
+  75% {
+    width: 17rem;
+  }
+  to {
+    width: 17rem;
+  }
+}
+@keyframes content-showing {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+  }
+  75% {
+    opacity: 0;
+    visibility: visible;
+    width: 17rem;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    width: 17rem;
+  }
+}
+
+@media (min-width: 76rem) {
+  .collapsed-site-navigation:not(.animated) {
+    .sb-sidebar-primary {
+      width: 1rem;
+      .sidebar-scroll {
+        width: 0;
+        visibility: hidden;
+        display: none;
+        overflow: hidden;
+      }
+    }
+  }
+  .collapsed-site-navigation.animated {
+    .sb-sidebar-primary {
+      animation: width-reduce 300ms ease 0s 1 normal forwards;
+      .sidebar-scroll {
+        animation: content-hiding 300ms ease 0s 1 normal forwards;
+        overflow: hidden;
+      }
+    }
+  }
+  .expanded-site-navigation.animated {
+    .sb-sidebar-primary {
+      animation: width-increase 300ms ease 0s 1 normal forwards;
+      .sidebar-scroll {
+        animation: content-showing 300ms ease 0s 1 normal forwards;
+      }
+    }
+  }
+}
+
+.docs-header {
+  @apply px-3 mb-6;
+  color: var(--color_text-docs_header);
+}
+
+.docs-caption {
+  @apply font-semibold text-xxs uppercase;
+  color: var(--color_text-docs_header);
+}
+
+.back-home-link:hover .back-home-text,
+.sidebar-link-container a:hover {
+  color: var(--color_text-docs_header-link--hover);
+}
+
+.back-home-icon {
+  @apply inline align-middle mr-2;
+
+  &::after {
+    content: "";
+
+    /* A cute > */
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: var(--color_text-docs_header);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-arrow-left' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z'/%3E%3C/svg%3E");
+    mask-size: contain;
+  }
+}
+
+/* Right sidebar */
+.sb-sidebar-secondary {
+  background: var(--color_bg);
+  .sidebar-sticky {
+    @apply top-16;
+  }
+}
+
+.page-navigation-container {
+  @apply text-sm;
+  a {
+    @apply py-1.5;
+  }
+  .sidebar-scroll {
+    @apply pt-8 pb-32;
+  }
+}
+
+.toc-container {
+  @apply pt-6;
+}
+
+/* Hide the first "top level" bullet. */
+.toc-container > ul > li:first-child {
+  @apply pt-0;
+  & > ul {
+    @apply ml-0;
+  }
+  & > a {
+    @apply hidden;
+  }
+}
+.sidebar-link-container {
+  @apply text-xs mx-3;
+  color: var(--color_text-link-sidebar);
+
+  a {
+    display: block;
+  }
+}
+
+.page-navigation-prompt {
+  @apply uppercase text-xxs font-bold mx-3 mb-2;
+  color: var(--color_text-sidebar_prompt);
+}
+
+.toc-toggle-container {
+  @apply fixed bottom-6 right-6 rounded-full p-4 bg-blue-900 text-white;
+  z-index: 1;
+}
+@media (min-width: 59rem) {
+  .toc-toggle-container {
+    @apply hidden;
+  }
+}

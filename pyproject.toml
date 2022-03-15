@@ -1,0 +1,56 @@
+[build-system]
+requires = ["sphinx-theme-builder >= 0.2.0a10"]
+build-backend = "sphinx_theme_builder"
+
+[tool.sphinx-theme-builder]
+node-version = "16.13.0"
+additional-compiled-static-assets = [
+  "styles/lutra-extensions.css",
+  "scripts/lutra-extensions.js",
+  "styles/lutra-index.css",
+  "scripts/lutra-index.js",
+]
+
+[project]
+name = "lutra"
+description = "A clean and capable Sphinx documentation theme."
+dynamic = ["version"]
+readme = "README.md"
+
+requires-python = ">=3.7"
+dependencies = [
+  "sphinx-basic-ng",
+  "sphinx ~= 4.0",
+  "sphinxext-opengraph",
+  "beautifulsoup4",
+  "pygments-base16",
+]
+
+license = { file = "LICENSE"}
+authors = [
+    {name = "Pradyun Gedam", email = "mail@pradyunsg.me"},
+]
+classifiers = [
+  "Framework :: Sphinx",
+  "Framework :: Sphinx :: Theme",
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Environment :: Web Environment",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Operating System :: OS Independent",
+  "Topic :: Documentation",
+  "Topic :: Software Development :: Documentation",
+]
+
+[project.optional-dependencies]
+author = [
+  "sphinx-autobuild",
+]
+
+[project.entry-points]
+"sphinx.html_themes" = {lutra = "lutra"}

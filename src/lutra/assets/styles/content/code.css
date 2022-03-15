@@ -1,0 +1,134 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+.prose {
+  code,
+  pre {
+    font-size: 0.875em;
+  }
+
+  /* Inline code */
+  p code.literal {
+    @apply rounded p-0.5;
+
+    background: var(--color_bg-code_inline);
+    border: var(--border-code_inline);
+    color: var(--color_text-code_inline);
+  }
+  a > code.literal {
+    @apply pb-0 rounded-b-none;
+  }
+
+  /* Wrapper of every highlighted block. */
+  div[class*=" highlight-"],
+  div[class^="highlight-"] {
+    @apply flex mx-0;
+    @apply my-3; /* same margin as p tags */
+  }
+
+  /* Code Blocks */
+  pre {
+    @apply my-4 p-3 rounded overflow-auto;
+
+    background-color: var(--color_bg-code_block);
+    color: var(--color_text-code_block);
+  }
+  /* Make code block captions be nicely integrated */
+  .code-block-caption {
+    @apply flex px-3 pt-2 pb-1 rounded rounded-b-none border-b text-sm font-light;
+    background-color: var(--color_bg-code_block);
+    color: var(--color_text-code_block);
+    border-color: var(--border-code_block_caption);
+
+    + div[class] {
+      @apply mt-0;
+      pre {
+        @apply rounded-t-none;
+      }
+    }
+  }
+
+  /* All code is always contained in a pre */
+  .highlight {
+    @apply rounded w-full;
+    pre {
+      @apply m-0;
+    }
+
+    /* Make line numbers and prompts un-selectable. */
+    .gp,
+    span.linenos {
+      @apply select-none pointer-events-none;
+    }
+    /* Expand the line-highlighting. */
+    .hll {
+      @apply block;
+
+      margin-left: -0.875rem;
+      margin-right: -0.875rem;
+      padding-left: 0.875rem;
+      padding-right: 0.875rem;
+    }
+  }
+
+  /* When `html_codeblock_linenos_style` is inline. */
+  .highlight span.linenos {
+    display: inline-block;
+    padding-left: 0;
+    padding-right: 0.875rem;
+    margin-right: 0.875rem;
+    box-shadow: -0.0625rem 0 var(--color-foreground-border) inset;
+  }
+
+  /* When `html_codeblock_linenos_style` is table. */
+  .highlighttable {
+    width: 100%;
+    display: block;
+    tbody {
+      display: block;
+    }
+    tr {
+      display: flex;
+    }
+    /* Line numbers */
+    td.linenos {
+      background-color: var(--color-code-background);
+      color: var(--color-code-foreground);
+      padding: 0.625rem 0.875rem;
+      padding-right: 0;
+      border-top-left-radius: 0.2rem;
+      border-bottom-left-radius: 0.2rem;
+    }
+    .linenodiv {
+      padding-right: 0.875rem;
+      font-size: var(--code-font-size);
+      box-shadow: -0.0625rem 0 var(--color-foreground-border) inset;
+    }
+    /* Actual code */
+    td.code {
+      padding: 0;
+      display: block;
+      flex: 1;
+      overflow: hidden;
+      .highlight {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+
+  .viewcode-link {
+    @apply text-xxs;
+  }
+}

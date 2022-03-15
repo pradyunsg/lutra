@@ -1,0 +1,35 @@
+{#-
+ Copyright (c) 2021 Pradyun Gedam
+ Licensed under MIT License
+ SPDX-License-Identifier: MIT
+
+ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+-#}
+
+<div class="site-navigation-container sidebar-sticky">
+  <button id="lutra-site-navigation-collapse-icon" tabindex="0" aria-label="{{ _('Toggle Sidebar') }}"></button>
+  <div id="lutra-primary-sidebar-container" class="sidebar-scroll">
+    {% if pagename != "index" %}
+    <div class="docs-header">
+      <a class="back-home-link" href="{{ pathto("index") }}">
+        <span class="back-home-icon"></span><span class="back-home-text">{{ _("Home") }}</span>
+      </a>
+    </div>
+    {% endif %}
+    {% if lutra_trimmed_toctree %}
+    <div class="toctree-container only-show-inner-toctree">
+      {{ lutra_toctree_html }}
+    </div>
+    {% else %}
+    <div class="toctree-container">
+      {{ lutra_toctree_html }}
+    </div>
+    {% endif %}
+  </div>
+</div>

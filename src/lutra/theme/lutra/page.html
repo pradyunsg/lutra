@@ -1,0 +1,75 @@
+{#-
+ Copyright (c) 2021 Pradyun Gedam
+ Licensed under MIT License
+ SPDX-License-Identifier: MIT
+
+ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+-#}
+
+{% extends "!basic-ng/page.html" %}
+
+<!-- Hide article header, if we're on the home page. -->
+{% block content %}
+<div class="sb-article-container">
+  {%- if pagename != "index" -%}
+  <header class="sb-header-article">
+    {% include "sections/header-article.html" %}
+  </header>
+  {%- endif -%}
+  <article role="main">
+    {% include "sections/article.html" %}
+  </article>
+  <footer class="sb-footer-article">
+    {% include "sections/footer-article.html" %}
+  </footer>
+</div>
+{% endblock content %}
+
+<!-- Hide primary sidebar on full-width and page layouts. -->
+{% block sidebar_primary %}
+  {%- if not (meta and (meta["layout"] == "page" or meta["layout"] == "full-width")) -%}
+    {{ super() }}
+  {%- endif -%}
+{% endblock %}
+{% block sidebar_secondary %}
+  {%- if not (meta and meta["layout"] == "full-width") -%}
+    {{ super() }}
+  {%- endif -%}
+{% endblock %}
+
+{% block body %}
+<script>
+  // Eager dark-mode handling.
+  const currentTheme = localStorage.getItem("theme") || "auto";
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  document.body.dataset.theme = currentTheme;
+  if ((currentTheme === "auto" && prefersDark) || currentTheme === "dark") {
+    document.documentElement.classList.add("dark");
+  }
+  // Eager sidebar collapse
+  if ((localStorage.getItem("collapsed") || "false") === "true") {
+    document.body.classList.add("collapsed-site-navigation");
+  }
+</script>
+<a class="skip-to-content" href="#lutra-main-content">
+  {%- trans -%}
+  Skip to content
+  {%- endtrans -%}
+</a>
+{{ super() }}
+{% endblock body %}
+
+{% block footer %}
+<footer class="sb-footer">
+  <div class="sb-footer__inner sb-page-width">
+    {% include "sections/footer.html" %}
+  </div>
+</footer>
+{% endblock footer %}

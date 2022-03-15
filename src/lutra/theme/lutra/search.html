@@ -1,0 +1,46 @@
+{#-
+ Copyright (c) 2021 Pradyun Gedam
+ Licensed under MIT License
+ SPDX-License-Identifier: MIT
+
+ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+-#}
+
+{% extends "basic-ng/search.html" %} {% block before_results %}
+<div id="lutra-main-content" class="prose">
+  {{ super() }}
+  <form
+    class="search-container"
+    method="get"
+    action="{{ pathto('search') }}"
+    role="search"
+  >
+    <input
+      type="text"
+      autofocus
+      name="q"
+      value=""
+      label="{{ _('Search') }}"
+      placeholder="{{ _('Search') }}"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      spellcheck="false"
+    />
+    <div class="search-guidance">
+      {% trans %}Press Enter to search{% endtrans %}
+      <noscript>(needs JavaScript to work)</noscript>
+    </div>
+  </form>
+{%- endblock before_results %}
+
+{# Close the .prose div #}
+{% block after_results -%}
+</div>
+{%- endblock after_results %}

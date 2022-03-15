@@ -1,0 +1,172 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+html {
+  /* Topic */
+  --color-topic: theme("colors.emerald.400");
+  --color_bg-topic-title: theme("colors.emerald.400/20");
+  --icon-topic: var(--icon-abstract);
+
+  /* Admonitions */
+  --color-admonition--default: theme("colors.violet.400");
+  --color_bg-admonition-title--default: theme("colors.violet.400/20");
+  --icon-admonition--default: var(--icon-abstract);
+
+  --color-admonition--admonition-todo: theme("colors.gray.400");
+  --color_bg-admonition-title--admonition-todo: theme("colors.gray.400/20");
+  --icon-admonition--admonition-todo: var(--icon-pencil);
+
+  --color-admonition--attention: theme("colors.red.400");
+  --color_bg-admonition-title--attention: theme("colors.red.400/20");
+  --icon-admonition--attention: var(--icon-warning);
+
+  --color-admonition--caution: theme("colors.yellow.400");
+  --color_bg-admonition-title--caution: theme("colors.yellow.400/20");
+  --icon-admonition--caution: var(--icon-spark);
+
+  --color-admonition--danger: theme("colors.orange.400");
+  --color_bg-admonition-title--danger: theme("colors.orange.400/20");
+  --icon-admonition--danger: var(--icon-spark);
+
+  --color-admonition--error: theme("colors.red.400");
+  --color_bg-admonition-title--error: theme("colors.red.400/20");
+  --icon-admonition--error: var(--icon-failure);
+
+  --color-admonition--hint: theme("colors.green.400");
+  --color_bg-admonition-title--hint: theme("colors.green.400/20");
+  --icon-admonition--hint: var(--icon-question);
+
+  --color-admonition--important: theme("colors.blue.400");
+  --color_bg-admonition-title--important: theme("colors.blue.400/20");
+  --icon-admonition--important: var(--icon-flame);
+
+  --color-admonition--note: theme("colors.cyan.400");
+  --color_bg-admonition-title--note: theme("colors.cyan.400/20");
+  --icon-admonition--note: var(--icon-pencil);
+
+  --color-admonition--seealso: theme("colors.cyan.400");
+  --color_bg-admonition-title--seealso: theme("colors.cyan.400/20");
+  --icon-admonition--seealso: var(--icon-info);
+
+  --color-admonition--tip: theme("colors.green.400");
+  --color_bg-admonition-title--tip: theme("colors.green.400/20");
+  --icon-admonition--tip: var(--icon-info);
+
+  --color-admonition--warning: theme("colors.orange.400");
+  --color_bg-admonition-title--warning: theme("colors.orange.400/20");
+  --icon-admonition--warning: var(--icon-warning);
+}
+
+.prose {
+  /* Topics and admonitions */
+  .admonition,
+  .topic {
+    @apply my-4 mx-auto p-2 pt-0 overflow-hidden;
+
+    background: var(--color_bg-admonition);
+
+    border-radius: 0.25rem;
+    box-shadow: 0 0.25rem 0.5rem var(--shadow-admonition),
+      0 0 0.0625rem var(--border-admonition);
+
+    overflow: hidden;
+    page-break-inside: avoid;
+
+    font-size: 0.875em;
+
+    /* First element should have no margin, since the title has it. */
+    > :nth-child(2) {
+      margin-top: 0;
+    }
+
+    /* Last item should have no margin, since we'll control that w/ padding */
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  p.admonition-title,
+  p.topic-title {
+    position: relative;
+    margin: 0 -0.5rem 0.5rem;
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
+
+    @apply text-sm font-medium leading-4;
+
+    /* The fancy icons we inject into the various admonitions */
+    &::before {
+      content: "";
+
+      position: absolute;
+      left: 0.5rem;
+
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  /* Default styles */
+  p.topic-title {
+    background-color: var(--color_bg-topic-title);
+    &::before {
+      background-color: var(--color-topic);
+      mask-image: var(--icon-topic);
+      mask-repeat: no-repeat;
+    }
+  }
+
+  .admonition {
+    border-left: 0.2rem solid var(--color-admonition--default);
+  }
+  .admonition-title {
+    background-color: var(--color_bg-admonition-title--default);
+    &::before {
+      background-color: var(--color-admonition--default);
+      mask-image: var(--icon-admonition--default);
+      mask-repeat: no-repeat;
+    }
+  }
+
+  /* Specialized classes of admonitions */
+  @each $style
+    in (
+      admonition-todo,
+      attention,
+      caution,
+      danger,
+      error,
+      hint,
+      important,
+      note,
+      seealso,
+      tip,
+      warning
+    )
+  {
+    .admonition.#{$style} {
+      border-left-color: var(--color-admonition--#{$style});
+      > .admonition-title {
+        background-color: var(--color_bg-admonition-title--#{$style});
+        &::before {
+          background-color: var(--color-admonition--#{$style});
+          mask-image: var(--icon-admonition--#{$style});
+        }
+      }
+    }
+  }
+
+  .admonition-todo > .admonition-title {
+    @apply uppercase;
+  }
+}

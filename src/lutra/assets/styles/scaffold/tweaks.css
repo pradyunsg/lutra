@@ -1,0 +1,93 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+/*
+  HACK: Always having the scrollbar visible, prevents certain browsers from
+  causing the content to stutter horizontally between taller-than-viewport and
+  not-taller-than-viewport pages.
+*/
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/* TODO: Figure out how to properly handle overlays.
+
+- Full width -- shouldn't hide borders on header.
+- Collapsed sidebar (left) -- shouldn't highlight header.
+- Collapsed sidebar (both)
+  - shouldn't highlight header.
+  - left expanded: should only show left sidebar.
+  - right expanded: should only show right sidebar.
+*/
+/*
+  HACK: Elements with relative or absolute position seem to be above
+  in the render stack, despite being on an element that is below the
+  overlay/sidebar. Instead of dealing with this properly, the header has
+  a z-index of 30 and these elements (sidebars + sidebar-overlays) have
+  *slightly* higher z-indexes; such that they are always above the main
+  content.
+*/
+.sb-sidebar-primary,
+.sb-sidebar-overlay[for="sb-sidebar-toggle--primary"] {
+  z-index: 35;
+}
+.sb-sidebar-secondary,
+.sb-sidebar-overlay[for="sb-sidebar-toggle--secondary"] {
+  z-index: 34;
+}
+
+.sb-article-container,
+.sb-footer-content__inner {
+  width: 100vw;
+}
+
+@media (min-width: 42rem) {
+  .sb-article-container,
+  .sb-footer-content__inner {
+    width: auto;
+  }
+}
+
+/* Deal with the consequences of allowing collapsing primary sidebar */
+#lutra-site-navigation-collapse-icon {
+  display: none;
+}
+@media (min-width: 59rem) {
+  .sb-sidebar-secondary {
+    z-index: unset;
+  }
+}
+@media (min-width: 67rem) {
+  .collapsed-site-navigation {
+    .match-content-width,
+    [role="main"] {
+      transition: width 150ms ease;
+      width: 50rem;
+    }
+    .sb-footer-content__inner,
+    &.drop-secondary-sidebar-for-full-width-content [role="main"],
+    &.drop-secondary-sidebar-for-full-width-content .match-content-width {
+      width: 67rem;
+    }
+  }
+}
+@media (min-width: 76rem) {
+  .sb-sidebar-primary {
+    z-index: unset;
+  }
+  #lutra-site-navigation-collapse-icon {
+    display: block;
+  }
+}

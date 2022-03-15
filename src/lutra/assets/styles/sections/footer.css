@@ -1,0 +1,80 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+/* Content footer */
+// Next/Prev page information
+.related-pages {
+  @apply flex flex-row items-center text-xs mb-4 mt-8;
+  a {
+    @apply flex flex-row items-center flex-1 rounded mx-2 p-1;
+
+    &:hover {
+      background: var(--color_bg-related_pages--hover);
+
+      .page-info .title {
+        color: var(--color_text-related_pages-link--hover);
+        border-bottom-color: var(
+          --color_text-related_pages-link_underline--hover
+        );
+      }
+    }
+
+    svg,
+    svg > use {
+      flex-shrink: 0;
+
+      color: var(--color_text-related_pages-context);
+
+      width: 0.75rem;
+      height: 0.75rem;
+      margin: 0 0.5rem;
+    }
+  }
+}
+.page-info {
+  @apply flex flex-col;
+
+  .title {
+    color: var(--color_text-related_pages-link);
+    border-bottom: 1px solid var(--color_text-related_pages-link_underline);
+  }
+
+  .context {
+    @apply flex items-center;
+    color: var(--color_text-related_pages-context);
+    text-decoration: none;
+  }
+}
+/* Properly locate next page */
+.next-page {
+  @apply justify-end self-end;
+  .page-info {
+    @apply items-end text-right;
+  }
+}
+/* Page footer */
+.sb-footer {
+  @apply p-2 text-sm;
+  background: var(--color_bg-footer);
+  color: var(--color_text-footer);
+}
+
+.sb-footer__inner {
+  @apply flex flex-row items-center px-2;
+  justify-content: space-between;
+}
+
+.footer-icons {
+  @apply text-lg;
+}

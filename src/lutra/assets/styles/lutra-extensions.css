@@ -1,0 +1,156 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+/* sphinx-design */
+body {
+  --sd-color-card-border: var(--color_text-link_underline);
+  --sd-color-card-border-hover: var(--color_text-link_underline);
+}
+
+/* Override some bad aesthetic choices. */
+.sd-card-hover:hover {
+  transition: transform 100ms linear;
+  transform: translateY(-1px);
+}
+.sd-container,
+.sd-container-fluid,
+.sd-container-lg,
+.sd-container-md,
+.sd-container-sm,
+.sd-container-xl {
+  @apply px-0;
+}
+
+/* sphinx-inline-tabs */
+.tab-content {
+  div[class^="highlight-"]:first-child {
+    @apply mt-0;
+    pre {
+      @apply rounded-t-none;
+    }
+  }
+}
+
+html:not(.dark) {
+  --tabs--label-text: theme("colors.gray.600");
+  --tabs--label-text--hover: theme("colors.gray.600");
+  --tabs--label-text--active: theme("colors.blue.500");
+  --tabs--label-text--active--hover: theme("colors.blue.500");
+  --tabs--label-background: transparent;
+  --tabs--label-background--hover: transparent;
+  --tabs--label-background--active: transparent;
+  --tabs--label-background--active--hover: transparent;
+  --tabs--label-border: transparent;
+  --tabs--label-border--hover: theme("colors.gray.300");
+  --tabs--label-border--active: theme("colors.blue.500");
+  --tabs--label-border--active--hover: theme("colors.blue.500");
+  --tabs--padding-x: 0.25em;
+  --tabs--margin-x: 1em;
+  --tabs--border: theme("colors.gray.200");
+}
+html.dark {
+  --tabs--label-text: theme("colors.gray.400");
+  --tabs--label-text--hover: theme("colors.gray.400");
+  --tabs--label-text--active: theme("colors.blue.500");
+  --tabs--label-text--active--hover: theme("colors.blue.500");
+  --tabs--label-background: transparent;
+  --tabs--label-background--hover: transparent;
+  --tabs--label-background--active: transparent;
+  --tabs--label-background--active--hover: transparent;
+  --tabs--label-border: transparent;
+  --tabs--label-border--hover: theme("colors.gray.600");
+  --tabs--label-border--active: theme("colors.blue.500");
+  --tabs--label-border--active--hover: theme("colors.blue.500");
+  --tabs--padding-x: 0.25em;
+  --tabs--margin-x: 1em;
+  --tabs--border: theme("colors.gray.800");
+}
+
+/*
+  ReadTheDocs version selector
+*/
+/* Clean up after the injected CSS */
+div.lutra-readthedocs-versions {
+  width: unset;
+  color: inherit;
+  background: unset;
+  font-family: inherit;
+
+  > .rst-current-version {
+    @apply py-3 px-2;
+    font-size: unset;
+    color: inherit;
+    background: unset;
+    white-space: nowrap;
+
+    .fa {
+      color: inherit;
+      float: none;
+    }
+  }
+  .rst-other-versions {
+    @apply p-0;
+  }
+  .injected {
+    .rst-versions {
+      position: unset;
+    }
+    .rst-other-versions {
+      @apply p-4;
+    }
+    .rst-current-version .fa-caret-down {
+      @apply hidden;
+    }
+  }
+}
+
+/* Dropdown container */
+div.lutra-readthedocs-versions {
+  @apply -mx-1 block relative;
+}
+
+/* Dropdown content */
+.injected {
+  @apply hidden absolute;
+
+  min-width: 15rem;
+  z-index: 1;
+}
+
+div.lutra-readthedocs-versions {
+  &:hover,
+  &:focus-within {
+    background-color: #272525;
+    color: white;
+
+    .rst-current-version,
+    .rst-other-versions,
+    .injected {
+      @apply block;
+    }
+    .injected {
+      width: 15rem;
+      /* transform: translateX(-8rem); */
+    }
+  }
+}
+
+/* HACK: Make it clear where the search happens */
+.rst-badge > .rst-other-versions > dl {
+  dd input[type="text"] {
+    @apply p-1 rounded-sm;
+    color: black;
+    background-color: white;
+  }
+}

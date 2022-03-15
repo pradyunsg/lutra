@@ -1,0 +1,76 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+/* Stylize breadcrumbs */
+.breadcrumb-nav {
+  @apply mt-2 mb-2;
+  @apply text-sm;
+  color: var(--color_text-breadcrumbs);
+
+  ol {
+    display: flex;
+  }
+
+  /* Links */
+  a {
+    &:hover {
+      color: var(--color_text-link--hover);
+      text-decoration-color: var(--color_text-link_underline--hover);
+    }
+  }
+}
+
+.breadcrumb-separator {
+  display: inline;
+  vertical-align: middle;
+  &::after {
+    margin: 0rem 0.25rem;
+    content: "";
+    position: relative;
+
+    /* A cute > */
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: var(--color_text-breadcrumbs);
+    mask-image: url("data:image/svg+xml,%3Csvg stroke='currentColor' fill='currentColor' stroke-width='0' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%0A%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'%3E%3C/path%3E%3C/svg%3E%0A");
+    mask-size: contain;
+  }
+}
+
+.breadcrumb-nav-page-item .breadcrumb-separator {
+  display: none;
+}
+
+/* Animate showing the page on scroll. */
+.breadcrumb-nav-page-item {
+  @apply relative font-bold;
+}
+.breadcrumb-nav-page-item > span {
+  @apply absolute flex overflow-hidden overflow-ellipsis whitespace-nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(0.25rem);
+  transition: transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1), opacity 0.15s;
+}
+
+.show-page-title {
+  .breadcrumb-nav-page-item > span {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+    transition: transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1), opacity 0.15s;
+  }
+}

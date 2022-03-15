@@ -1,0 +1,78 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+/* Search Page */
+.search-container {
+  @apply rounded relative;
+
+  [role="main"] & {
+    @apply mb-4;
+  }
+
+  input[type="text"],
+  .simulated-search-input {
+    @apply block pl-9;
+  }
+
+  .simulated-search-input {
+    @apply pr-36;
+  }
+
+  &::before {
+    @apply absolute h-4 w-4 top-3 left-3;
+    content: "";
+    background-color: var(--color_text-search);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    z-index: 3;
+  }
+
+  &:focus-within {
+    @apply bg-gray-900;
+    .search-guidance {
+      @apply visible;
+    }
+    &::before {
+      background-color: var(--color_text-search--focus);
+    }
+  }
+  .search-guidance {
+    @apply absolute w-full invisible p-2 rounded-b text-xs;
+    background: var(--color_bg-search);
+  }
+}
+
+ul.search {
+  padding-left: 0;
+  list-style: none;
+
+  li {
+    @apply ml-0 mt-3 pb-3 border-b border-b-slate-500/20;
+  }
+}
+
+#search-results {
+  @apply mt-10;
+}
+
+/* Need the #search-results for specificity. */
+#search-results p.context {
+  @apply mb-1 mt-0 text-xs;
+}
+
+/* Highlighted by links in search page */
+[role="main"] .highlighted {
+  background-color: var(--color_bg-highlighted);
+  color: var(--color_text-highlighted);
+}

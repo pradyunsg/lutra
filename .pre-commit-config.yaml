@@ -1,0 +1,111 @@
+repos:
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.4.1
+    hooks:
+      - id: prettier
+        exclude: src/.*\.html
+
+  - repo: https://github.com/psf/black
+    rev: 21.9b0
+    hooks:
+      - id: black
+        language_version: python3.8
+
+  - repo: https://github.com/asottile/blacken-docs
+    rev: v1.11.0
+    hooks:
+      - id: blacken-docs
+        additional_dependencies: [black==21.8b0]
+
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.9.3
+    hooks:
+      - id: isort
+        files: \.py$
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: check-builtin-literals
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-toml
+      - id: check-yaml
+      - id: debug-statements
+      - id: end-of-file-fixer
+      - id: forbid-new-submodules
+      - id: trailing-whitespace
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 3.9.2
+    hooks:
+      - id: flake8
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.910
+    hooks:
+      - id: mypy
+        args: [--disallow-untyped-defs, --ignore-missing-imports]
+        files: src/.*\.py$
+        additional_dependencies: [types-docutils]
+
+  - repo: https://github.com/PyCQA/pydocstyle
+    rev: 6.1.1
+    hooks:
+      - id: pydocstyle
+        files: src/.*\.py$
+        additional_dependencies: [toml]
+
+  - repo: local
+    hooks:
+      - id: variable-declarations
+        name: Check variable declarations
+        entry: scripts/lint-css-variables.py
+        language: script
+        always_run: true
+
+  - repo: https://github.com/Lucas-C/pre-commit-hooks
+    rev: v1.1.12
+    hooks:
+      - id: insert-license
+        name: License headers (Python, TOML, YAML)
+        types_or: [python, toml, yaml]
+        args: [--license-filepath, .LICENSE_HEADER.txt, --comment-style, "#"]
+      - id: insert-license
+        name: License headers (Jinja2)
+        types: [html]
+        args:
+          [--license-filepath, .LICENSE_HEADER.txt, --comment-style, "{#-||-#}"]
+      - id: insert-license
+        name: License headers (JS/CSS)
+        types_or: [css, javascript]
+        args:
+          [
+            --license-filepath,
+            .LICENSE_HEADER.txt,
+            --comment-style,
+            "/*| *| */",
+          ]
+      # These next two use a different header.
+      - id: insert-license
+        name: License headers (Markdown)
+        types_or: [markdown]
+        args:
+          [
+            --detect-license-in-X-top-lines,
+            "10",
+            --license-filepath,
+            docs/.LICENSE_HEADER.txt,
+            --comment-style,
+            "<!--| ~| -->",
+          ]
+      - id: insert-license
+        name: License headers (reStructuredText)
+        types_or: [rst]
+        args:
+          [
+            --license-filepath,
+            docs/.LICENSE_HEADER.txt,
+            --comment-style,
+            "..|  |",
+          ]

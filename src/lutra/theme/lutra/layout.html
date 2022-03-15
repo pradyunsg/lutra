@@ -1,0 +1,38 @@
+{#-
+ Copyright (c) 2021 Pradyun Gedam
+ Licensed under MIT License
+ SPDX-License-Identifier: MIT
+
+ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+-#}
+
+{% extends "!basic-ng/layout.html" %}
+
+{% block head_title -%}
+  {%- if pagename == "index" -%}
+    {{ _("Home") }} - {{ docstitle|striptags|e }}
+  {%- else -%}
+    {{title|striptags|e }} - {{ docstitle|striptags|e }}
+  {%- endif -%}
+{%- endblock %}
+
+{% block head_stylesheets %}
+{{ super() }}
+{% include "partials/_head_css_variables.html" %}
+{% endblock %}
+
+{% block html_tag_attrs %} class="no-js"
+{%- endblock %}
+{% block body_tag_attrs %} class="antialiased
+  {%- if meta and meta["layout"] == "no-toc" %} drop-secondary-sidebar-for-full-width-content limit-prose-width
+  {%- elif meta and meta["layout"] == "full-width" %} drop-secondary-sidebar-for-full-width-content
+  {%- endif -%}{% if not parents %} has-no-parents
+  {%- endif -%}
+  "
+{%- endblock %}

@@ -1,0 +1,52 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+.sb-header {
+  @apply sticky top-0;
+  @apply backdrop-blur;
+  z-index: 30;
+  background: var(--color_bg-header);
+}
+
+.header-container {
+  @apply h-16 px-2 flex items-center gap-2;
+}
+
+.header-logo-container {
+  @apply flex items-center gap-2;
+}
+.header-logo {
+  @apply h-10;
+}
+
+.header-title {
+  @apply text-2xl leading-none font-bold h-full mx-0 relative flex items-center;
+}
+
+.sb-header-article {
+  @apply sticky top-16;
+  @apply z-10;
+
+  background: linear-gradient(to bottom, var(--color_bg) 90%, transparent);
+}
+
+.sb-header-secondary {
+  @apply hidden;
+}
+.show-tabs .sb-header-secondary {
+  @apply block h-8;
+  z-index: 29;
+  background: var(--color_bg-header);
+  box-shadow: var(--shadow-header);
+}

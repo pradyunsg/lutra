@@ -1,0 +1,63 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+/* Align with the rest of scaffold */
+.sb-article-container {
+  @apply mt-10;
+}
+
+/* Be accessible */
+.skip-to-content {
+  @apply fixed p-4 rounded left-1 top-1;
+  z-index: 40;
+  background: var(--color_bg);
+  color: var(--color_text);
+
+  transform: translateY(-200%);
+  transition: transform 300ms ease-in-out;
+
+  &:focus {
+    transform: translateY(0%);
+  }
+}
+
+/* Stylize back to top */
+.back-to-top {
+  @apply hidden fixed left-0 top-28 p-2 pr-3 rounded-2xl text-xs;
+
+  background: var(--color_bg);
+  box-shadow: var(--shadow-back_to_top);
+
+  z-index: 1;
+
+  margin-left: 50%;
+  transform: translateX(-50%);
+  svg {
+    @apply h-4 w-4 inline-block fill-current;
+  }
+  span {
+    @apply ml-1;
+  }
+}
+.show-back-to-top .back-to-top {
+  @apply flex items-center;
+}
+.drop-secondary-sidebar-for-full-width-content.limit-prose-width {
+  .prose {
+    max-width: 46rem;
+  }
+  .full-width {
+    width: 64rem;
+  }
+}

@@ -1,0 +1,108 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+.prose {
+  p {
+    @apply my-3;
+  }
+
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply rounded-lg leading-tight font-bold mt-0 mb-2 -mx-2 px-2;
+    + p {
+      margin-top: 0;
+    }
+  }
+
+  h1 {
+    @apply font-extrabold;
+    font-size: 2.5em;
+  }
+  h2 {
+    @apply font-extrabold;
+    font-size: 2em;
+  }
+  h3 {
+    font-size: 1.75em;
+  }
+  h4 {
+    font-size: 1.5em;
+  }
+  h5 {
+    font-size: 1.25em;
+  }
+  h6 {
+    font-size: 1.125em;
+  }
+  small {
+    @apply opacity-75;
+    font-size: 80%;
+  }
+
+  /* This is used for "Footnotes" header and the `rubric` directive. */
+  .rubric {
+    @apply rounded-lg leading-tight font-bold mt-4 py-2;
+    font-size: 1.125em;
+  }
+
+  /* Things that Sphinx/docutils deem problematic (eg: broken links) */
+  .problematic {
+    color: var(--color_text-problematic);
+  }
+
+  /* Links */
+  a {
+    @apply cursor-pointer border-b-2;
+    color: var(--color_text-link);
+
+    border-bottom-color: var(--color_text-link_underline);
+
+    &:visited {
+      color: var(--color_text-link--visited);
+      border-bottom-color: var(--color_text-link_underline--visited);
+      &:hover {
+        color: var(--color_text-link--visited--hover);
+        border-bottom-color: var(--color_text-link_underline--visited--hover);
+      }
+    }
+
+    &.toc-backref:hover,
+    &:hover,
+    &:focus-visible {
+      @apply border-b-2;
+      color: var(--color_text-link--hover);
+      border-bottom-color: var(--color_text-link_underline--hover);
+    }
+    &:focus-visible {
+      @apply border-b-0;
+    }
+
+    &.toc-backref {
+      @apply border-b-0;
+      &:visited {
+        color: var(--color_text);
+      }
+    }
+  }
+
+  /* Centered text */
+  .centered {
+    text-align: center;
+  }
+}

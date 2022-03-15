@@ -1,0 +1,40 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+.prose .sidebar {
+  @apply float-right clear-right ml-4 mr-0 mb-4;
+  width: 30%;
+
+  border-radius: 0.2rem;
+  background-color: var(--color_bg-prose_sidebar);
+  border: var(--border-prose_sidebar);
+
+  > * {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Lists need additional padding, because bullets. */
+  > ul,
+  > ol {
+    padding-left: 2.2rem;
+  }
+
+  .sidebar-title {
+    @apply mb-3 mx-0 mt-0 px-4 py-2;
+    border-bottom: var(--border-prose_sidebar_title);
+
+    font-weight: 500;
+  }
+}

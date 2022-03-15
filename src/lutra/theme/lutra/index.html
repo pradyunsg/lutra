@@ -1,0 +1,32 @@
+{#-
+ Copyright (c) 2021 Pradyun Gedam
+ Licensed under MIT License
+ SPDX-License-Identifier: MIT
+
+ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+-#}
+
+{% extends "page.html" %}
+
+{% block head_title %}{{ docstitle|striptags|e }}{% endblock head_title %}
+
+{# Drop the sidebars #}
+{% block container %}
+<div class="sb-container__inner sb-page-width">
+  {%- block index_content -%}
+  <div style="margin: auto; padding: 1rem">
+    <p>You seem to actually care about how your documentation's landing page looks! Nice!</p>
+    <p>
+      You likely want to add the dedicated template,
+      <a style="color: blue; text-decoration: underline;" href="https://pradyunsg.me/lutra/customisation/landing-pages/example-index/">as described in the documentation</a>.
+    </p>
+  </div>
+  {%- endblock index_content -%}
+</div>
+{% endblock container %}

@@ -1,0 +1,81 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+/* Blocks that contain stuff that needs to be stylized. */
+
+.prose {
+  /* Blockquotes */
+  blockquote {
+    @apply mx-0 px-4 py-1;
+    @apply my-3; /* same margin as p tags */
+
+    border-left: 0.25rem solid var(--border-blockquote);
+    background: var(--color_bg-blockquote);
+    color: var(--color_text-blockquote);
+
+    .attribution {
+      @apply font-semibold text-right;
+    }
+
+    /* Variants */
+    &.pull-quote,
+    &.highlights {
+      font-size: 1.25em;
+    }
+    &.epigraph,
+    &.pull-quote {
+      @apply border-l-0;
+      @apply rounded-lg;
+    }
+    &.highlights {
+      @apply border-l-0;
+      @apply bg-transparent;
+    }
+  }
+
+  /* Line blocks */
+  .line-block {
+    @apply block my-4;
+    .line-block {
+      @apply my-0 ml-6;
+    }
+  }
+
+  /* In-page Table of Contents */
+  .contents.topic.this-is-redundant-but-useful {
+    @apply p-0 m-0 text-base;
+    box-shadow: none;
+    background: transparent;
+  }
+  .contents.topic:not(.this-is-redundant-but-useful) {
+    background-color: var(--color_bg-problematic);
+    * {
+      display: none;
+    }
+    .topic-title {
+      display: block;
+      background-color: var(--color_bg-problematic);
+      &::before {
+        background-color: var(--color_bg-problematic);
+      }
+    }
+
+    &::after {
+      display: block;
+      content: "(unselectable text)\A\AThis list is not shown since it is available in the sidebar. \A\AIf you're the author of this site, consider removing the contents directive. It might be a line like:\A\A.. contents::\A\AIf you believe that this should be included on the page and should stylize each of the headings like a link, then add the following option to the contents directive:\A\A  :class: this-is-redundant-but-useful\A\A(unselectable text)";
+
+      white-space: pre-wrap;
+    }
+  }
+}

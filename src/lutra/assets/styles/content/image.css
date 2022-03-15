@@ -1,0 +1,54 @@
+/*
+ * Copyright (c) 2021 Pradyun Gedam
+ * Licensed under MIT License
+ * SPDX-License-Identifier: MIT
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+.prose {
+  /* Figures */
+  figure,
+  .figure {
+    @apply m-0 p-1 rounded;
+    > img {
+      @apply inline-block;
+    }
+    :last-child {
+      @apply mb-0;
+    }
+  }
+
+  /* Inline images */
+  p img {
+    @apply align-middle inline-block;
+  }
+
+  /* Images with links */
+  a > img:hover {
+    @apply ring;
+  }
+
+  /* Alignment */
+  .align-left {
+    @apply float-left clear-left m-4 ml-0;
+  }
+  .align-right {
+    @apply float-right clear-right m-4 mr-0;
+  }
+  .align-default,
+  .align-center {
+    @apply block text-center mx-auto;
+  }
+
+  table.align-default {
+    display: table;
+    text-align: initial;
+  }
+}
