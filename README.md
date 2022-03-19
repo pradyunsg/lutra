@@ -1,5 +1,5 @@
 <h1 align="center">Lutra</h1>
-<p align="center">A modern, high customizable, responsive theme for documentation with built-in search.</p>
+<p align="center">A clean, modern, customisable, searchable, mobile-friendly theme for documentation.</p>
 <a href="https://pradyunsg.me/lutra/">
   <img align="center" src="https://github.com/pradyunsg/lutra/raw/main/docs/_static/demo.png" alt="Demo image">
 </a>
@@ -8,11 +8,11 @@
 
 <!-- start elevator-pitch -->
 
-Lutra is a theme for [Sphinx] documentation, with the goal of improving the functionality, usability and design available in Sphinx-based documentation websites.
+Lutra is a documentation website theme for Sphinx. It has been written with the goal of raising the bar for Sphinx-based documentation websites. The design aesthetic is minimal and modern.
 
 - **Statically awesome** — powered by [Sphinx], enabling the use of the _huge_ ecosystem of plugins and extensions.
 - **Responsive** — works across all sorts of screen resolutions.
-- **Customisable** — tweak how it looks, through a bunch of CSS variables.
+- **Customisable** — change colors, fonts, page layout and more!
 - **Clear typography** — borrowing the design language of this decade's websites.
 - **Capable navigation** — scales with large documentation sets.
 - **Capable search** — help readers find what they want quickly.
