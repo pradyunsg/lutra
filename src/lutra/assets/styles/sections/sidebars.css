@@ -85,7 +85,9 @@
   }
 }
 
-/* Left */
+/***********************************************************************
+  Left sidebar
+*/
 .sb-sidebar-primary {
   @apply border-r;
   background: var(--color_bg);
@@ -293,7 +295,9 @@
   }
 }
 
-/* Right sidebar */
+/***********************************************************************
+  Right sidebar
+*/
 .sb-sidebar-secondary {
   background: var(--color_bg);
   .sidebar-sticky {
