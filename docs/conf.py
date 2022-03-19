@@ -91,10 +91,10 @@ html_theme = "lutra"
 html_title = "Lutra"
 
 html_theme_options = {
-    # "announcement": (
-    #     "This theme is under development and not in a state that it can be used by 'real' projects."
-    # ),
-    # "announcement_style": "warning",
+    "announcement": (
+        "This theme is under development and not in a state that it can be used by 'real' projects."
+    ),
+    "announcement_style": "warning",
     "primary_color": "blue",
     "accent_color": "violet",
     "hero": {
