@@ -13,6 +13,7 @@ unsupported
 landing-pages/index
 logo
 colours
+layouts/index
 sidebar
 derivative-themes
 ```

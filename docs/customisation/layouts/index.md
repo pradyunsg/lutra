@@ -4,10 +4,11 @@
  ~ SPDX-License-Identifier: CC-BY-SA-4.0
  -->
 
-# Layouts
+# Changing page layout
+
+...
 
 ```{toctree}
-Example: no-toc <example-no-toc>
-Example: page <example-page>
-Example: full-width <example-full-width>
+no-toc
+page
 ```
