@@ -24,7 +24,8 @@
   h4,
   h5,
   h6 {
-    @apply rounded-lg leading-tight font-bold mt-0 mb-2 -mx-2 px-2;
+    @apply leading-tight font-bold;
+    @apply rounded-lg mt-0 mb-2 -mx-2 px-2;
     + p {
       margin-top: 0;
     }
