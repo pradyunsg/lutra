@@ -22,15 +22,6 @@ html {
   overflow-y: scroll;
 }
 
-/* TODO: Figure out how to properly handle overlays.
-
-- Full width -- shouldn't hide borders on header.
-- Collapsed sidebar (left) -- shouldn't highlight header.
-- Collapsed sidebar (both)
-  - shouldn't highlight header.
-  - left expanded: should only show left sidebar.
-  - right expanded: should only show right sidebar.
-*/
 /*
   HACK: Elements with relative or absolute position seem to be above
   in the render stack, despite being on an element that is below the
