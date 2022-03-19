@@ -12,7 +12,7 @@
 unsupported
 landing-pages/index
 logo
-colours
+colors
 layouts/index
 sidebar
 derivative-themes
