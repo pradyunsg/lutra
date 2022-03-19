@@ -15,6 +15,11 @@
 <div class="site-navigation-container sidebar-sticky">
   <button id="lutra-site-navigation-collapse-icon" tabindex="0" aria-label="{{ _('Toggle Sidebar') }}"></button>
   <div id="lutra-primary-sidebar-container" class="sidebar-scroll">
+    {% if sidebars %}
+    {%- for sidebar_section in sidebars %}
+      {%- include sidebar_section %}
+    {%- endfor %}
+    {% else %}
     {% if pagename != "index" %}
     <div class="docs-header">
       <a class="back-home-link" href="{{ pathto("index") }}">
@@ -30,6 +35,7 @@
     <div class="toctree-container">
       {{ lutra_toctree_html }}
     </div>
+    {% endif %}
     {% endif %}
   </div>
 </div>
