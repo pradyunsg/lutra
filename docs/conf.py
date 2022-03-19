@@ -95,6 +95,11 @@ html_theme_options = {
     #     "This theme is under development and not in a state that it can be used by 'real' projects."
     # ),
     # "announcement_style": "warning",
+    "hero": {
+        "image": "...",
+        "primary_text": "...",
+        "secondary_text": "...",
+    },
     "source_repository": "https://github.com/pradyunsg/lutra/",
     "source_branch": "main",
     "source_directory": "docs/",

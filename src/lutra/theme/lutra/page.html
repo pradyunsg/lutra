@@ -14,6 +14,20 @@
 
 {% extends "!basic-ng/page.html" %}
 
+<!-- Allow injecting a custom "hero" section. -->
+{% block container %}
+{%- if meta and meta["hero"] -%}
+  {% if theme_hero %}
+    {% include "partials/hero.html" %}
+  {% else %}
+    {{ warning("Found 'hero' in page metadata, but no hero attributes in conf.py") }}
+  {%- endif -%}
+{%- endif -%}
+
+{{ super() }}
+{% endblock container %}
+
+
 <!-- Hide article header, if we're on the home page. -->
 {% block content %}
 <div class="sb-article-container">

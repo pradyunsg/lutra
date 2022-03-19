@@ -12,8 +12,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-@import "./hero.css";
-@import "./tweaks.css";
-@import "./icons.css";
-@import "./variables.css";
-@import "./theme.css";
+/* Hero Section */
+.lutra-hero {
+  @apply bg-red-500 flex flex-col items-center;
+}
