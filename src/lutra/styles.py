@@ -12,7 +12,7 @@
 
 """Pygments style for use with Lutra."""
 
-from typing import Any
+from typing import Any, Dict
 
 from pygments.style import Style
 from pygments.token import (
@@ -70,7 +70,7 @@ _dark_colors = {
 }
 
 
-def _styles_from_colors(colors: dict[str, str]) -> dict[Any, str]:
+def _styles_from_colors(colors: Dict[str, str]) -> Dict[Any, str]:
     base00 = colors["base00"]  # noqa
     base01 = colors["base01"]  # noqa
     base02 = colors["base02"]  # noqa
