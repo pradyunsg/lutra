@@ -44,8 +44,7 @@ html:not(.dark) {
   --shadow-header: theme("colors.gray.300") 0px 0px 1px 0px;
 
   /* Back to top */
-  --shadow-back_to_top: rgba(220, 220, 220, 1) 0px 4px 10px 0px,
-    rgba(128, 128, 128, 0.25) 0px 0px 1px 0px;
+  --shadow-back_to_top: rgba(128, 128, 128, 0.25) 0px 4px 10px 0px;
 
   /* Footer */
   --color_bg-related_pages--hover: theme("colors.slate.100");
@@ -156,7 +155,7 @@ html.dark {
   --shadow-header: theme("colors.gray.500/50") 0px 0px 1px 0px;
 
   /* Back to top */
-  --shadow-back_to_top: theme("colors.gray.500/50") 0px 0px 1px 0px;
+  --shadow-back_to_top: rgba(16, 16, 16, 1) 0px 4px 10px 0px;
 
   /* Footer */
   --color_bg-related_pages--hover: theme("colors.gray.800");

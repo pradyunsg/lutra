@@ -35,8 +35,13 @@
 /* Stylize back to top */
 .back-to-top {
   @apply hidden fixed left-0 top-28 p-2 pr-3 rounded-2xl text-xs;
+  @apply border border-gray-500/20;
 
   background: var(--color_bg);
+  color: var(--color_text-link);
+  &:hover {
+    color: var(--color_text-link--hover);
+  }
   box-shadow: var(--shadow-back_to_top);
 
   z-index: 1;
