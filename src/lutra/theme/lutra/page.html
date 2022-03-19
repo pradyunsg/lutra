@@ -33,12 +33,7 @@
 
 <!-- Hide primary sidebar on full-width and page layouts. -->
 {% block sidebar_primary %}
-  {%- if not (meta and (meta["layout"] == "page" or meta["layout"] == "full-width")) -%}
-    {{ super() }}
-  {%- endif -%}
-{% endblock %}
-{% block sidebar_secondary %}
-  {%- if not (meta and meta["layout"] == "full-width") -%}
+  {%- if not (meta and meta["layout"] == "page") -%}
     {{ super() }}
   {%- endif -%}
 {% endblock %}

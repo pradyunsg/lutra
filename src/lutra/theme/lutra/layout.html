@@ -31,7 +31,6 @@
 {%- endblock %}
 {% block body_tag_attrs %} class="antialiased
   {%- if meta and meta["layout"] == "no-toc" %} drop-secondary-sidebar-for-full-width-content limit-prose-width
-  {%- elif meta and meta["layout"] == "full-width" %} drop-secondary-sidebar-for-full-width-content
   {%- endif -%}{% if not parents %} has-no-parents
   {%- endif -%}
   "
