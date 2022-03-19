@@ -54,10 +54,10 @@ Lutra is a volunteer maintained open source project, and we welcome contribution
 
 ## Acknowledgements
 
-Lutra is inspired by (and borrows elements from) some excellent technical documentation themes:
+Lutra draws inspiration from some excellent technical documentation websites:
 
 - [mkdocs-material] for MkDocs
-- [Ionic Framework] documentation
+- [Gatsby] documentation
 - [Tailwind CSS] documentation
 - [Just the Docs] for Jekyll
 
@@ -65,7 +65,7 @@ We use [BrowserStack] to test on real devices and browsers. Shoutout to them for
 
 [mkdocs-material]: https://squidfunk.github.io/mkdocs-material/
 [just the docs]: https://pmarsceill.github.io/just-the-docs/
-[ionic framework]: https://ionicframework.com/docs
+[gatsby]: https://www.gatsbyjs.com/docs/
 [tailwind css]: https://tailwindcss.com/docs
 [browserstack]: https://browserstack.com/
 [sphinx]: https://www.sphinx-doc.org/
