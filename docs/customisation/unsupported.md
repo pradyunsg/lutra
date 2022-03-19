@@ -20,7 +20,7 @@ Any configuration options that allow users to tweak what JS or CSS is used with 
 
 ## Sidebar customisation
 
-Lutra does not support setting custom values for `html_sidebars`.
+Lutra does not support setting custom values for `html_sidebars`. There are no checks for preventing you from using this -- if you break something, you get to keep all the pieces.
 
 ## Overriding templates
 
