@@ -1,0 +1,588 @@
+
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+<meta property="og:title" content="Generic items" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="development/kitchen-sink/generic/" />
+  
+<meta property="og:description" content="These are the things that don’t quite fit into other groupings. Inline Markup: One of the nice things about markup languages is the ability to have inline markup. This makes the presentation much n..." />
+  
+
+  <title>Generic items - Lutra</title><link rel="index" title="Index" href="../../../genindex/" /><link rel="search" title="Search" href="../../../search/" /><link rel="next" title="Images &amp; Figures" href="../images/" /><link rel="prev" title="Blocks" href="../blocks/" />
+<link rel="stylesheet" href="../../../_static/skeleton.css" type="text/css" /><link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" /><link rel="stylesheet" type="text/css" href="../../../_static/styles/lutra.css?digest=af1e65ae04666fd1b86b5f799bdaf3ca" /><link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" /><link rel="stylesheet" type="text/css" href="../../../_static/styles/lutra-extensions.css?digest=83954eb776abd5b90f3982e28169908b" />
+
+
+
+<style>
+html {
+  --theme-primary: var(--color-blue-solid);
+  --theme-primary_dark: var(--color-blue-solid_dark);
+  --theme-primary-highlight: var(--color-blue-highlight);
+  --theme-primary-target: var(--color-blue-target);
+  --theme-primary-target_dark: var(--color-blue-target_dark);
+
+  --theme-accent: var(--color-violet-solid);
+  --theme-accent_dark: var(--color-violet-solid_dark);
+  --theme-accent-highlight: var(--color-violet-highlight);
+  --theme-accent-target: var(--color-violet-target);
+  --theme-accent-target_dark: var(--color-violet-target_dark);
+}
+html:not(.dark) {
+  
+  --color_bg-code_block: #f8f8f8;
+  --color_text-code_block: #383a42;
+}
+html.dark {
+  
+  --color_bg-code_block: #161b22;
+  --color_text-code_block: #90afc0;
+}
+</style>
+
+  
+</head>
+<body class="antialiased">
+  
+<script>
+  // Eager dark-mode handling.
+  const currentTheme = localStorage.getItem("theme") || "auto";
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  document.body.dataset.theme = currentTheme;
+  if ((currentTheme === "auto" && prefersDark) || currentTheme === "dark") {
+    document.documentElement.classList.add("dark");
+  }
+  // Eager sidebar collapse
+  if ((localStorage.getItem("collapsed") || "false") === "true") {
+    document.body.classList.add("collapsed-site-navigation");
+  }
+</script>
+<a class="skip-to-content" href="#lutra-main-content">Skip to content</a>
+
+
+<div class="sb-announcement">
+  <div class="lutra-announcement lutra-warning-announcement">
+    <div class="sb-page-width"><span class="prose">This theme is under development and not in a state that it can be used by 'real' projects.</span></div>
+  </div>
+</div>
+
+
+<header class="sb-header">
+  <div class="sb-header__inner sb-page-width">
+    <div class="header-container">
+  
+  <div class="flex items-center">
+  <label for="sb-sidebar-toggle--primary" class="hide-when-primary-sidebar-shown">
+  
+<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+</svg>
+
+</label>
+</div>
+  <a class="header-logo-container" href="../../../">
+  <div class="header-logo-wrapper"><span class="header-logo">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><title></title><path d="M.3013 17.6146c-.1299-.3387-.5228-1.5119-.1337-2.4314l9.8273 5.6738a.329.329 0 0 0 .3299 0L24 12.9616v2.3542l-13.8401 7.9906-9.8586-5.6918zM.1911 8.9628c-.2882.8769.0149 2.0581.1236 2.4261l9.8452 5.6841L24 9.0823V6.7275L10.3248 14.623a.329.329 0 0 1-.3299 0L.1911 8.9628zm13.1698-1.9361c-.1819.1113-.4394.0015-.4852-.2064l-.2805-1.1336-2.1254-.1752a.33.33 0 0 1-.1378-.6145l5.5782-3.2207-1.7021-.9826L.6979 8.4935l9.462 5.463 13.5104-7.8004-4.401-2.5407-5.9084 3.4113zm-.1821-1.7286.2321.938 5.1984-3.0014-2.0395-1.1775-4.994 2.8834 1.3099.108a.3302.3302 0 0 1 .2931.2495zM24 9.845l-13.6752 7.8954a.329.329 0 0 1-.3299 0L.1678 12.0667c-.3891.919.003 2.0914.1332 2.4311l9.8589 5.692L24 12.1993V9.845z"></path></svg>
+      <!-- <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M202.24 74C166.11 56.75 115.61 48.3 48 48a31.36 31.36 0 00-17.92 5.33A32 32 0 0016 79.9V366c0 19.34 13.76 33.93 32 33.93 71.07 0 142.36 6.64 185.06 47a4.11 4.11 0 006.94-3V106.82a15.89 15.89 0 00-5.46-12A143 143 0 00202.24 74zm279.68-20.7A31.33 31.33 0 00464 48c-67.61.3-118.11 8.71-154.24 26a143.31 143.31 0 00-32.31 20.78 15.93 15.93 0 00-5.45 12v337.13a3.93 3.93 0 006.68 2.81c25.67-25.5 70.72-46.82 185.36-46.81a32 32 0 0032-32v-288a32 32 0 00-14.12-26.61z"></path></svg> -->
+      <!-- <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M341.79 95.5L65.54 166.379l127.84 58.11 276.025-72.64L341.789 95.5zm-1.577 18.984l74.858 33.059-72.551 19.09-77.258-32.916 74.951-19.233zm142.813 52.395L194.864 242.71l-3.057.805h-.002l-.041.01-2.857-1.3L44.73 178.15l-.184-.092c-5.585-2.793-8.012-1.992-10.77.11-2.757 2.1-5.515 6.88-6.275 12.956-1.519 12.153 3.616 27.58 23.916 34.346l.412.139L193.338 288.5l173.235-45.588V212.45l76-18.345v28.806l42.173-11.097c-4.36-14.037-5.33-29.146-1.72-44.934zm-58.453 50.086l-40 9.656v103.186l21.947-21.948 18.053 12.498V216.965zm58.453 13.914l-40.453 10.646v45.385l42.173-11.098c-4.36-14.036-5.33-29.145-1.72-44.933zM38.42 240.268c-1.803.036-3.177.782-4.642 1.898-2.758 2.101-5.516 6.88-6.276 12.957-1.519 12.153 3.616 27.579 23.916 34.346l.412.138L193.338 352.5l173.235-45.588v-45.387l-174.766 45.99-146.62-65.161a61.602 61.602 0 0 1-4.802-1.874 8.317 8.317 0 0 0-1.965-.212zm6.768 2.086l.021.008-.279-.125.258.117zm437.838 52.525l-40.453 10.646v45.385l42.173-11.097c-4.36-14.037-5.33-29.146-1.72-44.934zM38.42 304.268c-1.803.036-3.177.782-4.642 1.898-2.758 2.101-5.516 6.88-6.276 12.957-1.519 12.153 3.616 27.579 23.916 34.346l.412.138L193.338 416.5l173.235-45.588v-45.387l-174.766 45.99-146.62-65.161a61.602 61.602 0 0 1-4.802-1.874 8.317 8.317 0 0 0-1.965-.212zm6.768 2.086l.021.008-.279-.125.258.117zm363.437 24.855l-38.863 38.863 68.834-18.115-29.97-20.748z"></path></svg> -->
+    </span></div><div class="header-title">Lutra</div>
+</a>
+  <div class="variant-selector flex items-center gap-2">
+  
+  <div class="text-red-500">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><g><path fill="none" d="M0 0h24v24H0z"></path><path d="M18.5 10l4.4 11h-2.155l-1.201-3h-4.09l-1.199 3h-2.154L16.5 10h2zM10 2v2h6v2h-1.968a18.222 18.222 0 0 1-3.62 6.301 14.864 14.864 0 0 0 2.336 1.707l-.751 1.878A17.015 17.015 0 0 1 9 13.725a16.676 16.676 0 0 1-6.201 3.548l-.536-1.929a14.7 14.7 0 0 0 5.327-3.042A18.078 18.078 0 0 1 4.767 8h2.24A16.032 16.032 0 0 0 9 10.877a16.165 16.165 0 0 0 2.91-4.876L2 6V4h6V2h2zm7.5 10.885L16.253 16h2.492L17.5 12.885z"></path></g></svg>
+  </div>
+</div>
+  <div class="flex-1"></div>
+  <a href="../../../search/" class="text-red-500">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+  </svg>
+</a>
+
+  <button class="theme-toggle">
+  <div class="theme-icon-when-auto">
+    <div class="only-light">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+      </svg>
+    </div>
+    <div class="only-dark">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+      </svg>
+    </div>
+  </div>
+  <div class="theme-icon-when-dark">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+      <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+    </svg>
+  </div>
+  <div class="theme-icon-when-light">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>
+  </div>
+</button>
+  <div class="header-icons-container">
+  <!-- <svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1.1" viewBox="0 0 32 32" height="1.75rem" width="1.75rem" xmlns="http://www.w3.org/2000/svg"><path d="M16 5.343c-6.196 0-11.219 5.023-11.219 11.219 0 4.957 3.214 9.162 7.673 10.645 0.561 0.103 0.766-0.244 0.766-0.54 0-0.267-0.010-1.152-0.016-2.088-3.12 0.678-3.779-1.323-3.779-1.323-0.511-1.296-1.246-1.641-1.246-1.641-1.020-0.696 0.077-0.682 0.077-0.682 1.126 0.078 1.72 1.156 1.72 1.156 1.001 1.715 2.627 1.219 3.265 0.931 0.102-0.723 0.392-1.219 0.712-1.498-2.49-0.283-5.11-1.246-5.11-5.545 0-1.226 0.438-2.225 1.154-3.011-0.114-0.285-0.501-1.426 0.111-2.97 0 0 0.941-0.301 3.085 1.15 0.894-0.25 1.854-0.373 2.807-0.377 0.953 0.004 1.913 0.129 2.809 0.379 2.14-1.453 3.083-1.15 3.083-1.15 0.613 1.545 0.227 2.685 0.112 2.969 0.719 0.785 1.153 1.785 1.153 3.011 0 4.31-2.624 5.259-5.123 5.537 0.404 0.348 0.761 1.030 0.761 2.076 0 1.5-0.015 2.709-0.015 3.079 0 0.299 0.204 0.648 0.772 0.538 4.455-1.486 7.666-5.69 7.666-10.645 0-6.195-5.023-11.219-11.219-11.219z"></path></svg> -->
+</div>
+  
+</div>
+  </div>
+</header>
+
+
+<header class="sb-header-secondary">
+  <div class="sb-header-secondary__inner sb-page-width">
+    <!-- TODO: Actually implement tabs, and some sort of "I'm not there" logic -->
+<div class="mx-4 text-red-500 text-sm flex items-center">
+  <div class="">Hello</div>
+</div>
+  </div>
+</header>
+
+
+<input type="checkbox" class="sb-sidebar-toggle" name="sb-sidebar-toggle--primary" id="sb-sidebar-toggle--primary">
+<input type="checkbox" class="sb-sidebar-toggle" name="sb-sidebar-toggle--secondary" id="sb-sidebar-toggle--secondary">
+<label class="sb-sidebar-overlay" for="sb-sidebar-toggle--primary"></label>
+<label class="sb-sidebar-overlay" for="sb-sidebar-toggle--secondary"></label>
+
+<div class="sb-container">
+  
+  <div class="sb-container__inner sb-page-width">
+    
+    <aside class="sb-sidebar-primary">
+      <div class="site-navigation-container sidebar-sticky">
+  <button id="lutra-site-navigation-collapse-icon" tabindex="0" aria-label="Toggle Sidebar"></button>
+  <div id="lutra-primary-sidebar-container" class="sidebar-scroll">
+    
+    
+    <div class="docs-header">
+      <a class="back-home-link" href="../../../">
+        <span class="back-home-icon"></span><span class="back-home-text">Home</span>
+      </a>
+    </div>
+    
+    
+    <div class="toctree-container only-show-inner-toctree">
+      <p class="caption" role="heading"><span class="caption-text">Project</span></p><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../">Development</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../workflow/">Workflow</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../">Kitchen Sink</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../admonitions/">Admonitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/">API documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../blocks/">Blocks</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Generic items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../images/">Images &amp; Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lists/">Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../really-long/">Really Long Page Title because we should test sidebar wrapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structure/">Structural Elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structure/#structural-elements-2">Structural Elements 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tables/">Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../typography/">Typography</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../governance/">Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stability/">Stability Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog/">Changelog</a></li>
+</ul>
+    </div>
+    
+    
+  </div>
+</div>
+    </aside>
+    
+    <main class="sb-main">
+      <div class="sb-content">
+        
+<div class="sb-article-container"><header class="sb-header-article">
+    <div class="match-content-width">
+  
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+    <li class="breadcrumb-nav-list-item breadcrumb-nav-index-item"><a href="../../../">Home</a><span class="breadcrumb-separator" role="presentation"></span></li>
+    <li class="breadcrumb-nav-list-item"><a href="../../">Development</a><span class="breadcrumb-separator" role="presentation"></span></li>
+    <li class="breadcrumb-nav-list-item"><a href="../">Kitchen Sink</a><span class="breadcrumb-separator" role="presentation"></span></li>
+    <li class="breadcrumb-nav-list-item breadcrumb-nav-page-item"><span>Generic items</span><span class="breadcrumb-separator" role="presentation"></span></li>
+  </ol>
+</nav>
+  
+</div>
+  </header><article role="main">
+    <div id="lutra-main-content" class="prose"><section id="generic-items">
+<h1>Generic items<a class="headerlink" href="#generic-items" title="Permalink to this headline">#</a></h1>
+<p>These are the things that don’t quite fit into other groupings.</p>
+<section id="inline-markup">
+<h2>Inline Markup<a class="headerlink" href="#inline-markup" title="Permalink to this headline">#</a></h2>
+<p>One of the nice things about markup languages is the ability to have inline
+markup. This makes the presentation <em>much</em> nicer. The <strong>bold</strong> text shouldn’t
+be too overbearing. It is very common to have <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">code</span></code> as well. It is
+important to ensure that the inline code doesn’t have a line height that is
+greater than the regular prose; otherwise the spacing looks weird.</p>
+<p>It is also possible to use explicit roles to do things like a <sub>subscript</sub>,
+a <sup>superscript</sup>, <em>emphasis</em>, <strong>strong</strong>, and
+<code class="docutils literal notranslate"><span class="pre">literal</span></code>.</p>
+<section id="hyperlinks">
+<h3>Hyperlinks<a class="headerlink" href="#hyperlinks" title="Permalink to this headline">#</a></h3>
+<p>It is a website, so it’ll have hyperlinks like <a class="reference external" href="http://www.python.org">http://www.python.org</a> (inline),
+or <a class="reference external" href="http://www.python.org/">Python</a> <a class="footnote-reference brackets" href="#id19" id="id20">4</a> (external reference), <a class="reference internal" href="#example">example</a> (internal reference),
+<a class="reference external" href="http://www.python.org">Python web site</a> (external hyperlinks with embedded
+URI), footnote references (manually numbered <a class="footnote-reference brackets" href="#id6" id="id1">1</a>, anonymous auto-numbered <a class="footnote-reference brackets" href="#id9" id="id2">3</a>,
+labeled auto-numbered <a class="footnote-reference brackets" href="#label" id="id3">2</a>, or symbolic <a class="footnote-reference brackets" href="#id10" id="id4">*</a>), citation references (<a class="footnote-reference brackets" href="#id13" id="id5">12</a>),
+substitution references (<a class="reference internal" href="https://source.unsplash.com/32x32/daily?icon"><img alt="EXAMPLE" src="https://source.unsplash.com/32x32/daily?icon" style="width: 1em;"/></a>), and <span class="target" id="inline-hyperlink-targets">inline hyperlink targets</span>
+(see <a class="reference internal" href="#targets">Targets</a> below for a reference back to here).</p>
+<p>reStructuredText has character-level inline markup too. It’s ugly to write, but
+someone might be using it, so here’s an example: <strong>re</strong><code class="docutils literal notranslate"><span class="pre">Structured</span></code><em>Text</em>.</p>
+<p>It is also possible to link to documented items, such as
+<code class="xref py py-class docutils literal notranslate"><span class="pre">api_sample.RandomNumberGenerator</span></code>.</p>
+</section>
+<section id="interpreted-text">
+<h3>Interpreted text<a class="headerlink" href="#interpreted-text" title="Permalink to this headline">#</a></h3>
+<p>The default role for “interpreted text” (AKA single backticks) is
+<cite>Title Reference</cite>. There are other reference syntaxes as well: <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0287"><strong>PEP 287</strong></a> and
+<span class="target" id="index-1"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc2822.html"><strong>RFC 2822</strong></a>.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">--pep-references</span></code> option was supplied, there should be a live link to
+PEP 258 here.</p>
+<section id="gui-labels">
+<h4>GUI labels<a class="headerlink" href="#gui-labels" title="Permalink to this headline">#</a></h4>
+<p>According to the RST demo, GUI labels (like <span class="guilabel">this label</span>) are a way to
+indicate that some action is to be taken by the user. Like inline code literals,
+GUI labels should not run over line height.</p>
+</section>
+<section id="keys-menu-labels">
+<h4>Keys / Menu labels<a class="headerlink" href="#keys-menu-labels" title="Permalink to this headline">#</a></h4>
+<p>Key-bindings indicate that the read is to press a button on the keyboard or
+mouse, for example <kbd class="kbd docutils literal notranslate">MMB</kbd>, <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">⌘</kbd>+<kbd class="kbd docutils literal notranslate">⇧</kbd>+<kbd class="kbd docutils literal notranslate">M</kbd></kbd> and <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Shift</kbd>-<kbd class="kbd docutils literal notranslate">MMB</kbd></kbd>. Another
+useful way is <code class="docutils literal notranslate"><span class="pre">menuselection</span></code> to show menus:
+<span class="menuselection">My ‣ Software ‣ Some menu ‣ Some sub menu 1 ‣ Some sub menu 2 ‣ Some sub menu 3</span></p>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">menuselection</span></code> should break when it is too long to fit on a
+single line.</p>
+</section>
+<section id="long-inline-code-wrapping">
+<h4>Long inline code wrapping<a class="headerlink" href="#long-inline-code-wrapping" title="Permalink to this headline">#</a></h4>
+<p>Let’s test wrapping and whitespace significance in inline literals:
+<code class="docutils literal notranslate"><span class="pre">This</span> <span class="pre">is</span> <span class="pre">an</span> <span class="pre">example</span> <span class="pre">of</span> <span class="pre">--inline-literal</span> <span class="pre">--text,</span> <span class="pre">--including</span> <span class="pre">some--</span>
+<span class="pre">strangely--hyphenated-words.</span>  <span class="pre">Adjust-the-width-of-your-browser-window</span>
+<span class="pre">to</span> <span class="pre">see</span> <span class="pre">how</span> <span class="pre">the</span> <span class="pre">text</span> <span class="pre">is</span> <span class="pre">wrapped.</span>  <span class="pre">--</span> <span class="pre">----</span> <span class="pre">--------</span>  <span class="pre">Now</span> <span class="pre">note</span>    <span class="pre">the</span>
+<span class="pre">spacing</span>    <span class="pre">between</span> <span class="pre">the</span>    <span class="pre">words</span> <span class="pre">of</span>    <span class="pre">this</span> <span class="pre">sentence</span>    <span class="pre">(words</span>
+<span class="pre">should</span>    <span class="pre">be</span> <span class="pre">grouped</span>    <span class="pre">in</span> <span class="pre">pairs).</span></code></p>
+</section>
+</section>
+</section>
+<section id="math">
+<h2>Math<a class="headerlink" href="#math" title="Permalink to this headline">#</a></h2>
+<p>This is a test. Here is an equation:
+<span class="math notranslate nohighlight">\(X_{0:5} = (X_0, X_1, X_2, X_3, X_4)\)</span>.
+Here is another:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight" id="equation-this-is-a-label">
+<span class="eqno">(1)<a class="headerlink" href="#equation-this-is-a-label" title="Permalink to this equation">#</a></span>\[\nabla^2 f =
+\frac{1}{r^2} \frac{\partial}{\partial r}
+\left( r^2 \frac{\partial f}{\partial r} \right) +
+\frac{1}{r^2 \sin \theta} \frac{\partial f}{\partial \theta}
+\left( \sin \theta \, \frac{\partial f}{\partial \theta} \right) +
+\frac{1}{r^2 \sin^2\theta} \frac{\partial^2 f}{\partial \phi^2}\]</div></div>
+<p>You can add a link to equations like the one above <a class="reference internal" href="#equation-this-is-a-label">(1)</a> by using
+<code class="docutils literal notranslate"><span class="pre">:eq:</span></code>.</p>
+</section>
+<section id="sidebar">
+<h2>Sidebar<a class="headerlink" href="#sidebar" title="Permalink to this headline">#</a></h2>
+<aside class="sidebar">
+<p class="sidebar-title">Ch’ien / The Creative</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+<img alt="https://source.unsplash.com/200x200/daily?cute+puppy" src="https://source.unsplash.com/200x200/daily?cute+puppy"/>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</aside>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, sunt
+voluptatum tenetur libero nulla esse veritatis accusantium earum commodi hic
+voluptatem officia culpa optio atque. Quaerat sed quibusdam ratione nam.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, sunt
+voluptatum tenetur libero nulla esse veritatis accusantium earum commodi hic
+voluptatem officia culpa optio atque. Quaerat sed quibusdam ratione nam.</p>
+<section id="code-with-sidebar">
+<h3>Code with Sidebar<a class="headerlink" href="#code-with-sidebar" title="Permalink to this headline">#</a></h3>
+<aside class="sidebar">
+<p class="sidebar-title">A code example</p>
+<p>With a sidebar on the right.</p>
+</aside>
+<div class="literal-block-wrapper docutils container" id="id18">
+<div class="code-block-caption"><span class="caption-text">Code blocks can also have captions.</span><a class="headerlink" href="#id18" title="Permalink to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nb">print</span><span class="p">(</span><span class="s2">"one"</span><span class="p">)</span>
+<span class="linenos"> 2</span><span class="nb">print</span><span class="p">(</span><span class="s2">"two"</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="nb">print</span><span class="p">(</span><span class="s2">"three"</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="nb">print</span><span class="p">(</span><span class="s2">"four"</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="nb">print</span><span class="p">(</span><span class="s2">"five"</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="nb">print</span><span class="p">(</span><span class="s2">"six"</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="nb">print</span><span class="p">(</span><span class="s2">"seven"</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="nb">print</span><span class="p">(</span><span class="s2">"eight"</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="nb">print</span><span class="p">(</span><span class="s2">"nine"</span><span class="p">)</span>
+<span class="linenos">10</span><span class="nb">print</span><span class="p">(</span><span class="s2">"ten"</span><span class="p">)</span>
+<span class="linenos">11</span><span class="nb">print</span><span class="p">(</span><span class="s2">"eleven"</span><span class="p">)</span>
+<span class="linenos">12</span><span class="nb">print</span><span class="p">(</span><span class="s2">"twelve"</span><span class="p">)</span>
+<span class="linenos">13</span><span class="nb">print</span><span class="p">(</span><span class="s2">"thirteen"</span><span class="p">)</span>
+<span class="linenos">14</span><span class="nb">print</span><span class="p">(</span><span class="s2">"fourteen"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<section id="footnotes">
+<h3>Footnotes<a class="headerlink" href="#footnotes" title="Permalink to this headline">#</a></h3>
+<dl class="footnote brackets">
+<dt class="label" id="id6"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id7">2</a>)</span></dt>
+<dd><p>A footnote contains body elements, consistently indented by at
+least 3 spaces.</p>
+<p>This is the footnote’s second paragraph.</p>
+</dd>
+<dt class="label" id="label"><span class="brackets">2</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id8">2</a>)</span></dt>
+<dd><p>Footnotes may be numbered, either manually (as in <a class="footnote-reference brackets" href="#id6" id="id7">1</a>) or
+automatically using a “#”-prefixed label.  This footnote has a
+label so it can be referred to from multiple places, both as a
+footnote reference (<a class="footnote-reference brackets" href="#label" id="id8">2</a>) and as a hyperlink reference
+(<a class="reference internal" href="#label">label</a>).</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id2">3</a></span></dt>
+<dd><p>This footnote is numbered automatically and anonymously using a
+label of “#” only.</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id4">*</a></span></dt>
+<dd><p>Footnotes may also use symbols, specified with a “*” label.
+Here’s a reference to the next footnote: <a class="footnote-reference brackets" href="#id12" id="id11">†</a>.</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id11">†</a></span></dt>
+<dd><p>This footnote shows the next symbol in the sequence.</p>
+</dd>
+</dl>
+</section>
+<section id="citations">
+<h3>Citations<a class="headerlink" href="#citations" title="Permalink to this headline">#</a></h3>
+<dl class="footnote brackets">
+<dt class="label" id="id13"><span class="brackets">12</span><span class="fn-backref">(<a href="#id5">1</a>,<a href="#id16">2</a>)</span></dt>
+<dd><p>This citation has some <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">blocks</span></code> in it, maybe some <strong>bold</strong> and
+<em>italics</em> too. Heck, lets put a link to a meta citation <a class="footnote-reference brackets" href="#id15" id="id14">13</a> too.</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id14">13</a></span></dt>
+<dd><p>This citation will have one backlink.</p>
+</dd>
+</dl>
+<p>Here’s a reference to the above, <a class="footnote-reference brackets" href="#id13" id="id16">12</a> citation.</p>
+<p>Here is another type of citation: <cite>citation</cite></p>
+</section>
+<section id="targets">
+<h3>Targets<a class="headerlink" href="#targets" title="Permalink to this headline">#</a></h3>
+<p id="example">This paragraph is pointed to by the explicit “example” target.
+A reference can be found under <a class="reference internal" href="#inline-markup">Inline Markup</a>, above. <a class="reference internal" href="#inline-hyperlink-targets">Inline
+hyperlink targets</a> are also possible.</p>
+<p>Section headers are implicit targets, referred to by name. See
+<a class="reference internal" href="#targets">Targets</a>.</p>
+<p>Explicit external targets are interpolated into references such as “<a class="reference external" href="http://www.python.org/">Python</a> <a class="footnote-reference brackets" href="#id19" id="id21">4</a>”.</p>
+<p>Targets may be indirect and anonymous.  Thus <a class="reference internal" href="#targets">this phrase</a> may also
+refer to the <a class="reference internal" href="#targets">Targets</a> section.</p>
+</section>
+<section id="target-footnotes">
+<h3>Target Footnotes<a class="headerlink" href="#target-footnotes" title="Permalink to this headline">#</a></h3>
+<dl class="footnote brackets">
+<dt class="label" id="id19"><span class="brackets">4</span><span class="fn-backref">(<a href="#id20">1</a>,<a href="#id21">2</a>)</span></dt>
+<dd><p><a class="reference external" href="http://www.python.org/">http://www.python.org/</a></p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="centered-text">
+<h2>Centered text<a class="headerlink" href="#centered-text" title="Permalink to this headline">#</a></h2>
+<p>You can create a statement with centered text with <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">centered::</span></code></p>
+<p class="centered">
+<strong>This is centered text!</strong></p></section>
+<section id="rubric">
+<h2>Rubric<a class="headerlink" href="#rubric" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>A rubric is like an informal heading that doesn’t correspond to the document’s structure.</p>
+<p class="attribution">—<a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/directives.html#rubric">https://docutils.sourceforge.io/docs/ref/rst/directives.html#rubric</a></p>
+</div></blockquote>
+<p>Wikipedia says it is something different:</p>
+<blockquote>
+<div><p>A rubric is a word or section of text that is traditionally written or printed in red ink for emphasis.</p>
+<p class="attribution">—<a class="reference external" href="https://en.wikipedia.org/wiki/Rubric">https://en.wikipedia.org/wiki/Rubric</a></p>
+</div></blockquote>
+<p>This is stylized as docutils tells us to stylize it, since it is used for footnote headers (see end of <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html">https://docs.python.org/3/reference/lexical_analysis.html</a>)</p>
+<p class="rubric">This is a rubric</p>
+<section id="sidebars-and-rubrics">
+<h3>Sidebars and Rubrics<a class="headerlink" href="#sidebars-and-rubrics" title="Permalink to this headline">#</a></h3>
+<aside class="sidebar">
+<p class="sidebar-title">Sidebar Title</p>
+<p class="sidebar-subtitle">Optional Subtitle</p>
+<p>This is a sidebar.  It is for text outside the flow of the main
+text.</p>
+<p class="rubric">This is a rubric inside a sidebar</p>
+<p>Sidebars often appears beside the main text with a border and
+background color.</p>
+</aside>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, sunt
+voluptatum tenetur libero nulla esse veritatis accusantium earum commodi hic
+voluptatem officia culpa optio atque. Quaerat sed quibusdam ratione nam.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, sunt
+voluptatum tenetur libero nulla esse veritatis accusantium earum commodi hic
+voluptatem officia culpa optio atque. Quaerat sed quibusdam ratione nam.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, sunt
+voluptatum tenetur libero nulla esse veritatis accusantium earum commodi hic
+voluptatem officia culpa optio atque. Quaerat sed quibusdam ratione nam.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, sunt
+voluptatum tenetur libero nulla esse veritatis accusantium earum commodi hic
+voluptatem officia culpa optio atque. Quaerat sed quibusdam ratione nam.</p>
+</section>
+</section>
+<section id="download-links">
+<h2>Download Links<a class="headerlink" href="#download-links" title="Permalink to this headline">#</a></h2>
+<p><a class="reference download external" download="" href="https://source.unsplash.com/200x200/daily?cute+puppy"><code class="xref download docutils literal notranslate"><span class="pre">This</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">download</span> <span class="pre">link</span> <span class="pre">should</span> <span class="pre">wrap</span> <span class="pre">white-spaces</span></code></a></p>
+</section>
+</section>
+</div>
+  </article>
+  <footer class="sb-footer-article">
+    <div class="related-pages">
+  <a class="prev-page" href="../blocks/">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      <div class="page-info">
+        <div class="context">
+          <span>Previous</span>
+        </div>
+        
+        <div class="title">Blocks</div>
+        
+      </div>
+    </a>
+  <a class="next-page" href="../images/">
+      <div class="page-info">
+        <div class="context">
+          <span>Next</span>
+        </div>
+        <div class="title">Images &amp; Figures</div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </a>
+</div>
+  </footer>
+</div>
+
+        
+        <aside class="sb-sidebar-secondary">
+          <div class="page-navigation-container sidebar-sticky">
+  <div class="sidebar-scroll">
+    
+    <div class="sidebar-link-container">
+      <span id="searchbox"></span>
+      <a href="https://github.com/pradyunsg/lutra/edit/main/docs/development/kitchen-sink/generic.rst">Edit this page</a>
+    </div>
+    
+    <div class="toc-container">
+      <p class="page-navigation-prompt">On this page</p>
+      <ul>
+<li><a class="reference internal" href="#">Generic items</a><ul>
+<li><a class="reference internal" href="#inline-markup">Inline Markup</a><ul>
+<li><a class="reference internal" href="#hyperlinks">Hyperlinks</a></li>
+<li><a class="reference internal" href="#interpreted-text">Interpreted text</a><ul>
+<li><a class="reference internal" href="#gui-labels">GUI labels</a></li>
+<li><a class="reference internal" href="#keys-menu-labels">Keys / Menu labels</a></li>
+<li><a class="reference internal" href="#long-inline-code-wrapping">Long inline code wrapping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#math">Math</a></li>
+<li><a class="reference internal" href="#sidebar">Sidebar</a><ul>
+<li><a class="reference internal" href="#code-with-sidebar">Code with Sidebar</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a><ul>
+<li><a class="reference internal" href="#footnotes">Footnotes</a></li>
+<li><a class="reference internal" href="#citations">Citations</a></li>
+<li><a class="reference internal" href="#targets">Targets</a></li>
+<li><a class="reference internal" href="#target-footnotes">Target Footnotes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#centered-text">Centered text</a></li>
+<li><a class="reference internal" href="#rubric">Rubric</a><ul>
+<li><a class="reference internal" href="#sidebars-and-rubrics">Sidebars and Rubrics</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#download-links">Download Links</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    
+  </div>
+</div>
+        </aside>
+        
+      </div>
+    
+    <footer class="sb-footer-content">
+      <div class="sb-footer-content__inner">
+        
+      </div>
+    </footer>
+    
+    </main>
+  </div>
+  
+
+</div>
+
+<footer class="sb-footer">
+  <div class="sb-footer__inner sb-page-width">
+    <div>
+  <div class="footer-copyright">Copyright &copy; 2021 Pradyun Gedam</div>
+  
+  Made with <a href="https://github.com/pradyunsg/lutra">Lutra</a> theme for <a href="https://www.sphinx-doc.org/" target="_blank">Sphinx</a>.
+</div>
+<div>
+  <div class="footer-icons">
+    <!-- GitHub -->
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+  </div>
+</div>
+
+
+<!-- Mimick GSoC-style links at the bottom.
+
+Documents to link to, by default, if they exist:
+
+- bugs
+- donate
+- license
+- privacy
+
+Allow people to provide their own.
+
+-->
+  </div>
+</footer>
+
+
+<script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+  <script src="../../../_static/jquery.js"></script>
+  <script src="../../../_static/underscore.js"></script>
+  <script src="../../../_static/doctools.js"></script>
+  <script src="../../../_static/scripts/lutra.js"></script>
+  <script src="../../../_static/tabs.js"></script>
+  <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </body>
+</html>
