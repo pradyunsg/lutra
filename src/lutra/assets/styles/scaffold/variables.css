@@ -27,17 +27,17 @@ html:not(.dark) {
   --color_text: theme("colors.black");
 
   /* Theme Toggle */
-  --color_text-theme: theme("colors.blue.600");
+  --color_text-theme: var(--theme-primary);
 
   /* Links */
   --color_text-link: var(--color_text);
-  --color_text-link--hover: theme("colors.blue.700");
+  --color_text-link--hover: var(--theme-primary);
   --color_text-link--visited: var(--color_text);
-  --color_text-link--visited--hover: theme("colors.violet.700");
-  --color_text-link_underline: theme("colors.blue.200");
-  --color_text-link_underline--hover: theme("colors.blue.700");
-  --color_text-link_underline--visited: theme("colors.violet.200");
-  --color_text-link_underline--visited--hover: theme("colors.violet.700");
+  --color_text-link--visited--hover: var(--theme-accent);
+  --color_text-link_underline: var(--theme-primary-highlight);
+  --color_text-link_underline--hover: var(--theme-primary);
+  --color_text-link_underline--visited: var(--theme-accent-highlight);
+  --color_text-link_underline--visited--hover: var(--theme-accent);
 
   /* Header */
   --color_bg-header: theme("colors.slate.50");
@@ -48,7 +48,7 @@ html:not(.dark) {
 
   /* Footer */
   --color_bg-related_pages--hover: theme("colors.slate.100");
-  --color_text-related_pages-link: theme("colors.blue.700");
+  --color_text-related_pages-link: var(--theme-primary);
   --color_text-related_pages-link--hover: var(--color_text-link--hover);
   --color_text-related_pages-link_underline: transparent;
   --color_text-related_pages-link_underline--hover: transparent;
@@ -59,13 +59,13 @@ html:not(.dark) {
 
   /* Sidebar links */
   --color_text-link-sidebar: theme("colors.gray.700");
-  --color_text-link-sidebar--hover: theme("colors.blue.700");
-  --color_text-link-sidebar--active: theme("colors.blue.700");
-  --color_text-link-sidebar--active--hover: theme("colors.blue.700");
+  --color_text-link-sidebar--hover: var(--theme-primary);
+  --color_text-link-sidebar--active: var(--theme-primary);
+  --color_text-link-sidebar--active--hover: var(--theme-primary);
   --color_bg-link-sidebar: transparent;
-  --color_bg-link-sidebar--hover: theme("colors.gray.50");
+  --color_bg-link-sidebar--hover: theme("colors.gray.100");
   --color_bg-link-sidebar--active: transparent;
-  --color_bg-link-sidebar--active--hover: theme("colors.blue.50");
+  --color_bg-link-sidebar--active--hover: theme("colors.gray.100");
 
   /* Sidebar collapse */
   --color_bg-sidebar_collapse: var(--color_bg);
@@ -76,9 +76,9 @@ html:not(.dark) {
   --border-site_sidebar: theme("colors.gray.100");
 
   --color_text-docs_header: theme("colors.black");
-  --color_text-docs_header-link--hover: theme("colors.blue.700");
+  --color_text-docs_header-link--hover: var(--theme-primary);
 
-  --color_text-sidebar_prompt: theme("colors.gray.500");
+  --color_text-sidebar_prompt: theme("colors.gray.700");
   --color_text-sidebar_caption: theme("colors.gray.900");
 
   /* Breadcrumbs */
@@ -88,7 +88,7 @@ html:not(.dark) {
   --color_text-api-signature: inherit;
 
   /* Misc */
-  --color_bg-target: theme("colors.blue.200/50");
+  --color_bg-target: var(--theme-primary-target);
   --color_text-problematic: theme("colors.red.500");
   --color_bg-problematic: theme("colors.red.500/30");
 
@@ -125,7 +125,7 @@ html:not(.dark) {
   --color_bg-search--focus: theme("colors.gray.50");
 
   /* Highlights, from search */
-  --color_bg-highlighted: theme("colors.blue.200");
+  --color_bg-highlighted: var(--theme-primary-highlight);
   --color_text-highlighted: inherit;
 
   /* Index pages */
@@ -138,17 +138,17 @@ html.dark {
   --color_text: theme("colors.slate.300");
 
   /* Theme Toggle */
-  --color_text-theme: theme("colors.blue.400");
+  --color_text-theme: var(--theme-primary_dark);
 
   /* Links */
   --color_text-link: var(--color_text);
-  --color_text-link--hover: theme("colors.blue.400");
+  --color_text-link--hover: var(--theme-primary_dark);
   --color_text-link--visited: var(--color_text);
-  --color_text-link--visited--hover: theme("colors.violet.400");
-  --color_text-link_underline: theme("colors.blue.500/50");
-  --color_text-link_underline--hover: theme("colors.blue.400");
-  --color_text-link_underline--visited: theme("colors.violet.500/50");
-  --color_text-link_underline--visited--hover: theme("colors.violet.400");
+  --color_text-link--visited--hover: var(--theme-accent_dark);
+  --color_text-link_underline: var(--theme-primary-highlight);
+  --color_text-link_underline--hover: var(--theme-primary_dark);
+  --color_text-link_underline--visited: var(--theme-accent-highlight);
+  --color_text-link_underline--visited--hover: var(--theme-accent_dark);
 
   /* Header */
   --color_bg-header: #1a1c1e;
@@ -159,8 +159,8 @@ html.dark {
 
   /* Footer */
   --color_bg-related_pages--hover: theme("colors.gray.800");
-  --color_text-related_pages-link: theme("colors.blue.400");
-  --color_text-related_pages-link--hover: theme("colors.blue.300");
+  --color_text-related_pages-link: var(--theme-primary_dark);
+  --color_text-related_pages-link--hover: var(--theme-primary_dark);
   --color_text-related_pages-link_underline: transparent;
   --color_text-related_pages-link_underline--hover: transparent;
   --color_text-related_pages-context: theme("colors.gray.400");
@@ -170,13 +170,13 @@ html.dark {
 
   /* Sidebar links */
   --color_text-link-sidebar: theme("colors.gray.400");
-  --color_text-link-sidebar--hover: theme("colors.blue.400");
-  --color_text-link-sidebar--active: theme("colors.blue.400");
-  --color_text-link-sidebar--active--hover: theme("colors.blue.400");
+  --color_text-link-sidebar--hover: var(--theme-primary_dark);
+  --color_text-link-sidebar--active: var(--theme-primary_dark);
+  --color_text-link-sidebar--active--hover: var(--theme-primary_dark);
   --color_bg-link-sidebar: transparent;
   --color_bg-link-sidebar--hover: theme("colors.gray.800/70");
   --color_bg-link-sidebar--active: transparent;
-  --color_bg-link-sidebar--active--hover: theme("colors.blue.900/30");
+  --color_bg-link-sidebar--active--hover: theme("colors.gray.800/70");
 
   /* Sidebar collapse */
   --color_bg-sidebar_collapse: var(--color_bg);
@@ -187,7 +187,7 @@ html.dark {
   --border-site_sidebar: theme("colors.gray.800/50");
 
   --color_text-docs_header: theme("colors.gray.300");
-  --color_text-docs_header-link--hover: theme("colors.blue.400");
+  --color_text-docs_header-link--hover: var(--theme-primary_dark);
 
   --color_text-sidebar_prompt: theme("colors.gray.300");
   --color_text-sidebar_caption: theme("colors.gray.300");
@@ -199,7 +199,7 @@ html.dark {
   --color_text-api-signature: inherit;
 
   /* Misc */
-  --color_bg-target: theme("colors.blue.500/20");
+  --color_bg-target: var(--theme-primary-target_dark);
   --color_text-problematic: theme("colors.red.500");
   --color_bg-problematic: theme("colors.red.500/30");
 
@@ -219,9 +219,9 @@ html.dark {
   --border-table: theme("colors.gray.800");
 
   /* Sidebar */
-  --color_bg-prose_sidebar: theme("colors.gray.900");
-  --border-prose_sidebar: 1px solid theme("colors.gray.800");
-  --border-prose_sidebar_title: 1px solid theme("colors.gray.800");
+  --color_bg-prose_sidebar: theme("colors.zinc.900");
+  --border-prose_sidebar: 1px solid theme("colors.zinc.800");
+  --border-prose_sidebar_title: 1px solid theme("colors.zinc.800");
 
   /* Admonitions */
   --color_bg-admonition: theme("colors.gray.900/30");
@@ -236,7 +236,7 @@ html.dark {
   --color_bg-search--focus: theme("colors.neutral.800");
 
   /* Highlights, from search */
-  --color_bg-highlighted: theme("colors.blue.900/70");
+  --color_bg-highlighted: var(--theme-primary-highlight);
   --color_text-highlighted: inherit;
 
   /* Index pages */
