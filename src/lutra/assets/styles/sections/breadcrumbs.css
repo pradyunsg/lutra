@@ -20,6 +20,7 @@
 
   ol {
     display: flex;
+    flex-wrap: nowrap;
   }
 
   /* Links */
@@ -32,8 +33,8 @@
 }
 
 .breadcrumb-separator {
-  display: inline;
-  vertical-align: middle;
+  @apply flex items-center;
+
   &::after {
     margin: 0rem 0.25rem;
     content: "";
@@ -53,24 +54,32 @@
   display: none;
 }
 
-/* Animate showing the page on scroll. */
+.breadcrumb-nav-list-item {
+  @apply transition-all;
+  @apply flex items-center overflow-hidden whitespace-nowrap;
+  a {
+    @apply overflow-hidden overflow-ellipsis whitespace-nowrap;
+  }
+  &:hover,
+  &:focus-within {
+    flex-shrink: 0;
+  }
+}
 .breadcrumb-nav-page-item {
   @apply relative font-bold;
+  > span {
+    @apply overflow-hidden overflow-ellipsis whitespace-nowrap;
+  }
 }
+
+/* Animate showing the page on scroll. */
 .breadcrumb-nav-page-item > span {
-  @apply absolute flex overflow-hidden overflow-ellipsis whitespace-nowrap;
+  @apply transition-all;
 
-  opacity: 0;
   pointer-events: none;
-  transform: translateX(0.25rem);
-  transition: transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1), opacity 0.15s;
-}
-
-.show-page-title {
-  .breadcrumb-nav-page-item > span {
-    opacity: 1;
+  width: 0;
+  .show-page-title & {
     pointer-events: auto;
-    transform: translateX(0);
-    transition: transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1), opacity 0.15s;
+    width: auto;
   }
 }
