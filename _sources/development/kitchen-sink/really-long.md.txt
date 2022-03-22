@@ -9,7 +9,7 @@
 This is simulating how ReadTheDocs puts admonitions on top of previews.
 ```
 
-# Really Long Page Title because we should test sidebar wrapping
+# Really Long Page Title because we should test wrapping in various parts of the site to make sure this is handled correctly
 
 This page basically exists to show-off the cool table of contents sidebar.
 
