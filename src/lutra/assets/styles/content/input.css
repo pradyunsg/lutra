@@ -18,7 +18,7 @@
     @apply inline-block relative w-full p-2 rounded;
 
     background: var(--color_bg-search);
-    color: var(--color_text-search);
+    color: #9ca3af; /* Tailwind CSS default for input placeholder text */
     z-index: 1;
 
     &:hover {
