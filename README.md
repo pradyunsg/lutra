@@ -1,7 +1,8 @@
 <h1 align="center">Lutra</h1>
 <p align="center">A clean, modern, customisable, searchable, mobile-friendly theme for documentation.</p>
 <a href="https://pradyunsg.me/lutra/">
-  <img align="center" src="https://github.com/pradyunsg/lutra/raw/main/docs/_static/demo.png" alt="Demo image">
+  <!-- <img align="center" src="https://github.com/pradyunsg/lutra/raw/main/docs/_static/demo.png" alt="Demo image"> -->
+  <p>This theme is still under development. Things will change without notice! :)</p>
 </a>
 
 ## Elevator pitch
