@@ -20,13 +20,8 @@
     @apply mb-4;
   }
 
-  input[type="text"],
-  .simulated-search-input {
+  input[type="text"] {
     @apply block pl-9;
-  }
-
-  .simulated-search-input {
-    @apply pr-36;
   }
 
   &::before {
@@ -75,4 +70,42 @@ ul.search {
 [role="main"] .highlighted {
   background-color: var(--color_bg-highlighted);
   color: var(--color_text-highlighted);
+}
+
+/* Header search button */
+.header-search {
+  &::before {
+    @apply block h-5 w-5;
+    content: "";
+    background-color: var(--color_text-search);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    z-index: 3;
+  }
+  .placeholder {
+    @apply hidden;
+  }
+}
+
+@media (min-width: 59rem) {
+  .header-search {
+    @apply relative block p-2 pl-9 rounded;
+
+    width: 15rem;
+    background: var(--color_bg-search);
+
+    &::before {
+      @apply absolute top-3 left-3 h-4 w-4;
+    }
+
+    &:hover,
+    &:focus-within {
+      background: var(--color_bg-search--hover);
+    }
+
+    .placeholder {
+      @apply inline-block;
+      color: #9ca3af; /* Tailwind CSS input placeholder color */
+    }
+  }
 }

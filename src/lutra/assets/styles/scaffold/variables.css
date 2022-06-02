@@ -120,7 +120,7 @@ html:not(.dark) {
   /* Search */
   --color_text-search: theme("colors.gray.700");
   --color_text-search--focus: theme("colors.gray.800");
-  --color_bg-search: theme("colors.gray.100");
+  --color_bg-search: theme("colors.gray.200/50");
   --color_bg-search--hover: theme("colors.gray.200");
   --color_bg-search--focus: theme("colors.gray.50");
 
@@ -231,8 +231,8 @@ html.dark {
   /* Search */
   --color_text-search: theme("colors.neutral.400");
   --color_text-search--focus: theme("colors.neutral.300");
-  --color_bg-search: theme("colors.neutral.800/50");
-  --color_bg-search--hover: theme("colors.neutral.800");
+  --color_bg-search: theme("colors.neutral.800");
+  --color_bg-search--hover: theme("colors.neutral.700");
   --color_bg-search--focus: theme("colors.neutral.800");
 
   /* Highlights, from search */
