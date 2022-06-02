@@ -51,7 +51,7 @@ _light_colors = {
 }
 
 _dark_colors = {
-    "base00": "#161b22",
+    "base00": "#1d1f21",
     "base01": "#1f2225",
     "base02": "#2c343a",
     "base03": "#36444f",
