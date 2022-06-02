@@ -17,7 +17,7 @@ div.math {
   position: relative;
 
   .headerlink,
-  &:focus .headerlink /* Hide from screen readers */ {
+  &:focus-within .headerlink /* Hide from screen readers */ {
     display: none;
   }
 

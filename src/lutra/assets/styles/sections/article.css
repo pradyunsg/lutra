@@ -27,7 +27,7 @@
   transform: translateY(-200%);
   transition: transform 300ms ease-in-out;
 
-  &:focus {
+  &:focus-within {
     transform: translateY(0%);
   }
 }
