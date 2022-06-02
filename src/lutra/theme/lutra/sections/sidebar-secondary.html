@@ -25,7 +25,6 @@
     {% endif %}
     <div class="sidebar-link-container">
       <span id="searchbox"></span>
-      {% include "components/edit-this-page.html" with context %}
       {%- if theme_sidebar_links -%}
         {%- for link in theme_sidebar_links -%}
           <a href="{{ link['href'] }}" alt="{{ link['alt']|e }}">{{ _(link['text'])|e }}</a>
