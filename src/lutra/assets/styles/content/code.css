@@ -44,6 +44,7 @@
     background-color: var(--color_bg-code_block);
     color: var(--color_text-code_block);
   }
+
   /* Make code block captions be nicely integrated */
   .code-block-caption {
     @apply flex px-3 pt-2 pb-1 rounded rounded-b-none border-b text-sm font-light;
@@ -57,6 +58,9 @@
         @apply rounded-t-none;
       }
     }
+  }
+  .literal-block-wrapper {
+    @apply rounded;
   }
 
   /* All code is always contained in a pre */
