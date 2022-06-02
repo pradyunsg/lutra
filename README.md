@@ -64,7 +64,7 @@ Lutra draws inspiration from some excellent technical documentation websites:
 We use [BrowserStack] to test on real devices and browsers. Shoutout to them for supporting OSS projects!
 
 [mkdocs-material]: https://squidfunk.github.io/mkdocs-material/
-[just the docs]: https://pmarsceill.github.io/just-the-docs/
+[just the docs]: https://just-the-docs.github.io/just-the-docs/
 [gatsby]: https://www.gatsbyjs.com/docs/
 [tailwind css]: https://tailwindcss.com/docs
 [browserstack]: https://browserstack.com/
