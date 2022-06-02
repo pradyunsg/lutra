@@ -66,7 +66,7 @@ html.dark .highlight span.linenos { color: inherit; background-color: transparen
 html.dark .highlight td.linenos .special { color: #1f2225; background-color: transparent; padding-left: 5px; padding-right: 5px; }
 html.dark .highlight span.linenos.special { color: #1f2225; background-color: transparent; padding-left: 5px; padding-right: 5px; }
 html.dark .highlight .hll { background-color: #36444f }
-html.dark .highlight { background: #161b22; color: #90afc0 }
+html.dark .highlight { background: #1d1f21; color: #90afc0 }
 html.dark .highlight .c { color: #36444f; font-style: italic } /* Comment */
 html.dark .highlight .err { color: #e06c75 } /* Error */
 html.dark .highlight .k { color: #c678dd } /* Keyword */

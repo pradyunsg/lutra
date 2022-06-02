@@ -13,6 +13,10 @@ hide-related-pages: true
 
 Lutra is a theme for Sphinx, a static site generator geared towards technical documentation.
 
+```{important}
+This theme is still under development. Things will change without notice! :)
+```
+
 ```{toctree}
 :hidden:
 getting-started

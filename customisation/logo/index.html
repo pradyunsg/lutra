@@ -14,23 +14,23 @@
   
 
   <title>Changing logo - Lutra</title><link rel="index" title="Index" href="../../genindex/" /><link rel="search" title="Search" href="../../search/" /><link rel="next" title="Changing colors" href="../colors/" /><link rel="prev" title="Example Landing Page 2" href="../landing-pages/example-landing-page-2/" />
-<link rel="stylesheet" href="../../_static/skeleton.css" type="text/css" /><link rel="stylesheet" type="text/css" href="../../_static/pygments.css" /><link rel="stylesheet" type="text/css" href="../../_static/styles/lutra.css?digest=b1d8e8a9a20f9db538c3950811012dbd" /><link rel="stylesheet" type="text/css" href="../../_static/tabs.css" /><link rel="stylesheet" type="text/css" href="../../_static/styles/lutra-extensions.css?digest=83954eb776abd5b90f3982e28169908b" />
+<link rel="stylesheet" href="../../_static/skeleton.css" type="text/css" /><link rel="stylesheet" type="text/css" href="../../_static/pygments.css" /><link rel="stylesheet" type="text/css" href="../../_static/styles/lutra.css?digest=0f755430be856161b1cc6ea65a1ed128" /><link rel="stylesheet" type="text/css" href="../../_static/tabs.css" /><link rel="stylesheet" type="text/css" href="../../_static/styles/lutra-extensions.css?digest=83954eb776abd5b90f3982e28169908b" />
 
 
 
 <style>
 html {
-  --theme-primary: var(--color-blue-solid);
-  --theme-primary_dark: var(--color-blue-solid_dark);
-  --theme-primary-highlight: var(--color-blue-highlight);
-  --theme-primary-target: var(--color-blue-target);
-  --theme-primary-target_dark: var(--color-blue-target_dark);
+  --theme-primary: var(--color-sky-solid);
+  --theme-primary_dark: var(--color-sky-solid_dark);
+  --theme-primary-highlight: var(--color-sky-highlight);
+  --theme-primary-target: var(--color-sky-target);
+  --theme-primary-target_dark: var(--color-sky-target_dark);
 
-  --theme-accent: var(--color-violet-solid);
-  --theme-accent_dark: var(--color-violet-solid_dark);
-  --theme-accent-highlight: var(--color-violet-highlight);
-  --theme-accent-target: var(--color-violet-target);
-  --theme-accent-target_dark: var(--color-violet-target_dark);
+  --theme-accent: var(--color-indigo-solid);
+  --theme-accent_dark: var(--color-indigo-solid_dark);
+  --theme-accent-highlight: var(--color-indigo-highlight);
+  --theme-accent-target: var(--color-indigo-target);
+  --theme-accent-target_dark: var(--color-indigo-target_dark);
 }
 html:not(.dark) {
   
@@ -39,7 +39,7 @@ html:not(.dark) {
 }
 html.dark {
   
-  --color_bg-code_block: #161b22;
+  --color_bg-code_block: #1d1f21;
   --color_text-code_block: #90afc0;
 }
 </style>
@@ -66,9 +66,7 @@ html.dark {
 
 
 <div class="sb-announcement">
-  <div class="lutra-announcement lutra-warning-announcement">
-    <div class="sb-page-width"><span class="prose">This theme is under development and not in a state that it can be used by 'real' projects.</span></div>
-  </div>
+  
 </div>
 
 
@@ -99,12 +97,13 @@ html.dark {
   </div>
 </div>
   <div class="flex-1"></div>
-  <a href="../../search/" class="text-red-500">
-  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-  </svg>
+  <a class="header-search" href="../../search/" class="text-red-500">
+  <span class="placeholder">Search</span>
 </a>
 
+  <div class="header-icons-container">
+  <!-- <svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1.1" viewBox="0 0 32 32" height="1.75rem" width="1.75rem" xmlns="http://www.w3.org/2000/svg"><path d="M16 5.343c-6.196 0-11.219 5.023-11.219 11.219 0 4.957 3.214 9.162 7.673 10.645 0.561 0.103 0.766-0.244 0.766-0.54 0-0.267-0.010-1.152-0.016-2.088-3.12 0.678-3.779-1.323-3.779-1.323-0.511-1.296-1.246-1.641-1.246-1.641-1.020-0.696 0.077-0.682 0.077-0.682 1.126 0.078 1.72 1.156 1.72 1.156 1.001 1.715 2.627 1.219 3.265 0.931 0.102-0.723 0.392-1.219 0.712-1.498-2.49-0.283-5.11-1.246-5.11-5.545 0-1.226 0.438-2.225 1.154-3.011-0.114-0.285-0.501-1.426 0.111-2.97 0 0 0.941-0.301 3.085 1.15 0.894-0.25 1.854-0.373 2.807-0.377 0.953 0.004 1.913 0.129 2.809 0.379 2.14-1.453 3.083-1.15 3.083-1.15 0.613 1.545 0.227 2.685 0.112 2.969 0.719 0.785 1.153 1.785 1.153 3.011 0 4.31-2.624 5.259-5.123 5.537 0.404 0.348 0.761 1.030 0.761 2.076 0 1.5-0.015 2.709-0.015 3.079 0 0.299 0.204 0.648 0.772 0.538 4.455-1.486 7.666-5.69 7.666-10.645 0-6.195-5.023-11.219-11.219-11.219z"></path></svg> -->
+</div>
   <button class="theme-toggle">
   <div class="theme-icon-when-auto">
     <div class="only-light">
@@ -129,9 +128,6 @@ html.dark {
     </svg>
   </div>
 </button>
-  <div class="header-icons-container">
-  <!-- <svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1.1" viewBox="0 0 32 32" height="1.75rem" width="1.75rem" xmlns="http://www.w3.org/2000/svg"><path d="M16 5.343c-6.196 0-11.219 5.023-11.219 11.219 0 4.957 3.214 9.162 7.673 10.645 0.561 0.103 0.766-0.244 0.766-0.54 0-0.267-0.010-1.152-0.016-2.088-3.12 0.678-3.779-1.323-3.779-1.323-0.511-1.296-1.246-1.641-1.246-1.641-1.020-0.696 0.077-0.682 0.077-0.682 1.126 0.078 1.72 1.156 1.72 1.156 1.001 1.715 2.627 1.219 3.265 0.931 0.102-0.723 0.392-1.219 0.712-1.498-2.49-0.283-5.11-1.246-5.11-5.545 0-1.226 0.438-2.225 1.154-3.011-0.114-0.285-0.501-1.426 0.111-2.97 0 0 0.941-0.301 3.085 1.15 0.894-0.25 1.854-0.373 2.807-0.377 0.953 0.004 1.913 0.129 2.809 0.379 2.14-1.453 3.083-1.15 3.083-1.15 0.613 1.545 0.227 2.685 0.112 2.969 0.719 0.785 1.153 1.785 1.153 3.011 0 4.31-2.624 5.259-5.123 5.537 0.404 0.348 0.761 1.030 0.761 2.076 0 1.5-0.015 2.709-0.015 3.079 0 0.299 0.204 0.648 0.772 0.538 4.455-1.486 7.666-5.69 7.666-10.645 0-6.195-5.023-11.219-11.219-11.219z"></path></svg> -->
-</div>
   
 </div>
   </div>
@@ -275,7 +271,6 @@ html.dark {
     
     <div class="sidebar-link-container">
       <span id="searchbox"></span>
-      <a href="https://github.com/pradyunsg/lutra/edit/main/docs/customisation/logo.md">Edit this page</a>
     </div>
     
   </div>
