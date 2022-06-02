@@ -91,8 +91,8 @@
   }
 
   /* Code block permalinks */
-  .literal-block-wrapper:target .code-block-caption {
-    background-color: var(--color_bg-target);
+  .literal-block-wrapper:target {
+    outline: solid var(--color_bg-target);
   }
 
   /* When a definition list item is selected
