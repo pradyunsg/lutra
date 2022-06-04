@@ -38,7 +38,11 @@
   @apply sticky top-16;
   @apply z-10;
 
-  background: linear-gradient(to bottom, var(--color_bg) 90%, transparent);
+  background: linear-gradient(
+    to bottom,
+    var(--color_bg) 90%,
+    var(--color_bg--transparent)
+  );
 }
 
 .sb-header-secondary {

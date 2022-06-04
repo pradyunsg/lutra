@@ -24,6 +24,7 @@ html {
 /* Light mode */
 html:not(.dark) {
   --color_bg: theme("colors.white");
+  --color_bg--transparent: #ffffff00;
   --color_text: theme("colors.black");
 
   /* Theme Toggle */
@@ -134,7 +135,8 @@ html:not(.dark) {
 
 /* Dark mode */
 html.dark {
-  --color_bg: #131416;
+  --color_bg: #0d1116;
+  --color_bg--transparent: #0d111600;
   --color_text: theme("colors.slate.300");
 
   /* Theme Toggle */
