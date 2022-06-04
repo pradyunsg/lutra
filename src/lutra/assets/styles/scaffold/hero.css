@@ -14,5 +14,14 @@
 
 /* Hero Section */
 .lutra-hero {
-  @apply bg-red-500 flex flex-col items-center;
+  @apply flex flex-col items-center;
+}
+
+.lutra-hero-content {
+  @apply p-4;
+}
+
+.lutra-hero + .sb-container {
+  @apply border-t;
+  border-top-color: var(--border-site_sidebar);
 }
