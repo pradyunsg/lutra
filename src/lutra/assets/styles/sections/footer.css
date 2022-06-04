@@ -64,14 +64,14 @@
   }
 }
 /* Page footer */
-.sb-footer {
+.sb-footer-content {
   @apply p-2 text-sm;
   background: var(--color_bg-footer);
   color: var(--color_text-footer);
 }
 
-.sb-footer__inner {
-  @apply flex flex-row items-center px-2;
+.sb-footer-content__inner {
+  @apply flex flex-row items-center px-2 w-full;
   justify-content: space-between;
 }
 
