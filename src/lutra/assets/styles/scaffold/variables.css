@@ -137,7 +137,7 @@ html:not(.dark) {
 html.dark {
   --color_bg: #0d1116;
   --color_bg--transparent: #0d111600;
-  --color_text: theme("colors.slate.300");
+  --color_text: #c9d1d9;
 
   /* Theme Toggle */
   --color_text-theme: var(--theme-primary_dark);
@@ -153,7 +153,7 @@ html.dark {
   --color_text-link_underline--visited--hover: var(--theme-accent_dark);
 
   /* Header */
-  --color_bg-header: #1a1c1e;
+  --color_bg-header: #171b22;
   --shadow-header: theme("colors.gray.500/50") 0px 0px 1px 0px;
 
   /* Back to top */
