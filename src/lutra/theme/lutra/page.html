@@ -18,7 +18,7 @@
 {% block container %}
 {%- if meta and meta["hero"] -%}
   {% if theme_hero %}
-    {% include "partials/hero.html" %}
+    {% include "partials/hero.html" with context %}
   {% else %}
     {{ warning("Found 'hero' in page metadata, but no hero attributes in conf.py") }}
   {%- endif -%}
