@@ -32,11 +32,10 @@
   }
 
   h1 {
-    @apply font-extrabold;
     font-size: 2.5em;
   }
   h2 {
-    @apply font-extrabold mt-6;
+    @apply mt-6;
     font-size: 2em;
   }
   h3 {
