@@ -121,7 +121,7 @@ html_static_path = []
 html_context: Dict[str, Any] = {}
 
 DEBUG = False
-if DEBUG or "LUTRA_DEBUG" in os.environ:
+if DEBUG or "styles" in os.environ.get("LUTRA_DEBUG", ""):
     html_css_files.append("lutra-debug.css")
 
 RTD_TESTING = False

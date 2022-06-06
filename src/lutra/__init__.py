@@ -37,6 +37,11 @@ THEME_PATH = (Path(__file__).parent / "theme" / "lutra").resolve()
 
 logger = logging.getLogger(__name__)
 
+if "debugpy" in os.environ.get("LUTRA_DEBUG", ""):
+    import debugpy
+
+    debugpy.listen(5678)
+
 # GLOBAL STATE
 _KNOWN_STYLES_IN_USE: Dict[str, Optional[Style]] = {
     "light": None,
