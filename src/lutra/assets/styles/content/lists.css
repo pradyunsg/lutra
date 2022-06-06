@@ -17,10 +17,6 @@
   ol {
     @apply my-3; /* same margin as p tags */
 
-    ol,
-    ul {
-      @apply ml-1;
-    }
     > li {
       @apply ml-6 my-1;
     }
