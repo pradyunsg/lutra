@@ -17,7 +17,7 @@ nox.options.error_on_external_run = True
 @nox.session(name="docs-live", reuse_venv=True)
 def docs_live(session):
     session.install("-e", ".")
-    session.install("sphinx-theme-builder[cli]", "pdbpp")
+    session.install("sphinx-theme-builder[cli]", "debugpy")
     session.install("-r", "docs/requirements.txt")
 
     # Serve documentation
