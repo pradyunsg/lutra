@@ -13,59 +13,325 @@
 """Transform the navigation tree, from Sphinx's toctree function's output."""
 
 from functools import lru_cache
-from typing import Any, Dict, Tuple
+from typing import Any, Dict, Iterable, List, NamedTuple, Tuple, TypeVar
 
-from bs4 import BeautifulSoup
+import docutils.nodes
+from sphinx.builders.html import StandaloneHTMLBuilder
+from sphinx.environment.adapters.toctree import TocTree
+from sphinx.locale import get_translation
+
+_ = get_translation("lutra")
+T = TypeVar("T")
 
 
-@lru_cache
-def trim_sidebar_navigation(toctree_html: str, *, style: str) -> Tuple[bool, str]:
+class NavigationInformation(NamedTuple):
+    """Container for information relevant to rendered navigation."""
+
+    toctree_html: str
+    tabs_html: str
+
+
+def make_pairs(iterable: Iterable[T]) -> List[Tuple[T, T]]:
+    """Given an iterable, make pairs of odd and even pair values."""
+    double_iter = [iter(iterable)] * 2
+    return list(zip(*double_iter))  # type: ignore
+
+
+@lru_cache(maxsize=8)
+def _get_toctree(builder: StandaloneHTMLBuilder) -> TocTree:
+    assert builder.env
+    return TocTree(builder.env)
+
+
+def render_fragment(
+    builder: StandaloneHTMLBuilder, node: docutils.nodes.Element
+) -> str:
+    """Render the given node as an HTML fragment, using the builder provided."""
+    return builder.render_partial(node)["fragment"]
+
+
+def _plain_navigation(
+    builder: StandaloneHTMLBuilder,
+    toctree: docutils.nodes.Element,
+) -> NavigationInformation:
+    """Use what Sphinx provides out-of-the-box. No tabs."""
+    toctree_html = render_fragment(builder, toctree)
+
+    return NavigationInformation(
+        toctree_html=toctree_html,
+        tabs_html="",
+    )
+
+
+def _subtree_caption_navigation(
+    builder: StandaloneHTMLBuilder,
+    toctree: docutils.nodes.Element,
+) -> NavigationInformation:
+    """Show the top-level bullet list that the page is within, with caption. No tabs."""
+    # Validation
+    if len(toctree) <= 1:
+        raise Exception(
+            "Do not have enough toctrees for the navigation style used. "
+            "TODO: Improve this message."
+        )
+
+    for index, element in enumerate(toctree):
+        # Allow the first element to be anything. This permits use cases where
+        # you don't add a caption for the first portion of toctree.
+        if index == 0:
+            continue
+        if toctree[index].tagname == "bullet_list":  # type: ignore
+            if toctree[index - 1].tagname != "title":  # type: ignore
+                raise Exception(
+                    "The declared toctree structure does not follow the style "
+                    "needed for this navigation style. Expect all `toctree` "
+                    "declarations to have a caption. TODO: improve this msg."
+                )
+
+    # Locate the current bullet_list
+    for index, element in enumerate(toctree):
+        if element.attributes.get("iscurrent"):
+            toctree_fragment = element
+            # If there's a caption before this bullet list, include it.
+            if index >= 1 and toctree[index - 1].tagname == "title":  # type: ignore
+                toctree_fragment = toctree.copy()
+                toctree_fragment.append(toctree[index - 1])
+                toctree_fragment.append(element)
+            break
+    else:
+        toctree_fragment = toctree
+
+    toctree_html = render_fragment(builder, toctree_fragment)
+
+    return NavigationInformation(
+        toctree_html=toctree_html,
+        tabs_html="",
+    )
+
+
+def _subtree_document_navigation(
+    builder: StandaloneHTMLBuilder,
+    toctree: docutils.nodes.Element,
+) -> NavigationInformation:
+    """Show the top-level document that the page is under. No tabs."""
+    # Determine which top-level document this falls under
+    parent_toctree = None
+    top_level_document = None
+    for element in toctree.children:
+        assert isinstance(element, docutils.nodes.Element)
+        if element.attributes.get("iscurrent"):
+            parent_toctree = element
+            break
+
+    if parent_toctree is not None:
+        for element in parent_toctree.children:
+            assert isinstance(element, docutils.nodes.Element)
+            if element.attributes.get("iscurrent"):
+                top_level_document = element
+
+    # Determine and render the toctree fragment
+    if top_level_document is not None:
+        assert parent_toctree
+        bullet_list = parent_toctree.copy()
+        bullet_list += top_level_document
+
+        toctree_fragment = toctree.copy()
+        toctree_fragment += bullet_list
+    else:
+        # No current tab found. Let's render the entire toctree.
+        toctree_fragment = toctree
+
+    toctree_html = render_fragment(builder, toctree_fragment)
+
+    return NavigationInformation(
+        toctree_html=toctree_html,
+        tabs_html="",
+    )
+
+
+def _tabs_caption_navigation(
+    builder: StandaloneHTMLBuilder,
+    toctree: docutils.nodes.Element,
+) -> NavigationInformation:
+    """Use captions of every toctree as tabs, and show current toctree in the sidebar.
+
+    The homepage gets the entire documentation tree.
+    """
+    for index, element in enumerate(toctree):
+        # Validate that the toctree has the right structure: [title, bullet_list]*n
+        if index % 2:
+            if element.tagname != "bullet_list":
+                raise Exception("Bad toctree structure!")
+        else:
+            if element.tagname != "title":
+                raise Exception("Bad toctree structure!")
+
+    documentation_sections = make_pairs(toctree)
+
+    # Look for the "current" item (and associated tab/caption).
+    current_tab = None  # None means no current tab.
+    for caption, bullet_list in documentation_sections:
+        if not bullet_list.attributes.get("iscurrent"):
+            continue
+
+        current_tab = (caption, bullet_list)
+        toctree_fragment = toctree.copy()
+        toctree_fragment.append(caption.deepcopy())
+        toctree_fragment.append(bullet_list.deepcopy())
+        break
+    else:
+        # No current tab found. Let's render the entire toctree.
+        toctree_fragment = toctree
+
+    # Sidebar
+    toctree_html = render_fragment(builder, toctree_fragment)
+
+    # Tabs
+    tab_list_to_render = docutils.nodes.bullet_list(classes=["lutra-tabs"])
+
+    # TODO: Figure out if I want to allow adding a `Home` tab here.
+    # home_tab_item = docutils.nodes.list_item()
+    # home_tab_item += docutils.nodes.Text(
+    #     _("Home") + " [todo: figure out the reference]"
+    # )
+    # if current_tab is None:
+    #     home_tab_item.attributes["classes"].append("current")
+    # tab_list_to_render += home_tab_item
+
+    for caption, bullet_list in documentation_sections:
+        list_item = bullet_list[0]
+
+        tab_item = list_item.copy()
+        tab_item.attributes["classes"].remove("toctree-l1")
+        tab_inner = list_item[0].deepcopy()
+        tab_inner[0].clear()
+        tab_inner[0] += docutils.nodes.Text(caption.astext())
+
+        tab_item += tab_inner
+        if (caption, bullet_list) == current_tab:
+            tab_item.attributes["classes"].append("current")
+
+        tab_list_to_render.append(tab_item)
+
+    tabs_html = render_fragment(builder, tab_list_to_render)
+
+    return NavigationInformation(
+        toctree_html=toctree_html,
+        tabs_html=tabs_html,
+    )
+
+
+def _tabs_document_navigation(
+    builder: StandaloneHTMLBuilder,
+    toctree: docutils.nodes.Element,
+) -> NavigationInformation:
+    """Use top-level documents as tabs, and show their subtree in the sidebar.
+
+    The homepage gets the entire documentation tree.
+    """
+    # Collect all top-level documents, as tabs.
+    tabs = []
+    for bullet_list in toctree.children:
+        assert isinstance(bullet_list, docutils.nodes.Element)
+        if bullet_list.tagname != "bullet_list":
+            continue
+        for list_item in bullet_list.children:
+            tab = list_item.copy()
+            assert isinstance(tab, docutils.nodes.Element)
+            tab.attributes["classes"].remove("toctree-l1")  # type: ignore
+            tab.append(list_item.children[0].deepcopy())
+            tabs.append(tab)
+
+    # Determine which top-level document this falls under
+    parent_toctree = None
+    top_level_document = None
+    for element in toctree.children:
+        assert isinstance(element, docutils.nodes.Element)
+        if element.attributes.get("iscurrent"):
+            parent_toctree = element
+            break
+
+    if parent_toctree is not None:
+        for element in parent_toctree.children:
+            assert isinstance(element, docutils.nodes.Element)
+            if element.attributes.get("iscurrent"):
+                top_level_document = element
+
+    # Determine and render the toctree fragment
+    if top_level_document is not None:
+        assert parent_toctree
+        bullet_list = parent_toctree.copy()
+        bullet_list.append(top_level_document)
+
+        toctree_fragment = toctree.copy()
+        toctree_fragment.append(bullet_list)
+    else:
+        # No current tab found. Let's render the entire toctree.
+        toctree_fragment = toctree
+
+    toctree_html = render_fragment(builder, toctree_fragment)
+
+    # Render the tabs
+    tab_list_to_render = docutils.nodes.bullet_list(classes=["lutra-tabs"])
+    tab_list_to_render.extend(tabs)
+
+    tabs_html = render_fragment(builder, tab_list_to_render)
+
+    return NavigationInformation(
+        toctree_html=toctree_html,
+        tabs_html=tabs_html,
+    )
+
+
+def determine_navigation_information(
+    *,
+    builder: StandaloneHTMLBuilder,
+    docname: str,
+    style: str,
+) -> NavigationInformation:
     """Trim `toctree_html` based on what `style` is."""
-    allowed_styles = ["plain", "scoped-sidebar"]
+    style_handlers = {
+        "plain": _plain_navigation,
+        "subtree-caption": _subtree_caption_navigation,
+        "subtree-document": _subtree_document_navigation,
+        "tabs-caption": _tabs_caption_navigation,
+        "tabs-document": _tabs_document_navigation,
+    }
+
     assert (
-        style in allowed_styles
-    ), f"Got an invalid `navigation_style`: {style!r} (valid values: {allowed_styles})"
+        style in style_handlers
+    ), f"Got an invalid `navigation_style`: {style!r} (valid values: {list(style_handlers)})"
 
-    if style == "plain":
-        return False, toctree_html
+    toctree = _get_toctree(builder).get_toctree_for(
+        docname, builder, collapse=True, titles_only=True
+    )
+    assert toctree
 
-    # TODO: explore if I can just... like... use regex or substrings for this next
-    # block, instead of parsing the HTML. Or, like, operate on the DOM that Sphinx has
-    # internally.
-    soup = BeautifulSoup(toctree_html, features="html.parser")
-
-    # Check if there's an active level-1 toctree element.
-    node = soup.find("li", class_="toctree-l1 current")
-    if not node:
-        return False, toctree_html
-
-    # If here, it's a page within a "section" of the documentation.
-    retval = BeautifulSoup()
-
-    # If there's a caption before this node, include that as well.
-    if (
-        node.parent
-        and node.parent.previous_sibling
-        and node.parent.previous_sibling.previous_sibling
-        and node.parent.previous_sibling.previous_sibling.name == "p"
-        and node.parent.previous_sibling.previous_sibling.get("class") == ["caption"]
-    ):
-        retval.append(node.parent.previous_sibling.previous_sibling)
-
-    retval.append(node.parent)
-    return True, str(retval)
+    handler = style_handlers[style]
+    return handler(builder, toctree)
 
 
-@lru_cache
-def has_not_enough_items_to_show_toc(toc: str) -> bool:
+def has_not_enough_items_to_show_toc(
+    builder: StandaloneHTMLBuilder, docname: str
+) -> bool:
     """Check if the toc has one or fewer items."""
-    assert toc
+    toctree = _get_toctree(builder).get_toc_for(docname, builder)
+    try:
+        self_toctree = toctree[0][1]
+    except IndexError:
+        val = True
+    else:
+        # There's only the page's own toctree in there.
+        val = len(self_toctree) == 1 and self_toctree[0].tagname == "toctree"
+    return val
 
-    soup = BeautifulSoup(toc, "html.parser")
-    return len(soup.find_all("li")) <= 1
 
-
-def should_hide_toc(context: Dict[str, Any]) -> bool:
+def should_hide_toc(
+    context: Dict[str, Any],
+    *,
+    builder: StandaloneHTMLBuilder,
+    docname: str,
+) -> bool:
     """Check whether the table of contents should be hidden."""
     file_meta = context.get("meta", None) or {}
     if "hide-toc" in file_meta:
@@ -75,4 +341,4 @@ def should_hide_toc(context: Dict[str, Any]) -> bool:
     elif not context["toc"]:
         return True
 
-    return has_not_enough_items_to_show_toc(context["toc"])
+    return has_not_enough_items_to_show_toc(builder, docname)

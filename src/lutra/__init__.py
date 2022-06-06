@@ -29,13 +29,15 @@ from pygments.style import Style
 from pygments.token import Text
 from sphinx.builders.html import StandaloneHTMLBuilder
 from sphinx.highlighting import PygmentsBridge
+from sphinx.locale import get_translation
 from sphinx.transforms.post_transforms import SphinxPostTransform
 
 from .errors import LutraError
-from .navigation import should_hide_toc, trim_sidebar_navigation
+from .navigation import determine_navigation_information, should_hide_toc
 
 THEME_PATH = (Path(__file__).parent / "theme" / "lutra").resolve()
 
+_ = get_translation("lutra")
 logger = logging.getLogger(__name__)
 
 if "debugpy" in os.environ.get("LUTRA_DEBUG", ""):
@@ -147,15 +149,18 @@ def _html_page_context(
     context["lutra_version"] = __version__
 
     # Values computed from page-level context.
-    toctree = context["toctree"]
-    toctree_html = toctree(includehidden=True, titles_only=True, maxdepth=-1)
-
-    was_trimmed, toctree_html = trim_sidebar_navigation(
-        toctree_html, style=context["theme_navigation_style"]
+    nav_info = determine_navigation_information(
+        builder=app.builder,
+        docname=pagename,
+        style=context["theme_navigation_style"],
     )
-    context["lutra_trimmed_toctree"] = was_trimmed
-    context["lutra_toctree_html"] = toctree_html
-    context["lutra_hide_toc"] = should_hide_toc(context)
+    context["lutra_toctree_html"] = nav_info.toctree_html
+    context["lutra_tabs_html"] = nav_info.tabs_html
+
+    context["lutra_hide_toc"] = should_hide_toc(
+        context, builder=app.builder, docname=pagename
+    )
+
     context["lutra_modified"] = (
         app.builder.config.lutra_modified or app.config.html_theme != "lutra"
     )
