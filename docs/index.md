@@ -19,6 +19,7 @@ This theme is still under development. Things will change without notice! :)
 
 ```{toctree}
 :hidden:
+:caption: Setup
 getting-started
 porting/index
 ```
