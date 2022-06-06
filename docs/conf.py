@@ -97,15 +97,16 @@ html_theme_options = {
     # "announcement_style": "warning",
     # "primary_color": "blue",
     # "accent_color": "violet",
-    "hero": {
-        "image": "...",
-        "primary_text": "...",
-        "secondary_text": "...",
-    },
     "source_repository": "https://github.com/pradyunsg/lutra/",
     "source_branch": "main",
     "source_directory": "docs/",
     # "navigation_style": "plain",
+    # # Below are TODOs.
+    # "hero": {
+    #     "image": "...",
+    #     "primary_text": "...",
+    #     "secondary_text": "...",
+    # },
     # "feedback_form_url": (
     #     "https://docs.google.com/forms/d/e/1FAIpQLSfucp8AnLfSK-2M9kKCMyA5WMYIGPdeMaFa8eHo6ejGFq-nyA/viewform"
     #     "?usp=pp_url&entry.1457058116={page_reference}&entry.702906409={rating}&entry.1161338183={additional_comments}"
