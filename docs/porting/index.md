@@ -10,6 +10,13 @@ Welcome! Happy to see that you liked this theme enough to try using it! :)
 
 This document serves as a guide for porting existing Sphinx documentation to use Lutra. Notably, it contains troubleshooting advice, to help you identify issues.
 
+```{toctree}
+sphinx-rtd-theme
+pydata-sphinx-theme
+sphinx-book-theme
+furo
+```
+
 ## Start using Lutra
 
 You can install Lutra from PyPI.
