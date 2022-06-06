@@ -9,15 +9,15 @@
 
 <!-- start elevator-pitch -->
 
-Lutra is a [Sphinx] theme.
-
-- **Statically awesome** — powered by [Sphinx], enabling the use of the _huge_ ecosystem of plugins and extensions.
+- **Statically awesome** — builds upon [Sphinx] and _huge_ ecosystem of extensions.
 - **Responsive** — works across all sorts of screen resolutions.
 - **Customisable** — change colors, fonts, page layout and more!
 - **Clear typography** — borrowing the design language of this decade's websites.
 - **Capable navigation** — scales with large documentation sets.
 - **Capable search** — help readers find what they want quickly.
 - **Modern architecture** — built with modern tooling (`sphinx-theme-builder`, Tailwind, `webpack`, and more).
+
+[sphinx]: https://www.sphinx-doc.org/
 
 <!-- end elevator-pitch -->
 
