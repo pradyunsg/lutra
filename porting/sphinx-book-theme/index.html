@@ -6,16 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<meta property="og:title" content="Workflow" />
+<meta property="og:title" content="From sphinx-book-theme" />
   
 <meta property="og:type" content="website" />
   
-<meta property="og:url" content="development/workflow/" />
-  
-<meta property="og:description" content="This page describes the workflow used during development of this project. It also serves as a reference for the various commands that you would use when working on this project. Overview: This proj..." />
+<meta property="og:url" content="porting/sphinx-book-theme/" />
   
 
-  <title>Workflow - Lutra</title><link rel="index" title="Index" href="../../genindex/" /><link rel="search" title="Search" href="../../search/" /><link rel="next" title="Kitchen Sink" href="../kitchen-sink/" /><link rel="prev" title="Development" href="../" />
+  <title>From sphinx-book-theme - Lutra</title><link rel="index" title="Index" href="../../genindex/" /><link rel="search" title="Search" href="../../search/" /><link rel="next" title="From Furo" href="../furo/" /><link rel="prev" title="From pydata-sphinx-theme" href="../pydata-sphinx-theme/" />
 <link rel="stylesheet" href="../../_static/skeleton.css" type="text/css" /><link rel="stylesheet" type="text/css" href="../../_static/pygments.css" /><link rel="stylesheet" type="text/css" href="../../_static/styles/lutra.css?digest=d9cdbd5ba8172dda5355c9c4235b9476" /><link rel="stylesheet" type="text/css" href="../../_static/tabs.css" /><link rel="stylesheet" type="text/css" href="../../_static/styles/lutra-extensions.css?digest=83954eb776abd5b90f3982e28169908b" />
 
 
@@ -165,9 +163,15 @@ html.dark {
     </div>
     
     <div class="toctree-container">
-      <ul>
+      <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../porting/">Porting to Lutra</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">Porting to Lutra</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sphinx-rtd-theme/">From sphinx-rtd-theme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pydata-sphinx-theme/">From pydata-sphinx-theme</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">From sphinx-book-theme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../furo/">From Furo</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Usage</span></p>
 <ul>
@@ -175,12 +179,8 @@ html.dark {
 <li class="toctree-l1"><a class="reference internal" href="../../customisation/">Customisation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Project</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../">Development</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Workflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kitchen-sink/">Kitchen Sink</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/">Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../governance/">Governance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../stability/">Stability Policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../changelog/">Changelog</a></li>
@@ -222,8 +222,8 @@ html.dark {
     <nav aria-label="Breadcrumb" class="breadcrumb-nav">
   <ol class="breadcrumb-nav-list">
     <li class="breadcrumb-nav-list-item breadcrumb-nav-index-item"><a href="../../">Home</a><span class="breadcrumb-separator" role="presentation"></span></li>
-    <li class="breadcrumb-nav-list-item"><a href="../">Development</a><span class="breadcrumb-separator" role="presentation"></span></li>
-    <li class="breadcrumb-nav-list-item breadcrumb-nav-page-item"><span>Workflow</span><span class="breadcrumb-separator" role="presentation"></span></li>
+    <li class="breadcrumb-nav-list-item"><a href="../">Porting to Lutra</a><span class="breadcrumb-separator" role="presentation"></span></li>
+    <li class="breadcrumb-nav-list-item breadcrumb-nav-page-item"><span>From sphinx-book-theme</span><span class="breadcrumb-separator" role="presentation"></span></li>
   </ol>
 </nav>
   
@@ -234,97 +234,18 @@ html.dark {
  ~ Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
  ~ SPDX-License-Identifier: CC-BY-SA-4.0
  -->
-<section id="workflow">
-<h1>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">#</a></h1>
-<p>This page describes the workflow used during development of this project. It also serves as a reference for the various commands that you would use when working on this project.</p>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
-<p>This project uses the <a class="reference external" href="https://guides.github.com/introduction/flow/">GitHub Flow</a> for collaboration.</p>
-<p>The codebase contains Python code, <a class="reference external" href="https://jinja.palletsprojects.com">Jinja2</a>-based HTML pages, <a class="reference external" href="https://postcss.org/">PostCSS</a> stylesheets and ES6 Javascript code.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://nox.readthedocs.io/en/stable/">nox</a> is used for automating development tasks.</p></li>
-<li><p><a class="reference external" href="https://pre-commit.com/">pre-commit</a> is used for running the linters.</p></li>
-<li><p><a class="reference external" href="https://github.com/pradyunsg/sphinx-theme-builder">sphinx-theme-builder</a> is used to aid theme development and packaging.</p></li>
-</ul>
-</section>
-<section id="initial-setup">
-<h2>Initial Setup<a class="headerlink" href="#initial-setup" title="Permalink to this headline">#</a></h2>
-<p>To work on this project, you need to have git 2.17+ and Python 3.7+. You also need to be on a platform with official releases by the maintainers of NodeJS and Python.</p>
-<ul>
-<li><p>Clone this project using git:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone https://github.com/pradyunsg/lutra.git
-<span class="gp">$ </span><span class="nb">cd</span> lutra
-</pre></div>
+<section id="from-sphinx-book-theme">
+<h1>From sphinx-book-theme<a class="headerlink" href="#from-sphinx-book-theme" title="Permalink to this headline">#</a></h1>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Write this, borrowing most of the migration info in index.md.</p>
 </div>
-</li>
-<li><p>Install <code class="docutils literal notranslate"><span class="pre">nox</span></code>, which provides various commands for the project’s development:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install nox
-</pre></div>
-</div>
-</li>
-</ul>
-<p>You’re all set for working on this project.</p>
-</section>
-<section id="commands">
-<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">#</a></h2>
-<section id="code-linting">
-<h3>Code Linting<a class="headerlink" href="#code-linting" title="Permalink to this headline">#</a></h3>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nox -s lint
-</pre></div>
-</div>
-<p>Run the linters, as configured with <a class="reference external" href="https://pre-commit.com/">pre-commit</a>.</p>
-</section>
-<section id="local-development-server">
-<h3>Local Development Server<a class="headerlink" href="#local-development-server" title="Permalink to this headline">#</a></h3>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nox -s docs-live
-</pre></div>
-</div>
-<p>Serve this project’s documentation locally, with a development server.</p>
-<p>The server watches for changes made to the documentation (<code class="docutils literal notranslate"><span class="pre">docs/</span></code>) or theme(<code class="docutils literal notranslate"><span class="pre">src/</span></code>), which will trigger a rebuild. Once the build is completed, server will automagically reload any open pages using livereload.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>My workflow, when I’m working on this theme, is along the lines of:</p>
-<ul class="simple">
-<li><p>Run this command, and wait for the browser window to open.</p></li>
-<li><p><kbd>alt</kbd>+<kbd>tab</kbd> gets me back to my text editor.</p></li>
-<li><p>Make changes to some files and save those changes.</p></li>
-<li><p><kbd>alt</kbd>+<kbd>tab</kbd> switches to the browser.</p></li>
-<li><p>After a small delay, the change is reflected in the browser.</p></li>
-<li><p>If I want to make more changes, <kbd>alt</kbd>+<kbd>tab</kbd> and I’m back to my text editor.</p></li>
-<li><p>Repeat the previous 4 steps until happy.</p></li>
-</ul>
-<p>- &#64;pradyunsg</p>
-</div>
-</section>
-<section id="documentation-generation">
-<h3>Documentation Generation<a class="headerlink" href="#documentation-generation" title="Permalink to this headline">#</a></h3>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nox -s docs
-</pre></div>
-</div>
-<p>Generate the documentation for Lutra into the <code class="docutils literal notranslate"><span class="pre">build/docs</span></code> folder. This generates the same thing as <code class="docutils literal notranslate"><span class="pre">nox</span> <span class="pre">-s</span> <span class="pre">docs-live</span></code> would serve, but does so by invoking <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> directly.</p>
-</section>
-</section>
-<section id="release-process">
-<h2>Release process<a class="headerlink" href="#release-process" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>Update the changelog</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">nox</span> <span class="pre">-s</span> <span class="pre">release</span></code></p></li>
-<li><p>Once that command succeeds, you’re done!</p></li>
-</ul>
-</section>
-<section id="installing-directly-from-github">
-<h2>Installing directly from GitHub<a class="headerlink" href="#installing-directly-from-github" title="Permalink to this headline">#</a></h2>
-<p>There are times when you might want to install the in-development version of Lutra (mostly for testing that a fix actually does fix things).</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install https://github.com/pradyunsg/lutra.git
-</pre></div>
-</div>
-</section>
 </section>
 </div>
   </article>
   <footer class="sb-footer-article">
     <div class="related-pages match-content-width">
-  <a class="prev-page" href="../">
+  <a class="prev-page" href="../pydata-sphinx-theme/">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
       </svg>
@@ -333,16 +254,16 @@ html.dark {
           <span>Previous</span>
         </div>
         
-        <div class="title">Development</div>
+        <div class="title">From pydata-sphinx-theme</div>
         
       </div>
     </a>
-  <a class="next-page" href="../kitchen-sink/">
+  <a class="next-page" href="../furo/">
       <div class="page-info">
         <div class="context">
           <span>Next</span>
         </div>
-        <div class="title">Kitchen Sink</div>
+        <div class="title">From Furo</div>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -359,26 +280,6 @@ html.dark {
     
     <div class="sidebar-link-container">
       <span id="searchbox"></span>
-    </div>
-    
-    <div class="toc-container">
-      <p class="page-navigation-prompt">On this page</p>
-      <ul>
-<li><a class="reference internal" href="#">Workflow</a><ul>
-<li><a class="reference internal" href="#overview">Overview</a></li>
-<li><a class="reference internal" href="#initial-setup">Initial Setup</a></li>
-<li><a class="reference internal" href="#commands">Commands</a><ul>
-<li><a class="reference internal" href="#code-linting">Code Linting</a></li>
-<li><a class="reference internal" href="#local-development-server">Local Development Server</a></li>
-<li><a class="reference internal" href="#documentation-generation">Documentation Generation</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#release-process">Release process</a></li>
-<li><a class="reference internal" href="#installing-directly-from-github">Installing directly from GitHub</a></li>
-</ul>
-</li>
-</ul>
-
     </div>
     
   </div>

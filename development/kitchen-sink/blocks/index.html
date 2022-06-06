@@ -16,7 +16,7 @@
   
 
   <title>Blocks - Lutra</title><link rel="index" title="Index" href="../../../genindex/" /><link rel="search" title="Search" href="../../../search/" /><link rel="next" title="Generic items" href="../generic/" /><link rel="prev" title="API documentation" href="../api/" />
-<link rel="stylesheet" href="../../../_static/skeleton.css" type="text/css" /><link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" /><link rel="stylesheet" type="text/css" href="../../../_static/styles/lutra.css?digest=0f755430be856161b1cc6ea65a1ed128" /><link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" /><link rel="stylesheet" type="text/css" href="../../../_static/styles/lutra-extensions.css?digest=83954eb776abd5b90f3982e28169908b" />
+<link rel="stylesheet" href="../../../_static/skeleton.css" type="text/css" /><link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" /><link rel="stylesheet" type="text/css" href="../../../_static/styles/lutra.css?digest=d9cdbd5ba8172dda5355c9c4235b9476" /><link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" /><link rel="stylesheet" type="text/css" href="../../../_static/styles/lutra-extensions.css?digest=83954eb776abd5b90f3982e28169908b" />
 
 
 
@@ -138,10 +138,7 @@ html.dark {
 
 <header class="sb-header-secondary">
   <div class="sb-header-secondary__inner sb-page-width">
-    <!-- TODO: Actually implement tabs, and some sort of "I'm not there" logic -->
-<div class="mx-4 text-red-500 text-sm flex items-center">
-  <div class="">Hello</div>
-</div>
+    
   </div>
 </header>
 
@@ -167,9 +164,18 @@ html.dark {
       </a>
     </div>
     
-    
-    <div class="toctree-container only-show-inner-toctree">
-      <p class="caption" role="heading"><span class="caption-text">Project</span></p><ul class="current">
+    <div class="toctree-container">
+      <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../porting/">Porting to Lutra</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration/">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../customisation/">Customisation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../">Development</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../workflow/">Workflow</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../">Kitchen Sink</a><ul class="current">
@@ -192,8 +198,8 @@ html.dark {
 <li class="toctree-l1"><a class="reference internal" href="../../../stability/">Stability Policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../changelog/">Changelog</a></li>
 </ul>
+
     </div>
-    
     
   </div>
 </div>
@@ -306,7 +312,7 @@ the left edge of the text above it.</div>
 </div>
 <div class="line-block">
 <div class="line">This is a second line block.</div>
-<div class="line"><br/></div>
+<div class="line"><br /></div>
 <div class="line">Blank lines are permitted internally, but they must begin with a “|”.</div>
 </div>
 <p>This is a normal text paragraph again.</p>
@@ -326,13 +332,13 @@ writing.</p>
 annoying.</p>
 <pre>
 <strong id="grammar-token-try_stmt"><span id="grammar-token-try-stmt"></span>try_stmt </strong> ::=  try1_stmt | try2_stmt
-<strong id="grammar-token-try1_stmt"><span id="grammar-token-try1-stmt"></span>try1_stmt</strong> ::=  "try" ":" <code class="xref docutils literal notranslate"><span class="pre">suite</span></code>
-               ("except" [<code class="xref docutils literal notranslate"><span class="pre">expression</span></code> ["," <code class="xref docutils literal notranslate"><span class="pre">target</span></code>]] ":" <code class="xref docutils literal notranslate"><span class="pre">suite</span></code>)+
-               ["else" ":" <code class="xref docutils literal notranslate"><span class="pre">suite</span></code>]
-               ["finally" ":" <code class="xref docutils literal notranslate"><span class="pre">suite</span></code>]
-<strong id="grammar-token-try2_stmt"><span id="grammar-token-try2-stmt"></span>try2_stmt</strong> ::=  "try" ":" <code class="xref docutils literal notranslate"><span class="pre">suite</span></code>
-               "finally" ":" <code class="xref docutils literal notranslate"><span class="pre">suite</span></code>
-               "this-is-intentionally-very-stupidly-long-to-make-sure-that-this-has-a-proper-scrollbar"
+<strong id="grammar-token-try1_stmt"><span id="grammar-token-try1-stmt"></span>try1_stmt</strong> ::=  &quot;try&quot; &quot;:&quot; <code class="xref docutils literal notranslate"><span class="pre">suite</span></code>
+               (&quot;except&quot; [<code class="xref docutils literal notranslate"><span class="pre">expression</span></code> [&quot;,&quot; <code class="xref docutils literal notranslate"><span class="pre">target</span></code>]] &quot;:&quot; <code class="xref docutils literal notranslate"><span class="pre">suite</span></code>)+
+               [&quot;else&quot; &quot;:&quot; <code class="xref docutils literal notranslate"><span class="pre">suite</span></code>]
+               [&quot;finally&quot; &quot;:&quot; <code class="xref docutils literal notranslate"><span class="pre">suite</span></code>]
+<strong id="grammar-token-try2_stmt"><span id="grammar-token-try2-stmt"></span>try2_stmt</strong> ::=  &quot;try&quot; &quot;:&quot; <code class="xref docutils literal notranslate"><span class="pre">suite</span></code>
+               &quot;finally&quot; &quot;:&quot; <code class="xref docutils literal notranslate"><span class="pre">suite</span></code>
+               &quot;this-is-intentionally-very-stupidly-long-to-make-sure-that-this-has-a-proper-scrollbar&quot;
 </pre>
 </section>
 <section id="literal-blocks">
@@ -352,7 +358,7 @@ annoying.</p>
 <p>They can be quoted without indentation:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; Great idea!
 &gt;
-&gt; Why didn't I think of that?
+&gt; Why didn&#39;t I think of that?
 </pre></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id1">
@@ -382,11 +388,11 @@ annoying.</p>
 <p class="admonition-title">Note</p>
 <p>This is fine.</p>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">'Python-specific usage examples; begun with "&gt;&gt;&gt;"'</span><span class="p">)</span>
-<span class="go">Python-specific usage examples; begun with "&gt;&gt;&gt;"</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">"(cut and pasted from interactive Python sessions)"</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Python-specific usage examples; begun with &quot;&gt;&gt;&gt;&quot;&#39;</span><span class="p">)</span>
+<span class="go">Python-specific usage examples; begun with &quot;&gt;&gt;&gt;&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(cut and pasted from interactive Python sessions)&quot;</span><span class="p">)</span>
 <span class="go">(cut and pasted from interactive Python sessions)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">"This is an intentionally very long line because I want to make sure that we are handling scrollable code blocks correctly."</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is an intentionally very long line because I want to make sure that we are handling scrollable code blocks correctly.&quot;</span><span class="p">)</span>
 <span class="go">This is an intentionally very long line because I want to make sure that we are handling scrollable code blocks correctly.</span>
 </pre></div>
 </div>
@@ -399,7 +405,7 @@ annoying.</p>
 </div></blockquote>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># parsed-literal test</span>
 <span class="n">curl</span> <span class="o">-</span><span class="n">O</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">someurl</span><span class="o">/</span><span class="n">release</span><span class="o">-</span><span class="mf">0.1.0</span><span class="o">.</span><span class="n">tar</span><span class="o">-</span><span class="n">gz</span>
-<span class="n">echo</span> <span class="s2">"This is an intentionally very long line because I want to make sure that we are handling scrollable code blocks correctly."</span>
+<span class="n">echo</span> <span class="s2">&quot;This is an intentionally very long line because I want to make sure that we are handling scrollable code blocks correctly.&quot;</span>
 </pre></div>
 </div>
 </section>
@@ -416,7 +422,7 @@ annoying.</p>
 <span class="linenos"> 4</span><span class="k">class</span> <span class="nc">Math</span><span class="p">:</span>
 <span class="linenos"> 5</span>    <span class="nd">@staticmethod</span>
 <span class="linenos"> 6</span>    <span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-<span class="linenos"> 7</span>        <span class="sd">"""Fibonacci series up to n"""</span>
+<span class="linenos"> 7</span>        <span class="sd">&quot;&quot;&quot;Fibonacci series up to n&quot;&quot;&quot;</span>
 <span class="linenos"> 8</span>        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
 <span class="linenos"> 9</span>        <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
 <span class="linenos">10</span>            <span class="k">yield</span> <span class="n">a</span>
@@ -424,7 +430,7 @@ annoying.</p>
 <span class="linenos">12</span>
 <span class="linenos">13</span>
 <span class="linenos">14</span><span class="n">result</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">Math</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>
-<span class="linenos">15</span><span class="nb">print</span><span class="p">(</span><span class="s2">"The answer is </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+<span class="linenos">15</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The answer is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
 </pre></div>
 </div>
 <section id="with-caption">
@@ -432,15 +438,15 @@ annoying.</p>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">Code Blocks can have captions, which also adds a link to it.</span><a class="headerlink" href="#id2" title="Permalink to this code">#</a></div>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nt">"session_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shorthands"</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">"windows"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;session_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shorthands&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;windows&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nt">"panes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;panes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="nt">"shell_command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"echo 'This is an intentionally very long line because I want to make sure that we are handling scrollable code blocks correctly.'"</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;shell_command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;echo &#39;This is an intentionally very long line because I want to make sure that we are handling scrollable code blocks correctly.&#39;&quot;</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">      </span><span class="p">],</span><span class="w"></span>
-<span class="w">      </span><span class="nt">"window_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"long form"</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;window_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;long form&quot;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="w">  </span><span class="p">]</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
@@ -452,11 +458,11 @@ annoying.</p>
 <h4>With line numbers<a class="headerlink" href="#with-line-numbers" title="Permalink to this headline">#</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span> <span class="nf">some_function</span><span class="p">():</span>
 <span class="linenos">2</span>    <span class="n">interesting</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="hll"><span class="linenos">3</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"This line is highlighted."</span><span class="p">)</span>
-</span><span class="linenos">4</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"This one is not..."</span><span class="p">)</span>
-<span class="hll"><span class="linenos">5</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"...but this one is."</span><span class="p">)</span>
+<span class="hll"><span class="linenos">3</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This line is highlighted.&quot;</span><span class="p">)</span>
+</span><span class="linenos">4</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This one is not...&quot;</span><span class="p">)</span>
+<span class="hll"><span class="linenos">5</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;...but this one is.&quot;</span><span class="p">)</span>
 </span><span class="linenos">6</span>    <span class="nb">print</span><span class="p">(</span>
-<span class="linenos">7</span>        <span class="s2">"This is an intentionally very long line because I want to make sure that we are handling scrollable code blocks correctly."</span>
+<span class="linenos">7</span>        <span class="s2">&quot;This is an intentionally very long line because I want to make sure that we are handling scrollable code blocks correctly.&quot;</span>
 <span class="linenos">8</span>    <span class="p">)</span>
 </pre></div>
 </div>
@@ -493,7 +499,7 @@ algorithm ford-fulkerson is
 </div>
   </article>
   <footer class="sb-footer-article">
-    <div class="related-pages">
+    <div class="related-pages match-content-width">
   <a class="prev-page" href="../api/">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />

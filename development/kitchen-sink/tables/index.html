@@ -16,7 +16,7 @@
   
 
   <title>Tables - Lutra</title><link rel="index" title="Index" href="../../../genindex/" /><link rel="search" title="Search" href="../../../search/" /><link rel="next" title="Typography" href="../typography/" /><link rel="prev" title="Structural Elements" href="../structure/" />
-<link rel="stylesheet" href="../../../_static/skeleton.css" type="text/css" /><link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" /><link rel="stylesheet" type="text/css" href="../../../_static/styles/lutra.css?digest=0f755430be856161b1cc6ea65a1ed128" /><link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" /><link rel="stylesheet" type="text/css" href="../../../_static/styles/lutra-extensions.css?digest=83954eb776abd5b90f3982e28169908b" />
+<link rel="stylesheet" href="../../../_static/skeleton.css" type="text/css" /><link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" /><link rel="stylesheet" type="text/css" href="../../../_static/styles/lutra.css?digest=d9cdbd5ba8172dda5355c9c4235b9476" /><link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" /><link rel="stylesheet" type="text/css" href="../../../_static/styles/lutra-extensions.css?digest=83954eb776abd5b90f3982e28169908b" />
 
 
 
@@ -138,10 +138,7 @@ html.dark {
 
 <header class="sb-header-secondary">
   <div class="sb-header-secondary__inner sb-page-width">
-    <!-- TODO: Actually implement tabs, and some sort of "I'm not there" logic -->
-<div class="mx-4 text-red-500 text-sm flex items-center">
-  <div class="">Hello</div>
-</div>
+    
   </div>
 </header>
 
@@ -167,9 +164,18 @@ html.dark {
       </a>
     </div>
     
-    
-    <div class="toctree-container only-show-inner-toctree">
-      <p class="caption" role="heading"><span class="caption-text">Project</span></p><ul class="current">
+    <div class="toctree-container">
+      <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../porting/">Porting to Lutra</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration/">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../customisation/">Customisation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../">Development</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../workflow/">Workflow</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../">Kitchen Sink</a><ul class="current">
@@ -192,8 +198,8 @@ html.dark {
 <li class="toctree-l1"><a class="reference internal" href="../../../stability/">Stability Policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../changelog/">Changelog</a></li>
 </ul>
+
     </div>
-    
     
   </div>
 </div>
@@ -242,12 +248,13 @@ html.dark {
 <section id="grid-tables">
 <h2>Grid Tables<a class="headerlink" href="#grid-tables" title="Permalink to this headline">#</a></h2>
 <p>Here’s a grid table followed by a simple table:</p>
-<div class="table-wrapper"><table class="docutils align-default">
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
 <colgroup>
-<col style="width: 43%"/>
-<col style="width: 21%"/>
-<col style="width: 18%"/>
-<col style="width: 18%"/>
+<col style="width: 43%" />
+<col style="width: 21%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Header row, column 1
@@ -284,12 +291,14 @@ empty: <code class="docutils literal notranslate"><span class="pre">--&gt;</span
 <td></td>
 </tr>
 </tbody>
-</table></div>
-<div class="table-wrapper"><table class="docutils align-default">
+</table>
+</div>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
 <colgroup>
-<col style="width: 31%"/>
-<col style="width: 31%"/>
-<col style="width: 38%"/>
+<col style="width: 31%" />
+<col style="width: 31%" />
+<col style="width: 38%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head" colspan="2"><p>Inputs</p></th>
@@ -318,23 +327,25 @@ empty: <code class="docutils literal notranslate"><span class="pre">--&gt;</span
 <td><p>True</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <section id="giant-tables">
 <h3>Giant Tables<a class="headerlink" href="#giant-tables" title="Permalink to this headline">#</a></h3>
-<div class="table-wrapper"><table class="docutils align-default">
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
 <colgroup>
-<col style="width: 9%"/>
-<col style="width: 9%"/>
-<col style="width: 8%"/>
-<col style="width: 9%"/>
-<col style="width: 9%"/>
-<col style="width: 8%"/>
-<col style="width: 9%"/>
-<col style="width: 9%"/>
-<col style="width: 8%"/>
-<col style="width: 9%"/>
-<col style="width: 9%"/>
-<col style="width: 8%"/>
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Header 1</p></th>
@@ -405,15 +416,17 @@ empty: <code class="docutils literal notranslate"><span class="pre">--&gt;</span
 <td><p>column 3</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 </section>
 </section>
 <section id="table-containing-code">
 <h2>Table containing code<a class="headerlink" href="#table-containing-code" title="Permalink to this headline">#</a></h2>
-<div class="table-wrapper"><table class="docutils align-default">
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
 <colgroup>
-<col style="width: 23%"/>
-<col style="width: 77%"/>
+<col style="width: 23%" />
+<col style="width: 77%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Version</p></th>
@@ -422,7 +435,7 @@ empty: <code class="docutils literal notranslate"><span class="pre">--&gt;</span
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Pradyun’s pip fork and installer</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install <span class="s2">"pip @ git+https://github.com/pradyunsg/pip#20.3.3"</span> <span class="s2">"installer @ git+https://github.com/pradyunsg/installer"</span>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install <span class="s2">&quot;pip @ git+https://github.com/pradyunsg/pip#20.3.3&quot;</span> <span class="s2">&quot;installer @ git+https://github.com/pradyunsg/installer&quot;</span>
 </pre></div>
 </div>
 </td>
@@ -434,17 +447,19 @@ empty: <code class="docutils literal notranslate"><span class="pre">--&gt;</span
 </td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 </section>
 <section id="list-tables">
 <h2>List Tables<a class="headerlink" href="#list-tables" title="Permalink to this headline">#</a></h2>
-<div class="table-wrapper"><table class="colwidths-given docutils align-default" id="id1">
+<div class="table-wrapper colwidths-given docutils container" id="id1">
+<table class="colwidths-given docutils align-default" id="id1">
 <caption><span class="caption-text">List tables can have captions like this one.</span><a class="headerlink" href="#id1" title="Permalink to this table">#</a></caption>
 <colgroup>
-<col style="width: 13%"/>
-<col style="width: 7%"/>
-<col style="width: 13%"/>
-<col style="width: 67%"/>
+<col style="width: 13%" />
+<col style="width: 7%" />
+<col style="width: 13%" />
+<col style="width: 67%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head stub"><p>List table</p></th>
@@ -470,23 +485,25 @@ empty: <code class="docutils literal notranslate"><span class="pre">--&gt;</span
 <td><p>Column 3 long. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet mauris arcu.</p></td>
 </tr>
 </tbody>
-</table></div>
-<div class="table-wrapper"><table class="docutils align-default" id="id2">
+</table>
+</div>
+<div class="table-wrapper docutils container" id="id2">
+<table class="docutils align-default" id="id2">
 <caption><span class="caption-text">This is a list table with images in it.</span><a class="headerlink" href="#id2" title="Permalink to this table">#</a></caption>
 <colgroup>
-<col style="width: 50%"/>
-<col style="width: 50%"/>
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><figure class="align-default" id="id3">
-<img alt="https://source.unsplash.com/200x200/daily?cute+puppy" src="https://source.unsplash.com/200x200/daily?cute+puppy"/>
+<img alt="https://source.unsplash.com/200x200/daily?cute+puppy" src="https://source.unsplash.com/200x200/daily?cute+puppy" />
 <figcaption>
 <p><span class="caption-text">This is a short caption for a figure.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="id4">
-<img alt="https://source.unsplash.com/200x200/daily?cute+puppy" src="https://source.unsplash.com/200x200/daily?cute+puppy"/>
+<img alt="https://source.unsplash.com/200x200/daily?cute+puppy" src="https://source.unsplash.com/200x200/daily?cute+puppy" />
 <figcaption>
 <p><span class="caption-text">This is a long caption for a figure. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Donec porttitor dolor in odio posuere, vitae ornare libero mattis. In lobortis justo vestibulum nibh aliquet, non.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
@@ -495,13 +512,14 @@ Donec porttitor dolor in odio posuere, vitae ornare libero mattis. In lobortis j
 </td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 </section>
 </section>
 </div>
   </article>
   <footer class="sb-footer-article">
-    <div class="related-pages">
+    <div class="related-pages match-content-width">
   <a class="prev-page" href="../structure/">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />

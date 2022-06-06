@@ -15,8 +15,8 @@
 <meta property="og:description" content="Welcome! Happy to see that you liked this theme enough to try using it! :) This document serves as a guide for porting existing Sphinx documentation to use Lutra. Notably, it contains troubleshooti..." />
   
 
-  <title>Porting to Lutra - Lutra</title><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Configuration" href="../configuration/" /><link rel="prev" title="Getting Started" href="../getting-started/" />
-<link rel="stylesheet" href="../_static/skeleton.css" type="text/css" /><link rel="stylesheet" type="text/css" href="../_static/pygments.css" /><link rel="stylesheet" type="text/css" href="../_static/styles/lutra.css?digest=0f755430be856161b1cc6ea65a1ed128" /><link rel="stylesheet" type="text/css" href="../_static/tabs.css" /><link rel="stylesheet" type="text/css" href="../_static/styles/lutra-extensions.css?digest=83954eb776abd5b90f3982e28169908b" />
+  <title>Porting to Lutra - Lutra</title><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="From sphinx-rtd-theme" href="sphinx-rtd-theme/" /><link rel="prev" title="Getting Started" href="../getting-started/" />
+<link rel="stylesheet" href="../_static/skeleton.css" type="text/css" /><link rel="stylesheet" type="text/css" href="../_static/pygments.css" /><link rel="stylesheet" type="text/css" href="../_static/styles/lutra.css?digest=d9cdbd5ba8172dda5355c9c4235b9476" /><link rel="stylesheet" type="text/css" href="../_static/tabs.css" /><link rel="stylesheet" type="text/css" href="../_static/styles/lutra-extensions.css?digest=83954eb776abd5b90f3982e28169908b" />
 
 
 
@@ -138,10 +138,7 @@ html.dark {
 
 <header class="sb-header-secondary">
   <div class="sb-header-secondary__inner sb-page-width">
-    <!-- TODO: Actually implement tabs, and some sort of "I'm not there" logic -->
-<div class="mx-4 text-red-500 text-sm flex items-center">
-  <div class="">Hello</div>
-</div>
+    
   </div>
 </header>
 
@@ -167,14 +164,31 @@ html.dark {
       </a>
     </div>
     
-    
-    <div class="toctree-container only-show-inner-toctree">
+    <div class="toctree-container">
       <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting Started</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Porting to Lutra</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Porting to Lutra</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sphinx-rtd-theme/">From sphinx-rtd-theme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pydata-sphinx-theme/">From pydata-sphinx-theme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sphinx-book-theme/">From sphinx-book-theme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="furo/">From Furo</a></li>
 </ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customisation/">Customisation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../governance/">Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stability/">Stability Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
+</ul>
+
     </div>
-    
     
   </div>
 </div>
@@ -225,6 +239,14 @@ html.dark {
 <h1>Porting to Lutra<a class="headerlink" href="#porting-to-lutra" title="Permalink to this headline">#</a></h1>
 <p>Welcome! Happy to see that you liked this theme enough to try using it! :)</p>
 <p>This document serves as a guide for porting existing Sphinx documentation to use Lutra. Notably, it contains troubleshooting advice, to help you identify issues.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sphinx-rtd-theme/">From sphinx-rtd-theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pydata-sphinx-theme/">From pydata-sphinx-theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx-book-theme/">From sphinx-book-theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="furo/">From Furo</a></li>
+</ul>
+</div>
 <section id="start-using-lutra">
 <h2>Start using Lutra<a class="headerlink" href="#start-using-lutra" title="Permalink to this headline">#</a></h2>
 <p>You can install Lutra from PyPI.</p>
@@ -232,7 +254,7 @@ html.dark {
 </pre></div>
 </div>
 <p>Update your <code class="docutils literal notranslate"><span class="pre">html_theme</span></code> in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>, to use Lutra:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s2">"lutra"</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;lutra&quot;</span>
 </pre></div>
 </div>
 <p>If your documentation is straightforward, not on the happy path, If that didn’t “just work”, , see the <a class="reference internal" href="#organise-build-configuration"><span class="std std-ref">Organise your conf.py</span></a> and <a class="reference internal" href="#porting-troubleshooting"><span class="std std-ref">Troubleshooting</span></a> sections below.</p>
@@ -340,7 +362,7 @@ html.dark {
 </div>
   </article>
   <footer class="sb-footer-article">
-    <div class="related-pages">
+    <div class="related-pages match-content-width">
   <a class="prev-page" href="../getting-started/">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -354,12 +376,12 @@ html.dark {
         
       </div>
     </a>
-  <a class="next-page" href="../configuration/">
+  <a class="next-page" href="sphinx-rtd-theme/">
       <div class="page-info">
         <div class="context">
           <span>Next</span>
         </div>
-        <div class="title">Configuration</div>
+        <div class="title">From sphinx-rtd-theme</div>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
