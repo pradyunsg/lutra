@@ -15,7 +15,7 @@
 /* Content footer */
 // Next/Prev page information
 .related-pages {
-  @apply flex flex-row items-center text-xs mb-4 mt-8;
+  @apply flex flex-row items-center text-xs mb-4 mt-8 p-0;
   a {
     @apply flex flex-row items-center flex-1 rounded mx-2 p-1;
 
