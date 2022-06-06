@@ -9,7 +9,7 @@
 
 <!-- start elevator-pitch -->
 
-Lutra is a documentation website theme for Sphinx. It has been written with the goal of raising the bar for Sphinx-based documentation websites. The design aesthetic is minimal and modern.
+Lutra is a [Sphinx] theme.
 
 - **Statically awesome** — powered by [Sphinx], enabling the use of the _huge_ ecosystem of plugins and extensions.
 - **Responsive** — works across all sorts of screen resolutions.
