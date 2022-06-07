@@ -54,6 +54,11 @@ ul.search {
 
   li {
     @apply ml-0 mt-3 pb-3 border-b border-b-slate-500/20;
+
+    > a {
+      // This is the document that this came from
+      @apply text-lg;
+    }
   }
 }
 
