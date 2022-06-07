@@ -14,15 +14,6 @@
 
 <div class="page-navigation-container sidebar-sticky">
   <div class="sidebar-scroll">
-    {% if READTHEDOCS %}
-    <div
-      id="lutra-sidebar-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true"
-    ></div>
-    {% endif %}
     <div class="sidebar-link-container">
       <span id="searchbox"></span>
       {%- if theme_sidebar_links -%}
@@ -36,6 +27,15 @@
       <p class="page-navigation-prompt">{{ _("On this page") }}</p>
       {{ toc }}
     </div>
+    {% endif %}
+    {% if READTHEDOCS %}
+    <div
+      id="lutra-sidebar-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true"
+    ></div>
     {% endif %}
   </div>
 </div>
