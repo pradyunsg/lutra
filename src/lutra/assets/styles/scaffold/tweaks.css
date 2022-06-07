@@ -82,3 +82,19 @@ html {
     display: block;
   }
 }
+
+/* Hack: remove me once sphinx-basic-ng alpha 11 is no longer relevant. */
+@media (min-width: 90rem) {
+  [role="main"],
+  .match-content-width {
+    width: 50rem;
+  }
+  .sb-footer-content__inner,
+  .drop-secondary-sidebar-for-full-width-content [role="main"],
+  .drop-secondary-sidebar-for-full-width-content .match-content-width {
+    width: 67rem;
+  }
+  .sb-page-width {
+    width: 84rem;
+  }
+}
