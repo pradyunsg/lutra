@@ -123,6 +123,28 @@ def _subtree_caption_navigation(
     )
 
 
+def _subtree_toctree_navigation(
+    builder: StandaloneHTMLBuilder,
+    toctree: docutils.nodes.Element,
+) -> NavigationInformation:
+    """Show the top-level bullet list that the page is within, with caption. No tabs.
+
+    Unlike subtree-caption, this does not enforce that you provide a caption for
+    each toctree.
+    """
+    # Locate the current bullet_list, or use the entire tree.
+    toctree_fragment = _get_fragment_for_current_top_level_bullet_list(toctree)
+    if toctree_fragment is None:
+        toctree_fragment = toctree
+
+    toctree_html = render_fragment(builder, toctree_fragment)
+
+    return NavigationInformation(
+        toctree_html=toctree_html,
+        tabs_html="",
+    )
+
+
 def _subtree_document_navigation(
     builder: StandaloneHTMLBuilder,
     toctree: docutils.nodes.Element,
@@ -192,13 +214,12 @@ def _tabs_caption_navigation(
         toctree_fragment = toctree.copy()
         toctree_fragment.append(caption.deepcopy())
         toctree_fragment.append(bullet_list.deepcopy())
+
+        toctree_html = render_fragment(builder, toctree_fragment)
         break
     else:
-        # No current tab found. Let's render the entire toctree.
-        toctree_fragment = toctree
-
-    # Sidebar
-    toctree_html = render_fragment(builder, toctree_fragment)
+        # No current tab found. Let's not render a toctree for this page.
+        toctree_html = ""
 
     # Tabs
     tab_list_to_render = docutils.nodes.bullet_list(classes=["lutra-tabs"])
@@ -308,6 +329,7 @@ def determine_navigation_information(
         "plain": _plain_navigation,
         "subtree-caption": _subtree_caption_navigation,
         "subtree-document": _subtree_document_navigation,
+        "subtree-toctree": _subtree_toctree_navigation,
         "tabs-caption": _tabs_caption_navigation,
         "tabs-document": _tabs_document_navigation,
     }
