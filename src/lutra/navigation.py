@@ -13,7 +13,7 @@
 """Transform the navigation tree, from Sphinx's toctree function's output."""
 
 from functools import lru_cache
-from typing import Any, Dict, Iterable, List, NamedTuple, Tuple, TypeVar
+from typing import Any, Dict, Iterable, List, NamedTuple, Optional, Tuple, TypeVar
 
 import docutils.nodes
 from sphinx.builders.html import StandaloneHTMLBuilder
@@ -63,6 +63,28 @@ def _plain_navigation(
     )
 
 
+def _get_fragment_for_current_top_level_bullet_list(
+    toctree: docutils.nodes.Element,
+) -> Optional[docutils.nodes.Element]:
+    for index, element in enumerate(toctree):
+        if not element.attributes.get("iscurrent"):
+            continue
+
+        toctree_fragment = element
+        # If there's a caption before this bullet list, include it.
+        if not index:
+            return None
+        if toctree[index - 1].tagname != "title":  # type: ignore
+            return None
+
+        toctree_fragment = toctree.copy()
+        toctree_fragment.append(toctree[index - 1])
+        toctree_fragment.append(element)
+        return toctree_fragment
+
+    return None
+
+
 def _subtree_caption_navigation(
     builder: StandaloneHTMLBuilder,
     toctree: docutils.nodes.Element,
@@ -88,17 +110,9 @@ def _subtree_caption_navigation(
                     "declarations to have a caption. TODO: improve this msg."
                 )
 
-    # Locate the current bullet_list
-    for index, element in enumerate(toctree):
-        if element.attributes.get("iscurrent"):
-            toctree_fragment = element
-            # If there's a caption before this bullet list, include it.
-            if index >= 1 and toctree[index - 1].tagname == "title":  # type: ignore
-                toctree_fragment = toctree.copy()
-                toctree_fragment.append(toctree[index - 1])
-                toctree_fragment.append(element)
-            break
-    else:
+    # Locate the current bullet_list, or use the entire tree.
+    toctree_fragment = _get_fragment_for_current_top_level_bullet_list(toctree)
+    if toctree_fragment is None:
         toctree_fragment = toctree
 
     toctree_html = render_fragment(builder, toctree_fragment)
