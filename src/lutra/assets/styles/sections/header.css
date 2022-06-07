@@ -49,7 +49,7 @@
   @apply hidden;
 }
 .show-tabs .sb-header-secondary {
-  @apply block;
+  @apply flex;
   z-index: 29;
   background: var(--color_bg-header);
   box-shadow: var(--shadow-header);
