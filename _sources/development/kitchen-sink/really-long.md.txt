@@ -1,9 +1,3 @@
-<!--
- ~ Copyright (c) 2021 Pradyun Gedam
- ~ Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
- ~ SPDX-License-Identifier: CC-BY-SA-4.0
- -->
-
 ```{admonition} Mimicking ReadTheDocs' PR previews
 :class: warning
 This is simulating how ReadTheDocs puts admonitions on top of previews.

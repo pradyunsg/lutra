@@ -2,12 +2,6 @@
 layout: no-toc
 ---
 
-<!--
- ~ Copyright (c) 2021 Pradyun Gedam
- ~ Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
- ~ SPDX-License-Identifier: CC-BY-SA-4.0
- -->
-
 # `no-toc` layout
 
 This removes the sidebar that would contain the "on this page" table of contents and allows you to use the `full-width` directive to expand content into that region.

@@ -16,7 +16,7 @@
   
 
   <title>Lists - Lutra</title><link rel="index" title="Index" href="../../../genindex/" /><link rel="search" title="Search" href="../../../search/" /><link rel="next" title="Really Long Page Title because we should test wrapping in various parts of the site to make sure this is handled correctly" href="../really-long/" /><link rel="prev" title="Images &amp; Figures" href="../images/" />
-<link rel="stylesheet" href="../../../_static/skeleton.css" type="text/css" /><link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" /><link rel="stylesheet" type="text/css" href="../../../_static/styles/lutra.css?digest=0d0362a498a0d172e90af40b7db53338" /><link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" /><link rel="stylesheet" type="text/css" href="../../../_static/styles/lutra-extensions.css?digest=83954eb776abd5b90f3982e28169908b" />
+<link rel="stylesheet" href="../../../_static/skeleton.css" type="text/css" /><link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" /><link rel="stylesheet" type="text/css" href="../../../_static/styles/lutra.css?digest=986422e0c15de30ec99baecc423fde9f" /><link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" /><link rel="stylesheet" type="text/css" href="../../../_static/styles/lutra-extensions.css?digest=83954eb776abd5b90f3982e28169908b" />
 
 
 
@@ -457,17 +457,17 @@ A1B 2C3</p>
 <ul>
 <li><p>one more <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">an</span> <span class="pre">inline</span> <span class="pre">literally</span></code>. <a class="reference external" href="http://www.yahoo.com">yahoo</a></p>
 <p>heh heh. child. try to beat this embed:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># Copyright (c) 2021 Pradyun Gedam</span>
-<span class="linenos"> 2</span><span class="c1"># Licensed under MIT License</span>
-<span class="linenos"> 3</span><span class="c1"># SPDX-License-Identifier: MIT</span>
-<span class="linenos"> 4</span><span class="c1">#</span>
-<span class="linenos"> 5</span><span class="c1"># THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS</span>
-<span class="linenos"> 6</span><span class="c1"># OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
-<span class="linenos"> 7</span><span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL</span>
-<span class="linenos"> 8</span><span class="c1"># THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR</span>
-<span class="linenos"> 9</span><span class="c1"># OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,</span>
-<span class="linenos">10</span><span class="c1"># ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR</span>
-<span class="linenos">11</span><span class="c1"># OTHER DEALINGS IN THE SOFTWARE.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="sd">&quot;&quot;&quot;A clean and capable Sphinx documentation theme.&quot;&quot;&quot;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;2021.10.09.dev1&quot;</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="linenos"> 6</span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="linenos"> 7</span><span class="kn">import</span> <span class="nn">os</span>
+<span class="linenos"> 8</span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
+<span class="linenos"> 9</span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos">10</span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="linenos">11</span>
 </pre></div>
 </div>
 </li>
