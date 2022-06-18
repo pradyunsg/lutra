@@ -13,9 +13,6 @@ html:not(.dark) {
   --color_bg--transparent: #ffffff00;
   --color_text: theme("colors.black");
 
-  /* Theme Toggle */
-  --color_text-theme: var(--theme-primary);
-
   /* Links */
   --color_text-link: var(--color_text);
   --color_text-link--hover: var(--theme-primary);
@@ -124,9 +121,6 @@ html.dark {
   --color_bg: #0d1116;
   --color_bg--transparent: #0d111600;
   --color_text: #c9d1d9;
-
-  /* Theme Toggle */
-  --color_text-theme: var(--theme-primary_dark);
 
   /* Links */
   --color_text-link: var(--color_text);

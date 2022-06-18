@@ -4,6 +4,10 @@ body {
   color: var(--color_text);
 }
 
+.theme-toggle svg {
+  @apply h-5 w-5;
+}
+
 .theme-icon-when-auto,
 .theme-icon-when-dark,
 .theme-icon-when-light {
@@ -14,11 +18,9 @@ body[data-theme="auto"] .theme-icon-when-auto {
 }
 body[data-theme="dark"] .theme-icon-when-dark {
   @apply block;
-  color: var(--color_text-theme);
 }
 body[data-theme="light"] .theme-icon-when-light {
   @apply block;
-  color: var(--color_text-theme);
 }
 
 /* These have `body` to increase specificity. */
