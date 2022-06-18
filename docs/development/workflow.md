@@ -1,9 +1,3 @@
-<!--
- ~ Copyright (c) 2021 Pradyun Gedam
- ~ Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
- ~ SPDX-License-Identifier: CC-BY-SA-4.0
- -->
-
 # Workflow
 
 This page describes the workflow used during development of this project. It also serves as a reference for the various commands that you would use when working on this project.

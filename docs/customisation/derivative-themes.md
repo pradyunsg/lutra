@@ -1,9 +1,3 @@
-<!--
- ~ Copyright (c) 2021 Pradyun Gedam
- ~ Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
- ~ SPDX-License-Identifier: CC-BY-SA-4.0
- -->
-
 # Creating a derivative theme
 
 Hello there! Happy to know that you're interesting creating a derivative theme!
