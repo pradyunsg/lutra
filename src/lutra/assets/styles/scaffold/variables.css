@@ -52,7 +52,7 @@ html:not(.dark) {
   --color_bg-link-sidebar--active--hover: theme("colors.gray.100");
 
   /* Sidebar collapse */
-  --color_bg-sidebar_collapse: var(--color_bg);
+  --color_bg-sidebar_collapse: var(--border-site_sidebar);
   --color_text-sidebar_collapse: theme("colors.gray.400");
   --border-sidebar_collapse: var(--border-site_sidebar);
 
@@ -161,7 +161,7 @@ html.dark {
   --color_bg-link-sidebar--active--hover: theme("colors.gray.800/70");
 
   /* Sidebar collapse */
-  --color_bg-sidebar_collapse: var(--color_bg);
+  --color_bg-sidebar_collapse: var(--border-site_sidebar);
   --color_text-sidebar_collapse: theme("colors.gray.500");
   --border-sidebar_collapse: var(--border-site_sidebar);
 
