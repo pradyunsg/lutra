@@ -30,6 +30,10 @@ html {
   width: 100vw;
 }
 
+.sb-article-container {
+  @apply mt-4;
+}
+
 @media (min-width: 42rem) {
   .sb-article-container,
   .sb-footer-content__inner {
@@ -44,6 +48,10 @@ html {
 @media (min-width: 59rem) {
   .sb-sidebar-secondary {
     z-index: unset;
+  }
+  /* Align with the rest of scaffold */
+  .sb-article-container {
+    @apply mt-10;
   }
 }
 @media (min-width: 67rem) {
