@@ -21,7 +21,7 @@
 }
 
 .sb-header-article {
-  @apply sticky top-16;
+  @apply sticky top-12;
   @apply z-10;
 
   background: linear-gradient(
