@@ -17,7 +17,6 @@
 {%- endblock %}
 {% block body_tag_attrs %} class="antialiased
   {%- if meta and meta["layout"] == "no-toc" %} drop-secondary-sidebar-for-full-width-content limit-prose-width{% endif -%}
-  {% if lutra_tabs_html %} show-tabs{% endif -%}
   {% if not parents %} has-no-parents{% endif -%}
   "
 {%- endblock %}
