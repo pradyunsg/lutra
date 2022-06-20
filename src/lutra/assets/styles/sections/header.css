@@ -32,10 +32,10 @@
 }
 
 .sb-header-secondary {
-  @apply flex;
+  @apply flex border-b;
   z-index: 29;
   background: var(--color_bg-header);
-  box-shadow: var(--shadow-header);
+  border-bottom-color: var(--border-header_bottom);
 }
 
 .lutra-tabs {

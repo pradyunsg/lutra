@@ -25,7 +25,7 @@ html:not(.dark) {
 
   /* Header */
   --color_bg-header: theme("colors.slate.50");
-  --shadow-header: theme("colors.gray.300") 0px 0px 1px 0px;
+  --border-header_bottom: theme("colors.gray.100");
 
   /* Back to top */
   --shadow-back_to_top: rgba(128, 128, 128, 0.25) 0px 4px 10px 0px;
@@ -134,7 +134,7 @@ html.dark {
 
   /* Header */
   --color_bg-header: #171b22;
-  --shadow-header: theme("colors.gray.500/50") 0px 0px 1px 0px;
+  --border-header_bottom: theme("colors.gray.800");
 
   /* Back to top */
   --shadow-back_to_top: rgba(16, 16, 16, 1) 0px 4px 10px 0px;
@@ -166,7 +166,7 @@ html.dark {
   --border-sidebar_collapse: var(--border-site_sidebar);
 
   /* Sidebar stuff */
-  --border-site_sidebar: theme("colors.gray.800/50");
+  --border-site_sidebar: theme("colors.gray.800");
 
   --color_text-docs_header: theme("colors.gray.300");
   --color_text-docs_header-link--hover: var(--theme-primary_dark);
