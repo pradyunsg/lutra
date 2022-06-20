@@ -6,11 +6,11 @@
 }
 
 .header-container {
-  @apply h-16 px-2 flex items-center gap-2;
+  @apply h-12 px-2 flex items-center gap-4;
 }
 
 .header-logo-container {
-  @apply flex items-center gap-2;
+  @apply flex items-center gap-4;
 }
 .header-logo {
   @apply h-10;
@@ -39,13 +39,13 @@
 }
 
 .lutra-tabs {
-  @apply text-sm flex h-full;
+  @apply text-sm flex h-full px-2;
 
   li {
     @apply opacity-60 h-full;
 
     a {
-      @apply flex items-center h-full px-2 py-4;
+      @apply flex items-center h-full px-2 pt-2 pb-4;
     }
 
     &:hover {
