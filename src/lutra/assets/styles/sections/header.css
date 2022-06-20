@@ -32,24 +32,21 @@
 }
 
 .sb-header-secondary {
-  @apply hidden;
-}
-.show-tabs .sb-header-secondary {
   @apply flex;
   z-index: 29;
   background: var(--color_bg-header);
   box-shadow: var(--shadow-header);
 }
 
-.lutra-tabs-container {
-  @apply text-sm flex items-center p-4;
-}
-
 .lutra-tabs {
-  @apply flex gap-4 h-full;
+  @apply text-sm flex h-full;
 
   li {
-    @apply opacity-70;
+    @apply opacity-60 h-full;
+
+    a {
+      @apply flex items-center h-full px-2 py-4;
+    }
 
     &:hover {
       @apply opacity-100;
