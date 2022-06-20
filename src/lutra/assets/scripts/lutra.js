@@ -29,6 +29,7 @@ function scrollHandler(position) {
 // Theme Toggle
 ////////////////////////////////////////////////////////////////////////////////
 function setTheme(mode, class_to_set) {
+  // TODO: Tooltips.
   if (mode !== "light" && mode !== "dark" && mode !== "auto") {
     console.error(`Got invalid theme mode: ${mode}. Resetting to auto.`);
     mode = "auto";
@@ -119,8 +120,12 @@ function setupTheme() {
   window
     .matchMedia("(prefers-color-scheme: dark)")
     .addEventListener("change", (e) => {
-      if ((localStorage.getItem("theme") || "auto") === "auto") {
+      const currentTheme = localStorage.getItem("theme") || "auto";
+      if (currentTheme === "auto") {
         setTheme("auto", e.matches ? "dark" : "light");
+      } else {
+        // This is necessary to update the tooltips.
+        setTheme(currentTheme, currentTheme);
       }
     });
 }
