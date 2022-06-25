@@ -147,7 +147,7 @@ html.dark {
   --color_text-related_pages-link_underline--hover: transparent;
   --color_text-related_pages-context: theme("colors.gray.400");
 
-  --color_bg-footer: var(--color_bg-header);
+  --color_bg-footer: #171b22;
   --color_text-footer: theme("colors.slate.300");
 
   /* Sidebar links */
