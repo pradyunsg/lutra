@@ -1,5 +1,5 @@
 ---
-layout: no-toc
+layout: page
 hide-related-pages: true
 ---
 
