@@ -38,8 +38,12 @@
   border-bottom-color: var(--border-header_bottom);
 }
 
+.sb-header-secondary__inner {
+  @apply px-2;
+}
+
 .lutra-tabs {
-  @apply text-sm flex h-full px-2;
+  @apply text-sm flex h-full;
 
   li {
     @apply opacity-60 h-full;
