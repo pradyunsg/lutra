@@ -1,3 +1,5 @@
 <div class="flex items-center">
+  {% if not (meta and meta["layout"] == "page") %}
   {% include "components/toggle-sidebar-primary.html" %}
+  {% endif %}
 </div>
