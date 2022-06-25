@@ -345,8 +345,7 @@ def has_not_enough_items_to_show_toc(
     except IndexError:
         val = True
     else:
-        # There's only the page's own toctree in there.
-        val = len(self_toctree) == 1 and self_toctree[0].tagname == "toctree"
+        val = not any(tag.tagname == "list_item" for tag in self_toctree)
     return val
 
 
