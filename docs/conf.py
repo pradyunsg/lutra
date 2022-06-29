@@ -90,7 +90,6 @@ html_theme_options = {
     "source_directory": "docs/",
     # "navigation_style": "plain",
     "navigation_style": "tabs-caption",
-    # "navigation_style": "tabs-caption",
     # # Below are TODOs.
     # "hero": {
     #     "image": "...",
