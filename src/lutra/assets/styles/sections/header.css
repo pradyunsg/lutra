@@ -38,10 +38,6 @@
   border-bottom-color: var(--border-header_bottom);
 }
 
-.sb-header-secondary__inner {
-  @apply px-2;
-}
-
 .lutra-tabs {
   @apply text-sm flex h-full;
 
@@ -49,7 +45,7 @@
     @apply opacity-60 h-full;
 
     a {
-      @apply flex items-center h-full px-2 pt-2 pb-4;
+      @apply flex items-center h-full px-2;
     }
 
     &:hover {
@@ -59,5 +55,18 @@
     &.current {
       @apply opacity-100;
     }
+  }
+}
+
+.sticky-secondary-header {
+  .sb-header-secondary {
+    @apply sticky top-12;
+  }
+  .sb-header-article,
+  .sidebar-sticky {
+    @apply sticky top-24;
+  }
+  .back-to-top {
+    @apply top-36;
   }
 }

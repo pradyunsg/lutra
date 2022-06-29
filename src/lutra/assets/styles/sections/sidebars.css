@@ -1,6 +1,6 @@
+/* Align with the header */
 .sidebar-sticky {
-  /* Align with the header */
-  @apply sticky;
+  @apply sticky top-12;
 }
 
 .sidebar-scroll {
@@ -78,10 +78,6 @@
   @apply border-r;
   background: var(--color_bg);
   border-right-color: var(--border-site_sidebar);
-
-  .sidebar-sticky {
-    @apply top-16;
-  }
 }
 
 .site-navigation-container {
@@ -284,13 +280,6 @@
 /***********************************************************************
   Right sidebar
 */
-.sb-sidebar-secondary {
-  background: var(--color_bg);
-  .sidebar-sticky {
-    @apply top-16;
-  }
-}
-
 .page-navigation-container {
   @apply text-sm;
   a {

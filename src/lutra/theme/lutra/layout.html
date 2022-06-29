@@ -17,6 +17,7 @@
 {%- endblock %}
 {% block body_tag_attrs %} class="antialiased
   {%- if meta and meta["layout"] == "no-toc" %} drop-secondary-sidebar-for-full-width-content limit-prose-width{% endif -%}
+  {%- if theme_sticky_tabs %} sticky-secondary-header{% endif -%}
   {% if not parents %} has-no-parents{% endif -%}
   "
 {%- endblock %}
