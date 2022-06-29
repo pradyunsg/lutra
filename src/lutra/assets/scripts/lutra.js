@@ -84,14 +84,24 @@ function setupSearch() {
   const search_container = document.getElementById("lutra-header-search-form");
   const search_overlay = document.getElementById("lutra-header-search-overlay");
 
+  function searchDeactivate() {
+    search_container.classList.remove("active");
+    search_overlay.removeEventListener("click", searchDeactivate);
+  }
+
+  function searchDeactivateOnEscape(e) {
+    if (e.key === "Escape") {
+      searchDeactivate();
+      window.removeEventListener("keydown", searchDeactivateOnEscape, true);
+    }
+  }
+
+  search_overlay.addEventListener("click", searchDeactivate);
   search_link.addEventListener("click", (e) => {
     e.preventDefault();
     search_container.classList.add("active");
     search_container.children[0].q.focus();
-  });
-
-  search_overlay.addEventListener("click", () => {
-    search_container.classList.remove("active");
+    window.addEventListener("keydown", searchDeactivateOnEscape, true);
   });
 }
 
