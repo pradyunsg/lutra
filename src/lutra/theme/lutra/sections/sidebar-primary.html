@@ -6,7 +6,7 @@
       {%- include sidebar_section %}
     {%- endfor %}
     {% else %}
-    {% if pagename != "index" %}
+    {% if pagename != "index" and not lutra_hide_sidebar_back_home %}
     <div class="docs-header">
       <a class="back-home-link" href="{{ pathto("index") }}">
         <span class="back-home-icon"></span><span class="back-home-text">{{ _("Home") }}</span>

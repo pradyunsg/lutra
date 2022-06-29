@@ -144,6 +144,7 @@ def _html_page_context(
     )
     context["lutra_toctree_html"] = nav_info.toctree_html
     context["lutra_tabs_html"] = nav_info.tabs_html
+    context["lutra_hide_sidebar_back_home"] = nav_info.hide_sidebar_back_home
 
     context["lutra_hide_toc"] = should_hide_toc(
         context, builder=app.builder, docname=pagename

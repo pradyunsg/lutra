@@ -15,6 +15,7 @@ T = TypeVar("T")
 class NavigationInformation(NamedTuple):
     """Container for information relevant to rendered navigation."""
 
+    hide_sidebar_back_home: bool
     toctree_html: str
     tabs_html: str
 
@@ -46,6 +47,7 @@ def _plain_navigation(
     toctree_html = render_fragment(builder, toctree)
 
     return NavigationInformation(
+        hide_sidebar_back_home=True,
         toctree_html=toctree_html,
         tabs_html="",
     )
@@ -106,6 +108,7 @@ def _subtree_caption_navigation(
     toctree_html = render_fragment(builder, toctree_fragment)
 
     return NavigationInformation(
+        hide_sidebar_back_home=False,
         toctree_html=toctree_html,
         tabs_html="",
     )
@@ -128,6 +131,7 @@ def _subtree_toctree_navigation(
     toctree_html = render_fragment(builder, toctree_fragment)
 
     return NavigationInformation(
+        hide_sidebar_back_home=False,
         toctree_html=toctree_html,
         tabs_html="",
     )
@@ -168,6 +172,7 @@ def _subtree_document_navigation(
     toctree_html = render_fragment(builder, toctree_fragment)
 
     return NavigationInformation(
+        hide_sidebar_back_home=False,
         toctree_html=toctree_html,
         tabs_html="",
     )
@@ -239,6 +244,7 @@ def _tabs_caption_navigation(
     tabs_html = render_fragment(builder, tab_list_to_render)
 
     return NavigationInformation(
+        hide_sidebar_back_home=False,
         toctree_html=toctree_html,
         tabs_html=tabs_html,
     )
@@ -301,6 +307,7 @@ def _tabs_document_navigation(
     tabs_html = render_fragment(builder, tab_list_to_render)
 
     return NavigationInformation(
+        hide_sidebar_back_home=False,
         toctree_html=toctree_html,
         tabs_html=tabs_html,
     )
