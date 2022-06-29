@@ -22,7 +22,9 @@
   .code-block-caption {
     /* Anchors! */
     > .headerlink {
-      @apply ml-2 invisible;
+      @apply ml-2;
+      @apply opacity-0;
+      transition: color 0.25s, opacity 125ms;
       color: var(--color_text-link--hover);
       &:visited {
         color: var(--color_text-link--visited--hover);
@@ -30,6 +32,7 @@
     }
     &:hover > .headerlink {
       @apply visible;
+      @apply opacity-100;
     }
     /* Don't change to link-like, if someone adds contents. */
     > .toc-backref {
