@@ -88,7 +88,6 @@ html_theme_options = {
     "source_repository": "https://github.com/pradyunsg/lutra/",
     "source_branch": "main",
     "source_directory": "docs/",
-    # "navigation_style": "plain",
     "navigation_style": "tabs-caption",
     # # Below are TODOs.
     # "hero": {
