@@ -118,8 +118,10 @@
     background-color: var(--color_bg-target);
     scroll-margin-top: 8.5rem;
 
-    animation: attention-seeking-footnote;
-    animation-duration: 1s;
-    animation-delay: 250ms;
+    @media (prefers-reduced-motion: no-preference) {
+      animation: attention-seeking-footnote;
+      animation-duration: 1s;
+      animation-delay: 250ms;
+    }
   }
 }

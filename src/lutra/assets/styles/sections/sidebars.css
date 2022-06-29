@@ -227,20 +227,22 @@
       }
     }
   }
-  .collapsed-site-navigation.animated {
-    .sb-sidebar-primary {
-      animation: width-reduce 300ms ease 0s 1 normal forwards;
-      .sidebar-scroll {
-        animation: content-hiding 300ms ease 0s 1 normal forwards;
-        overflow: hidden;
+  @media (prefers-reduced-motion: no-preference) {
+    .collapsed-site-navigation.animated {
+      .sb-sidebar-primary {
+        animation: width-reduce 300ms ease 0s 1 normal forwards;
+        .sidebar-scroll {
+          animation: content-hiding 300ms ease 0s 1 normal forwards;
+          overflow: hidden;
+        }
       }
     }
-  }
-  .expanded-site-navigation.animated {
-    .sb-sidebar-primary {
-      animation: width-increase 300ms ease 0s 1 normal forwards;
-      .sidebar-scroll {
-        animation: content-showing 300ms ease 0s 1 normal forwards;
+    .expanded-site-navigation.animated {
+      .sb-sidebar-primary {
+        animation: width-increase 300ms ease 0s 1 normal forwards;
+        .sidebar-scroll {
+          animation: content-showing 300ms ease 0s 1 normal forwards;
+        }
       }
     }
   }
