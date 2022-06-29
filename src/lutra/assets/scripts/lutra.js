@@ -77,6 +77,25 @@ function cycleThemeOnce() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+// Search
+////////////////////////////////////////////////////////////////////////////////
+function setupSearch() {
+  const search_link = document.getElementById("lutra-header-search-link");
+  const search_container = document.getElementById("lutra-header-search-form");
+  const search_overlay = document.getElementById("lutra-header-search-overlay");
+
+  search_link.addEventListener("click", (e) => {
+    e.preventDefault();
+    search_container.classList.add("active");
+    search_container.children[0].q.focus();
+  });
+
+  search_overlay.addEventListener("click", () => {
+    search_container.classList.remove("active");
+  });
+}
+
+////////////////////////////////////////////////////////////////////////////////
 // Setup
 ////////////////////////////////////////////////////////////////////////////////
 function setupScrollHandler() {
@@ -159,6 +178,7 @@ function setup() {
   setupSidebarCollapse();
   setupTheme();
   setupScrollHandler();
+  setupSearch();
   // setupScrollSpy();
 }
 

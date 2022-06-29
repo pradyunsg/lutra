@@ -1,32 +1,10 @@
 {% extends "basic-ng/search.html" %} {% block before_results %}
 <div id="lutra-main-content" class="prose">
   {{ super() }}
-  <form
-    class="search-container"
-    method="get"
-    action="{{ pathto('search') }}"
-    role="search"
-  >
-    <input
-      type="text"
-      autofocus
-      name="q"
-      value=""
-      label="{{ _('Search') }}"
-      placeholder="{{ _('Search') }}"
-      autocomplete="off"
-      autocorrect="off"
-      autocapitalize="off"
-      spellcheck="false"
-    />
-    <div class="search-guidance">
-      {% trans %}Press Enter to get search results{% endtrans %}
-      <noscript>(needs JavaScript to work)</noscript>
-    </div>
-  </form>
-{%- endblock before_results %}
+  {% include "partials/search-form.html" %}
+  {%- endblock before_results %}
 
-{# Close the .prose div #}
-{% block after_results -%}
+  {# Close the .prose div #}
+  {% block after_results -%}
 </div>
 {%- endblock after_results %}
