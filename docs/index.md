@@ -35,9 +35,3 @@ governance
 stability
 changelog
 ```
-
-:::{todo}
-
-- TODO: Respect `prefers-reduced-motion`.
-
-:::
