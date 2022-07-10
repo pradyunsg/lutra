@@ -4,6 +4,8 @@
 import os
 from typing import Any, Dict
 
+# from lutra import create_linkcode_resolve
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
@@ -21,6 +23,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
     "sphinx.ext.todo",
+    # "sphinx.ext.linkcode",
     # Our custom extension, only meant for Lutra's own documentation.
     "lutra._sphinxext",
     # External stuff
@@ -88,7 +91,7 @@ html_theme_options = {
     "source_repository": "https://github.com/pradyunsg/lutra/",
     "source_branch": "main",
     "source_directory": "docs/",
-    "navigation_style": "tabs-caption",
+    # "navigation_style": "tabs-caption",
     # # Below are TODOs.
     # "hero": {
     #     "image": "...",
@@ -101,13 +104,33 @@ html_theme_options = {
     # ),
 }
 
+# -- Options for linkcode -------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/extensions/linkcode.html#configuration
+
+# linkcode_resolve = lutra.create_linkcode_resolve(
+#     project=project,
+#     html_theme_options=html_theme_options,
+# )
+
 # -- Options for theme development -------------------------------------------
 # Make sure all the top-level booleans here are False.
 
 html_css_files = []
 html_js_files = []
 html_static_path = []
-html_context: Dict[str, Any] = {}
+html_context: Dict[str, Any] = {
+    # "current_version": 0,
+    # "versions": [
+    #     ("dev (3.12)", "/en/3.12/"),
+    #     ("pre (3.11)", "/en/3.11/"),
+    #     ("3.10", "/en/3.10/"),
+    # ],
+    # "current_language": 0,
+    # "languages": [
+    #     ("English", "/en/3.12/"),
+    #     ("Hindi", "/hindi/3.12/"),
+    # ],
+}
 
 DEBUG = False
 if DEBUG or "styles" in os.environ.get("LUTRA_DEBUG", ""):
