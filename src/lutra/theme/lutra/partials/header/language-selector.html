@@ -1,0 +1,15 @@
+{% if languages -%}
+<div class="language-selector flex items-center gap-2">
+  {% if current_language is undefined -%}
+  {{ warning("Current language is not set. The language selector will not render correctly.") }}
+  {%- endif -%}
+  <div class="lutra-languages">
+    <button class="lutra-language__current" aria-label="Select language">{{ languages[current_language][0] }}</button>
+    <ul class="lutra-language-list">
+      {% for lang in languages %}
+      <li class="lutra-language"><a href="{{ l_pathto(pagename, lang) }}">{{ _(lang) }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endif -%}

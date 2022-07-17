@@ -1,6 +1,18 @@
 {% if READTHEDOCS or versions -%}
-<div class="variant-selector flex items-center gap-2">
-  {% if READTHEDOCS %}
+<div class="version-selector flex items-center gap-2">
+  {% if versions %}
+  {% if current_version is undefined -%}
+  {{ warning("Current version is not set. The version selector will not render correctly.") }}
+  {%- endif -%}
+  <div class="lutra-versions">
+    <button class="lutra-version__current" aria-label="Select version">{{ versions[current_version][0] }}</button>
+    <ul class="lutra-version-list">
+      {% for version in versions %}
+      <li class="lutra-version"><a href="{{ v_pathto(pagename, version) }}">{{ version }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% elif READTHEDOCS %}
   <div class="lutra-readthedocs-versions rst-versions" data-toggle="rst-versions" role="note" aria-label="{{ _('Versions') }}" tabindex="0">
     <span class="rst-current-version" data-toggle="rst-current-version">
       {{ current_version }}
@@ -30,8 +42,6 @@
       </dl>
     </div>
   </div>
-  {% elif versions %}
-  {{ versions }}
   {% endif %}
 </div>
 {% endif -%}
