@@ -135,7 +135,6 @@
 #lutra-site-navigation-collapse-icon {
   @apply absolute top-12 right-0 h-6 w-6 rounded cursor-pointer translate-x-1/2 focus:outline;
   @apply border;
-  @apply text-black border-gray-50 bg-white;
 
   background: var(--color_bg-sidebar_collapse);
   color: var(--color_text-sidebar_collapse);
@@ -286,6 +285,9 @@
 /***********************************************************************
   Right sidebar
 */
+.sb-sidebar-secondary {
+  background: var(--color_bg);
+}
 .page-navigation-container {
   @apply text-sm;
   a {
