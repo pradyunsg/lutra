@@ -1,8 +1,3 @@
-/* Align with the header */
-.sidebar-sticky {
-  @apply sticky top-12;
-}
-
 .sidebar-scroll {
   @apply px-2;
   @apply overflow-y-hidden hover:overflow-y-auto focus-within:overflow-y-auto;
@@ -37,15 +32,19 @@
   }
   /* Stylize links */
   a {
-    @apply px-3 transition-colors duration-200 relative block rounded-md cursor-pointer;
+    @apply px-3 transition-all duration-200 relative block rounded-md cursor-pointer;
     color: var(--color_text-link-sidebar);
     background: var(--color_bg-link-sidebar);
-    &:hover {
-      color: var(--color_text-link-sidebar--hover);
-      background: var(--color_bg-link-sidebar--hover);
+
+    &.previous {
+      @apply opacity-60;
+      &:hover,
+      &:focus {
+        @apply opacity-100;
+      }
     }
-    &.current,
-    &.active {
+
+    &.current {
       @apply font-semibold;
       color: var(--color_text-link-sidebar--active);
       background: var(--color_bg-link-sidebar--active);
@@ -53,6 +52,11 @@
         color: var(--color_text-link-sidebar--active--hover);
         background: var(--color_bg-link-sidebar--active--hover);
       }
+    }
+
+    &:hover {
+      color: var(--color_text-link-sidebar--hover);
+      background: var(--color_bg-link-sidebar--hover);
     }
     &:focus-visible {
       @apply shadow-lg;
@@ -63,7 +67,7 @@
 
 .toc-container {
   a,
-  a.active {
+  a.current {
     @apply bg-transparent;
     &:hover {
       @apply bg-transparent;

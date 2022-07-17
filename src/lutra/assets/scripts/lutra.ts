@@ -1,30 +1,14 @@
 import "instant.page";
-// import VanillaScrollspy from "vanillajs-scrollspy";
-// import scrollSpy from "@sidsbrmnn/scrollspy";
+import { ScrollObserver } from "./scrollspy";
 
 ////////////////////////////////////////////////////////////////////////////////
 // Scroll Handling
 ////////////////////////////////////////////////////////////////////////////////
-var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-const SHOW_PAGE_TITLE_OFFSET = 128;
-const GO_TO_TOP_OFFSET = 64;
-
-function scrollHandler(position: number) {
-  if (position > SHOW_PAGE_TITLE_OFFSET) {
-    document.documentElement.classList.add("show-page-title");
-    if (position < lastScrollTop) {
-      document.documentElement.classList.add("show-back-to-top");
-    } else if (position > lastScrollTop) {
-      document.documentElement.classList.remove("show-back-to-top");
-    }
-  } else {
-    document.documentElement.classList.remove("show-page-title");
-  }
-  if (position < GO_TO_TOP_OFFSET) {
-    document.documentElement.classList.remove("show-back-to-top");
-  }
-  lastScrollTop = position;
+function setupScrollHandler() {
+  const observer = new ScrollObserver();
+  observer.observe();
 }
+
 ////////////////////////////////////////////////////////////////////////////////
 // Theme Toggle
 ////////////////////////////////////////////////////////////////////////////////
@@ -84,6 +68,27 @@ function cycleThemeOnce() {
   }
 }
 
+function setupTheme() {
+  // Attach event handlers for toggling themes.
+  const buttons = document.getElementsByClassName("theme-toggle");
+  Array.from(buttons).forEach((btn) => {
+    btn.addEventListener("click", cycleThemeOnce);
+  });
+  // Watch for theme changes and update accordingly.
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", (e) => {
+      const _currentTheme = localStorage.getItem("theme") || "auto";
+      const currentTheme: Theme = _currentTheme as Theme;
+      if (currentTheme === Theme.AUTO) {
+        setTheme(Theme.AUTO, e.matches ? Theme.DARK : Theme.LIGHT);
+      } else {
+        // This is necessary to update the tooltips.
+        setTheme(currentTheme, currentTheme);
+      }
+    });
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // Search
 ////////////////////////////////////////////////////////////////////////////////
@@ -127,49 +132,8 @@ function setupHeaderSearch() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// Setup
+// Sidebar collapse
 ////////////////////////////////////////////////////////////////////////////////
-function setupScrollHandler() {
-  // Taken from https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event
-  var last_known_scroll_position = 0;
-  var ticking = false;
-
-  window.addEventListener("scroll", function (e) {
-    last_known_scroll_position = window.scrollY;
-
-    if (!ticking) {
-      window.requestAnimationFrame(function () {
-        scrollHandler(last_known_scroll_position);
-        ticking = false;
-      });
-
-      ticking = true;
-    }
-  });
-  window.scroll();
-}
-
-function setupTheme() {
-  // Attach event handlers for toggling themes.
-  const buttons = document.getElementsByClassName("theme-toggle");
-  Array.from(buttons).forEach((btn) => {
-    btn.addEventListener("click", cycleThemeOnce);
-  });
-  // Watch for theme changes and update accordingly.
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (e) => {
-      const _currentTheme = localStorage.getItem("theme") || "auto";
-      const currentTheme: Theme = _currentTheme as Theme;
-      if (currentTheme === Theme.AUTO) {
-        setTheme(Theme.AUTO, e.matches ? Theme.DARK : Theme.LIGHT);
-      } else {
-        // This is necessary to update the tooltips.
-        setTheme(currentTheme, currentTheme);
-      }
-    });
-}
-
 function setupSidebarCollapse() {
   const button = document.getElementById(
     "lutra-site-navigation-collapse-icon"
@@ -197,20 +161,16 @@ function setupSidebarCollapse() {
   });
 }
 
-function setup() {
-  setupSidebarCollapse();
-  setupTheme();
-  setupScrollHandler();
-  setupHeaderSearch();
-}
-
 ////////////////////////////////////////////////////////////////////////////////
 // Main entrypoint
 ////////////////////////////////////////////////////////////////////////////////
 function main() {
   document.documentElement.classList.remove("no-js");
 
-  setup();
+  setupSidebarCollapse();
+  setupTheme();
+  setupScrollHandler();
+  setupHeaderSearch();
 }
 
 document.addEventListener("DOMContentLoaded", main);
