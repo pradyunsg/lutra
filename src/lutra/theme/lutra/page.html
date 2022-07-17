@@ -2,6 +2,7 @@
 
 <!-- Allow injecting a custom "hero" section. -->
 {% block container %}
+{% include "partials/icons.html" %}
 {%- if meta and meta["hero"] -%}
   {% if theme_hero %}
     {% include "partials/hero.html" with context %}
