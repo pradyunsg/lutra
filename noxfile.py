@@ -26,7 +26,8 @@ def docs_live(session):
         "serve",
         "--builder",
         "dirhtml",
-        *(session.posargs or ["docs"]),
+        "docs",
+        *session.posargs,
         external=False,
     )
 
