@@ -1,8 +1,3 @@
----
-layout: page
-hide-related-pages: true
----
-
 # Lutra
 
 Lutra is a theme for Sphinx, a static site generator geared towards technical documentation.
