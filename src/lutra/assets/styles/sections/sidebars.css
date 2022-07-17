@@ -327,8 +327,11 @@
 }
 
 .toc-toggle-container {
-  @apply fixed bottom-6 right-6 rounded-full p-4 bg-blue-900 text-white;
+  @apply fixed bottom-6 right-6 flex;
   z-index: 1;
+  label {
+    @apply rounded-full bg-blue-900 text-white p-4;
+  }
 }
 @media (min-width: 59rem) {
   .toc-toggle-container {
