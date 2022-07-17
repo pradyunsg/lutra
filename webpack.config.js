@@ -7,7 +7,7 @@ module.exports = {
   mode: process.env.NODE_ENV,
   entry: {
     lutra: [
-      "./src/lutra/assets/scripts/lutra.js",
+      "./src/lutra/assets/scripts/lutra.ts",
       "./src/lutra/assets/styles/lutra.css",
     ],
     "lutra-extensions": ["./src/lutra/assets/styles/lutra-extensions.css"],
@@ -18,8 +18,16 @@ module.exports = {
   },
   plugins: [new MiniCssExtractPlugin({ filename: "styles/[name].css" })],
   optimization: { minimizer: [`...`, new CssMinimizerPlugin()] },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+  },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
       {
         test: /\.css$/i,
         use: [

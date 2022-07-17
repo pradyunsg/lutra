@@ -9,7 +9,7 @@ var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 const SHOW_PAGE_TITLE_OFFSET = 128;
 const GO_TO_TOP_OFFSET = 64;
 
-function scrollHandler(position) {
+function scrollHandler(position: number) {
   if (position > SHOW_PAGE_TITLE_OFFSET) {
     document.documentElement.classList.add("show-page-title");
     if (position < lastScrollTop) {
@@ -28,22 +28,30 @@ function scrollHandler(position) {
 ////////////////////////////////////////////////////////////////////////////////
 // Theme Toggle
 ////////////////////////////////////////////////////////////////////////////////
-function setTheme(mode, class_to_set) {
+enum Theme {
+  LIGHT = "light",
+  DARK = "dark",
+  AUTO = "auto",
+}
+
+function setTheme(mode: Theme, class_to_set: Theme.DARK | Theme.LIGHT) {
   // TODO: Tooltips.
-  if (mode !== "light" && mode !== "dark" && mode !== "auto") {
+
+  // Sanitize the incoming values.
+  if (!(<any>Object).values(Theme).includes(mode)) {
     console.error(`Got invalid theme mode: ${mode}. Resetting to auto.`);
-    mode = "auto";
+    mode = Theme.AUTO;
   }
-  if (class_to_set !== "light" && class_to_set !== "dark") {
+  if (![Theme.LIGHT, Theme.DARK].includes(class_to_set)) {
     console.error(
       `Got invalid theme class: ${class_to_set}. Resetting to light.`
     );
-    class_to_set = "light";
+    class_to_set = Theme.LIGHT;
   }
 
   document.body.dataset.theme = mode;
   localStorage.setItem("theme", mode);
-  if (class_to_set == "light") {
+  if (class_to_set == Theme.LIGHT) {
     document.documentElement.classList.remove("dark");
   } else {
     document.documentElement.classList.add("dark");
@@ -58,20 +66,20 @@ function cycleThemeOnce() {
   if (prefersDark) {
     // Auto (dark) -> Light -> Dark
     if (currentTheme === "auto") {
-      setTheme("light", "light");
-    } else if (currentTheme == "light") {
-      setTheme("dark", "dark");
+      setTheme(Theme.LIGHT, Theme.LIGHT);
+    } else if (currentTheme == Theme.LIGHT) {
+      setTheme(Theme.DARK, Theme.DARK);
     } else {
-      setTheme("auto", "dark");
+      setTheme(Theme.AUTO, Theme.DARK);
     }
   } else {
     // Auto (light) -> Dark -> Light
-    if (currentTheme === "auto") {
-      setTheme("dark", "dark");
-    } else if (currentTheme == "dark") {
-      setTheme("light", "light");
+    if (currentTheme === Theme.AUTO) {
+      setTheme(Theme.DARK, Theme.DARK);
+    } else if (currentTheme == Theme.DARK) {
+      setTheme(Theme.LIGHT, Theme.LIGHT);
     } else {
-      setTheme("auto", "light");
+      setTheme(Theme.AUTO, Theme.LIGHT);
     }
   }
 }
@@ -79,17 +87,27 @@ function cycleThemeOnce() {
 ////////////////////////////////////////////////////////////////////////////////
 // Search
 ////////////////////////////////////////////////////////////////////////////////
-function setupSearch() {
+interface HeaderSearchForm extends HTMLFormElement {
+  q: HTMLInputElement;
+}
+
+function setupHeaderSearch() {
   const search_link = document.getElementById("lutra-header-search-link");
-  const search_container = document.getElementById("lutra-header-search-form");
-  const search_overlay = document.getElementById("lutra-header-search-overlay");
+  if (search_link === null) {
+    // There's no header search stuff.
+    return;
+  }
+  const search_container = document.getElementById("lutra-header-search-form")!;
+  const search_overlay = document.getElementById(
+    "lutra-header-search-overlay"
+  )!;
 
   function searchDeactivate() {
     search_container.classList.remove("active");
     search_overlay.removeEventListener("click", searchDeactivate);
   }
 
-  function searchDeactivateOnEscape(e) {
+  function searchDeactivateOnEscape(e: KeyboardEvent) {
     if (e.key === "Escape") {
       searchDeactivate();
       window.removeEventListener("keydown", searchDeactivateOnEscape, true);
@@ -100,7 +118,10 @@ function setupSearch() {
   search_link.addEventListener("click", (e) => {
     e.preventDefault();
     search_container.classList.add("active");
-    search_container.children[0].q.focus();
+
+    const search_form = search_container.children[0] as HeaderSearchForm;
+    search_form.q.focus();
+
     window.addEventListener("keydown", searchDeactivateOnEscape, true);
   });
 }
@@ -126,17 +147,6 @@ function setupScrollHandler() {
     }
   });
   window.scroll();
-
-  const list = document.querySelector(".toc-container > ul > li > ul");
-  console.log(list);
-
-  // const scrollspy = VanillaScrollspy(list);
-  // scrollspy.init();
-
-  // scrollSpy(list, {
-  //   offset: 100,
-  //   activeClass: "active",
-  // });
 }
 
 function setupTheme() {
@@ -149,9 +159,10 @@ function setupTheme() {
   window
     .matchMedia("(prefers-color-scheme: dark)")
     .addEventListener("change", (e) => {
-      const currentTheme = localStorage.getItem("theme") || "auto";
-      if (currentTheme === "auto") {
-        setTheme("auto", e.matches ? "dark" : "light");
+      const _currentTheme = localStorage.getItem("theme") || "auto";
+      const currentTheme: Theme = _currentTheme as Theme;
+      if (currentTheme === Theme.AUTO) {
+        setTheme(Theme.AUTO, e.matches ? Theme.DARK : Theme.LIGHT);
       } else {
         // This is necessary to update the tooltips.
         setTheme(currentTheme, currentTheme);
@@ -160,8 +171,10 @@ function setupTheme() {
 }
 
 function setupSidebarCollapse() {
-  const button = document.getElementById("lutra-site-navigation-collapse-icon");
-  const container = document.getElementById("lutra-primary-sidebar-container");
+  const button = document.getElementById(
+    "lutra-site-navigation-collapse-icon"
+  )!;
+  const container = document.getElementById("lutra-primary-sidebar-container")!;
 
   if (document.body.classList.contains("collapsed-site-navigation")) {
     container.setAttribute("aria-hidden", "true");
@@ -188,15 +201,14 @@ function setup() {
   setupSidebarCollapse();
   setupTheme();
   setupScrollHandler();
-  setupSearch();
-  // setupScrollSpy();
+  setupHeaderSearch();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // Main entrypoint
 ////////////////////////////////////////////////////////////////////////////////
 function main() {
-  document.body.parentNode.classList.remove("no-js");
+  document.documentElement.classList.remove("no-js");
 
   setup();
 }
