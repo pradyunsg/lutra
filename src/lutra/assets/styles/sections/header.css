@@ -7,6 +7,9 @@
 
 .header-container {
   @apply h-12 px-2 flex items-center gap-4;
+  .sb-header & {
+    @apply h-16;
+  }
 }
 
 .header-logo-container {
@@ -21,7 +24,7 @@
 }
 
 .sb-header-article {
-  @apply sticky top-12;
+  @apply sticky top-16;
   @apply z-10;
 
   background: linear-gradient(
@@ -58,15 +61,19 @@
   }
 }
 
+/* Handle sticky tops to align with the header */
+.sidebar-sticky {
+  @apply sticky top-16;
+}
 .sticky-secondary-header {
   .sb-header-secondary {
-    @apply sticky top-12;
+    @apply sticky top-16;
   }
   .sb-header-article,
   .sidebar-sticky {
-    @apply sticky top-24;
+    @apply sticky top-28;
   }
   .back-to-top {
-    @apply top-36;
+    @apply top-40;
   }
 }
