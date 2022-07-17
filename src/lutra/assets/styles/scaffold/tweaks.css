@@ -76,3 +76,10 @@ html {
     display: block;
   }
 }
+
+// Make things a bit bigger on bigger screens.
+@media (min-width: 97rem) {
+  html {
+    font-size: 110%;
+  }
+}
