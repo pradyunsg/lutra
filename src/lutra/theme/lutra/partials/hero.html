@@ -1,41 +1,57 @@
+{#-
+  This was inspired by the following:
+  https://vitepress.vuejs.org/guide/theme-home-page.html#hero-section
+-#}
 <div class="lutra-hero">
   <div class="sb-page-width">
-    <div class="lutra-hero-content prose">
-      <h1>Hi!</h1>
-      <p>This is a hero injected right above the main index page's contents.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quis? Minima, incidunt enim et consequatur
-        quaerat temporibus soluta reiciendis, est odio possimus excepturi error aliquam accusantium expedita a? Dolorum,
-        sit.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quis? Minima, incidunt enim et consequatur
-        quaerat temporibus soluta reiciendis, est odio possimus excepturi error aliquam accusantium expedita a? Dolorum,
-        sit.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quis? Minima, incidunt enim et consequatur
-        quaerat temporibus soluta reiciendis, est odio possimus excepturi error aliquam accusantium expedita a? Dolorum,
-        sit.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quis? Minima, incidunt enim et consequatur
-        quaerat temporibus soluta reiciendis, est odio possimus excepturi error aliquam accusantium expedita a? Dolorum,
-        sit.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quis? Minima, incidunt enim et consequatur
-        quaerat temporibus soluta reiciendis, est odio possimus excepturi error aliquam accusantium expedita a? Dolorum,
-        sit.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quis? Minima, incidunt enim et consequatur
-        quaerat temporibus soluta reiciendis, est odio possimus excepturi error aliquam accusantium expedita a? Dolorum,
-        sit.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quis? Minima, incidunt enim et consequatur
-        quaerat temporibus soluta reiciendis, est odio possimus excepturi error aliquam accusantium expedita a? Dolorum,
-        sit.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quis? Minima, incidunt enim et consequatur
-        quaerat temporibus soluta reiciendis, est odio possimus excepturi error aliquam accusantium expedita a? Dolorum,
-        sit.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quis? Minima, incidunt enim et consequatur
-        quaerat temporibus soluta reiciendis, est odio possimus excepturi error aliquam accusantium expedita a? Dolorum,
-        sit.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quis? Minima, incidunt enim et consequatur
-        quaerat temporibus soluta reiciendis, est odio possimus excepturi error aliquam accusantium expedita a? Dolorum,
-        sit.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quis? Minima, incidunt enim et consequatur
-        quaerat temporibus soluta reiciendis, est odio possimus excepturi error aliquam accusantium expedita a? Dolorum,
-        sit.</p>
+    <div class="lutra-hero-main">
+      {% if "brand" in theme_hero -%}
+        <h1 class="lutra-hero-brand">{{ theme_hero.brand }}</h1>
+      {%- endif %}
+      {% if "text" in theme_hero -%}
+        <p class="lutra-hero-text">{{ theme_hero.text }}</p>
+      {%- endif %}
+      {% if "tagline" in theme_hero -%}
+        <p class="lutra-hero-tagline">{{ theme_hero.tagline }}</p>
+      {%- endif %}
+      {% if "actions" in theme_hero -%}
+      <div class="lutra-hero-actions">
+      {% for action in theme_hero.actions -%}
+        <div class="action">
+          <a class="lutra-hero-button lutra-hero-button-{{action.style}}"
+            {%- if "href" in action %} href="{{action.href}}" target="_blank"
+            {%- elif "doc" in action %} href="{{ pathto(action.doc) }}"
+            {% endif -%}>
+            {{action.text}}
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+      {%- endif %}
     </div>
+    {%- if "features" in theme_hero %}
+    {%- set length = theme_hero.features|length %}
+    {%- if length == 2 -%}
+      {%- set grid = "grid-cols-1 sm:grid-cols-2" -%}
+    {%- elif length == 3 -%}
+      {%- set grid = "grid-cols-1 lg:grid-cols-3" -%}
+    {%- elif length % 3 == 0 -%}
+      {%- set grid = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" -%}
+    {%- elif length % 4 == 0 -%}
+      {%- set grid = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" -%}
+    {%- elif length % 2 == 0 -%}
+      {%- set grid = "grid-cols-1 sm:grid-cols-2" -%}
+    {%- endif -%}
+    <div class="lutra-hero-features">
+      <div class="grid gap-4 {{ grid }}">
+        {% for feature in theme_hero.features -%}
+          <div class="lutra-hero-feature">
+            <h2 class="title">{{ feature.title }}</h2>
+            <p class="details">{{ feature.details }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
   </div>
 </div>

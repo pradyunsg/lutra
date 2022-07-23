@@ -1,12 +1,70 @@
 /* Hero Section */
 .lutra-hero {
+  @apply flex-1;
   @apply flex flex-col items-center;
+  @apply py-20 px-4;
 }
 
-.lutra-hero-content {
-  @apply p-4;
+/* When we hit max-size, we can reduce the padding. */
+@media (min-width: 88rem) {
+  .lutra-hero {
+    @apply px-2;
+  }
 }
 
+.lutra-hero-main {
+  @apply pb-20 px-0;
+  max-width: 36rem;
+}
+
+.lutra-hero-brand {
+  @apply text-5xl font-bold mb-0 leading-tight;
+  color: var(--color_text-hero-brand);
+}
+.lutra-hero-text {
+  @apply text-5xl font-bold mb-0 leading-tight;
+}
+.lutra-hero-tagline {
+  @apply pt-2;
+  @apply text-2xl font-medium mb-0 leading-snug;
+  color: var(--color_text-hero-tagline);
+}
+
+/* Buttons */
+.lutra-hero-actions {
+  @apply flex gap-2;
+  @apply pt-8 pb-4;
+}
+
+.lutra-hero-button {
+  @apply text-sm font-medium;
+  @apply px-4 py-2 rounded-full;
+}
+
+.lutra-hero-button-brand {
+  border: 1px solid var(--border-hero_button--brand);
+  color: var(--color_text-hero_button--brand);
+  background-color: var(--color_bg-hero_button--brand);
+}
+.lutra-hero-button-alt {
+  border: 1px solid var(--border-hero_button);
+  color: var(--color_text-hero_button);
+  background-color: var(--color_bg-hero_button);
+}
+
+.lutra-hero-feature {
+  @apply rounded-xl p-6;
+  background-color: var(--color_bg-hero_feature);
+
+  .title {
+    @apply font-semibold;
+  }
+  .details {
+    @apply text-sm leading-relaxed pt-2;
+  }
+}
+
+/* When there's content after the hero section. */
 .lutra-hero + .sb-container {
   @apply border-t;
   border-top-color: var(--border-site_sidebar);

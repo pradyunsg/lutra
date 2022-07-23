@@ -30,6 +30,19 @@ html:not(.dark) {
   /* Back to top */
   --shadow-back_to_top: rgba(128, 128, 128, 0.25) 0px 4px 10px 0px;
 
+  /* Hero */
+  --color_text-hero-tagline: theme("colors.neutral.700");
+
+  --border-hero_button: theme("colors.gray.200");
+  --color_bg-hero_button: theme("colors.gray.100");
+  --color_text-hero_button: theme("colors.gray.800");
+
+  --border-hero_button--brand: transparent;
+  --color_bg-hero_button--brand: theme("colors.blue.500");
+  --color_text-hero_button--brand: theme("colors.white");
+
+  --color_bg-hero_feature: theme("colors.gray.50");
+
   /* Footer */
   --color_bg-related_pages--hover: theme("colors.slate.100");
   --color_text-related_pages-link: var(--theme-primary);
@@ -139,6 +152,19 @@ html.dark {
 
   /* Back to top */
   --shadow-back_to_top: rgba(16, 16, 16, 1) 0px 4px 10px 0px;
+
+  /* Hero */
+  --color_text-hero-tagline: theme("colors.neutral.400");
+
+  --border-hero_button: theme("colors.gray.600");
+  --color_bg-hero_button: theme("colors.gray.800");
+  --color_text-hero_button: theme("colors.gray.200");
+
+  --border-hero_button--brand: transparent;
+  --color_bg-hero_button--brand: theme("colors.blue.500");
+  --color_text-hero_button--brand: theme("colors.gray.100");
+
+  --color_bg-hero_feature: theme("colors.gray.900");
 
   /* Footer */
   --color_bg-related_pages--hover: theme("colors.gray.800");

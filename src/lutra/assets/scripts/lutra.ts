@@ -5,6 +5,10 @@ import { ScrollObserver } from "./scrollspy";
 // Scroll Handling
 ////////////////////////////////////////////////////////////////////////////////
 function setupScrollHandler() {
+  if (document.getElementById("lutra-main-content") === null) {
+    console.debug("No main content, skipping scroll handler.");
+    return;
+  }
   const observer = new ScrollObserver();
   observer.observe();
 }
@@ -99,7 +103,7 @@ interface HeaderSearchForm extends HTMLFormElement {
 function setupHeaderSearch() {
   const search_link = document.getElementById("lutra-header-search-link");
   if (search_link === null) {
-    // There's no header search stuff.
+    console.debug("No search link, skipping header search.");
     return;
   }
   const search_container = document.getElementById("lutra-header-search-form")!;
@@ -135,9 +139,11 @@ function setupHeaderSearch() {
 // Sidebar collapse
 ////////////////////////////////////////////////////////////////////////////////
 function setupSidebarCollapse() {
-  const button = document.getElementById(
-    "lutra-site-navigation-collapse-icon"
-  )!;
+  const button = document.getElementById("lutra-site-navigation-collapse-icon");
+  if (button === null) {
+    console.debug("No sidebar collapse button, skipping sidebar collapse.");
+    return;
+  }
   const container = document.getElementById("lutra-primary-sidebar-container")!;
 
   if (document.body.classList.contains("collapsed-site-navigation")) {

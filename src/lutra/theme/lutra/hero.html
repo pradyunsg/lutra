@@ -1,3 +1,5 @@
-TODO: This template still needs to be written.
+{% extends "index.html" %}
 
-This should borrow from index.html *and* support what partials/hero.html supports.
+{% block index_content -%}
+{% include "partials/hero.html" with context %}
+{%- endblock %}

@@ -4,15 +4,30 @@
 
 {# Drop the sidebars #}
 {% block container %}
-<div class="sb-container__inner sb-page-width">
-  {%- block index_content -%}
-  <div style="margin: auto; padding: 1rem">
-    <p>You seem to actually care about how this landing page looks! Nice!</p>
-    <p>
-      You likely want to add the dedicated template,
-      <a style="color: blue; text-decoration: underline;" href="https://pradyunsg.me/lutra/customisation/landing-pages/example-index/">as described in the documentation</a>.
-    </p>
+<div class="sb-container">
+  <div class="sb-container__inner sb-page-width">
+    {%- block index_content -%}
+    <div class="prose" style="margin: auto; padding: 1rem; max-width: 45rem;">
+      <p class="align-center">Hi there!</p>
+      <p class="align-center">
+        It's great that you're looking into improving the landing page of this documentation!
+      </p>
+      <p class="align-center">
+        You might be interested in
+        <a href="https://pradyunsg.me/lutra/customisation/landing-pages/" target="_blank">Lutra's
+          documentation on writing custom landing pages</a>.
+        Although if you're reading this, chances are that you landed here from
+        that documentation page or you're familiar
+        enough with HTML+Sphinx that you know what you're doing.
+      </p>
+      <p class="align-center">
+        Oh, and because I can add it: Today's "cute animal" picture from Unsplash is...
+      </p>
+      <p class="align-center">
+        <img src="https://source.unsplash.com/200x200/daily?cute+animal" alt="A cute animal" />
+      </p>
+    </div>
+    {%- endblock index_content -%}
   </div>
-  {%- endblock index_content -%}
 </div>
 {% endblock container %}
