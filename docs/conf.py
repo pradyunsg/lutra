@@ -80,6 +80,86 @@ language = "en"
 
 html_theme = "lutra"
 html_title = "Lutra"
+lutra_hero = {
+    "brand": "Lutra",
+    "tagline": (
+        # "Clean, modern, and powerful. Meet the Sphinx theme you've always wanted."
+        "A work-in-progress Sphinx theme. It's nice but don't start using it yet!"
+    ),
+    "features": [
+        {
+            "title": "Designed for the modern web",
+            "details": (
+                """
+                Lutra is responsive, lightweight, and utilises modern web browser
+                features while degrading gracefully. Build documentation websites
+                that work on all devices.
+                """
+            ),
+        },
+        {
+            "title": "Deeply customizable",
+            "details": (
+                """
+                From an unparalleled flexibility in navigation and layouts, to tweaking
+                colors and fonts, and so much more. Create beautiful documentation that
+                matches your brand and vision.
+                """
+            ),
+        },
+        {
+            "title": "All the good stuff from Sphinx",
+            "details": (
+                """
+                With built-in support for everything you can do with standard Sphinx as
+                well as a curated selection of extensions, you have everything you need
+                to create awesome documentation.
+                """
+            ),
+        },
+        {
+            "title": "Built for everyone",
+            "details": (
+                """
+                With a focus on accessibility [WIP: and internationalization, including
+                full RTL (right-to-left) support,] Lutra helps make your documentation
+                work for everyone.
+                """
+            ),
+        },
+        {
+            "title": "Scales with your project",
+            "details": (
+                """
+                From single-page websites to sprawling, complex, and extensive websites,
+                Lutra can gracefully adapt to your documentation needs.
+                """
+            ),
+        },
+        {
+            "title": "Powerful yet easy to use",
+            "details": (
+                """
+                The large set of [WIP: well-documented] features make it possible to create
+                documentation that works the way you want it to. A zero configuration
+                foundation makes it easy to get started.
+                """
+            ),
+        },
+    ],
+    "actions": [
+        {
+            "style": "brand",
+            "text": "Get Started",
+            "doc": "get-started",
+        },
+        {
+            "style": "alt",
+            "text": "View on GitHub",
+            "href": "https://github.com/pradyunsg/lutra/",
+        },
+    ],
+}
 
 html_theme_options = {
     # "announcement": (
@@ -92,12 +172,8 @@ html_theme_options = {
     "source_branch": "main",
     "source_directory": "docs/",
     # "navigation_style": "tabs-caption",
-    # # Below are TODOs.
-    # "hero": {
-    #     "image": "...",
-    #     "primary_text": "...",
-    #     "secondary_text": "...",
-    # },
+    "hero": lutra_hero,
+    # Below are TODOs.
     # "feedback_form_url": (
     #     "https://docs.google.com/forms/d/e/1FAIpQLSfucp8AnLfSK-2M9kKCMyA5WMYIGPdeMaFa8eHo6ejGFq-nyA/viewform"
     #     "?usp=pp_url&entry.1457058116={page_reference}&entry.702906409={rating}&entry.1161338183={additional_comments}"
