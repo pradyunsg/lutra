@@ -83,8 +83,7 @@ html_title = "Lutra"
 lutra_hero = {
     "brand": "Lutra",
     "tagline": (
-        # "Clean, modern, and powerful. Meet the Sphinx theme you've always wanted."
-        "A work-in-progress Sphinx theme. It's nice but don't start using it yet!"
+        "Clean, modern, and powerful.<br>Meet the Sphinx theme you've always wanted."
     ),
     "features": [
         {
@@ -101,7 +100,7 @@ lutra_hero = {
             "title": "Deeply customizable",
             "details": (
                 """
-                From an unparalleled flexibility in navigation and layouts, to tweaking
+                From unparalleled flexibility in navigation and layouts, to tweaking
                 colors and fonts, and so much more. Create beautiful documentation that
                 matches your brand and vision.
                 """
@@ -150,7 +149,7 @@ lutra_hero = {
     "actions": [
         {
             "style": "brand",
-            "text": "Get Started",
+            "text": "Get Started →",
             "doc": "get-started",
         },
         {
