@@ -17,11 +17,11 @@ html:not(.dark) {
   --color_text-link: var(--color_text);
   --color_text-link--hover: var(--theme-primary);
   --color_text-link--visited: var(--color_text);
-  --color_text-link--visited--hover: var(--theme-accent);
+  --color_text-link--visited--hover: var(--theme-secondary);
   --color_text-link_underline: var(--theme-primary-highlight);
   --color_text-link_underline--hover: var(--theme-primary);
-  --color_text-link_underline--visited: var(--theme-accent-highlight);
-  --color_text-link_underline--visited--hover: var(--theme-accent);
+  --color_text-link_underline--visited: var(--theme-secondary-highlight);
+  --color_text-link_underline--visited--hover: var(--theme-secondary);
 
   /* Header */
   --color_bg-header: theme("colors.slate.50");
@@ -140,11 +140,11 @@ html.dark {
   --color_text-link: var(--color_text);
   --color_text-link--hover: var(--theme-primary_dark);
   --color_text-link--visited: var(--color_text);
-  --color_text-link--visited--hover: var(--theme-accent_dark);
+  --color_text-link--visited--hover: var(--theme-secondary_dark);
   --color_text-link_underline: var(--theme-primary-highlight);
   --color_text-link_underline--hover: var(--theme-primary_dark);
-  --color_text-link_underline--visited: var(--theme-accent-highlight);
-  --color_text-link_underline--visited--hover: var(--theme-accent_dark);
+  --color_text-link_underline--visited: var(--theme-secondary-highlight);
+  --color_text-link_underline--visited--hover: var(--theme-secondary_dark);
 
   /* Header */
   --color_bg-header: #171b22;

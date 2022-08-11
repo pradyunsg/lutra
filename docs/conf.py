@@ -170,7 +170,7 @@ html_theme_options = {
     # ),
     # "announcement_style": "warning",
     # "primary_color": "blue",
-    # "accent_color": "violet",
+    # "secondary_color": "violet",
     "source_repository": "https://github.com/pradyunsg/lutra/",
     "source_branch": "main",
     "source_directory": "docs/",

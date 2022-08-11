@@ -19,11 +19,11 @@ html {
   --theme-primary-target: var(--color-{{ theme_primary_color }}-target);
   --theme-primary-target_dark: var(--color-{{ theme_primary_color }}-target_dark);
 
-  --theme-accent: var(--color-{{ theme_accent_color }}-solid);
-  --theme-accent_dark: var(--color-{{ theme_accent_color }}-solid_dark);
-  --theme-accent-highlight: var(--color-{{ theme_accent_color }}-highlight);
-  --theme-accent-target: var(--color-{{ theme_accent_color }}-target);
-  --theme-accent-target_dark: var(--color-{{ theme_accent_color }}-target_dark);
+  --theme-secondary: var(--color-{{ theme_secondary_color }}-solid);
+  --theme-secondary_dark: var(--color-{{ theme_secondary_color }}-solid_dark);
+  --theme-secondary-highlight: var(--color-{{ theme_secondary_color }}-highlight);
+  --theme-secondary-target: var(--color-{{ theme_secondary_color }}-target);
+  --theme-secondary-target_dark: var(--color-{{ theme_secondary_color }}-target_dark);
 }
 html:not(.dark) {
   {{ declare_css_variables(theme_light_css_variables, lutra_pygments.light) }}
