@@ -160,6 +160,10 @@ lutra_hero = {
     ],
 }
 
+html_additional_pages = {
+    "index": "hero.html",
+}
+
 html_theme_options = {
     # "announcement": (
     #     "This theme is under development and not in a state that it can be used by 'real' projects."
