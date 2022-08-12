@@ -176,7 +176,9 @@ function main() {
   setupSidebarCollapse();
   setupTheme();
   setupScrollHandler();
-  setupHeaderSearch();
+  // This is disabled, since we don't have inline search presentation.
+  // Without that, this just looks a bit weird.
+  // setupHeaderSearch();
 }
 
 document.addEventListener("DOMContentLoaded", main);
