@@ -1,8 +1,8 @@
 <form class="search-form" method="get" action="{{ pathto('search') }}" role="search">
   <input type="text" name="q" value="" label="{{ _('Search') }}" placeholder="{{ _('Search') }}"
-    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-  <!-- <div class="search-guidance">
+    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus/>
+  <div class="search-guidance">
     {% trans %}Press Enter to get search results{% endtrans %}
     <noscript>(needs JavaScript to work)</noscript>
-  </div> -->
+  </div>
 </form>
