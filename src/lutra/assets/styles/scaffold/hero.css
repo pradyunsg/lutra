@@ -13,16 +13,15 @@
 }
 
 .lutra-hero-main {
-  @apply pb-20 px-0;
+  @apply pb-20 px-0 mx-auto text-center;
   max-width: 36rem;
 }
 
-.lutra-hero-brand {
+.lutra-hero-heading {
   @apply text-5xl font-bold mb-0 leading-tight;
-  color: var(--color_text-hero-brand);
 }
-.lutra-hero-text {
-  @apply text-5xl font-bold mb-0 leading-tight;
+.lutra-hero-brand {
+  color: var(--color_text-hero-brand);
 }
 .lutra-hero-tagline {
   @apply pt-2;
@@ -32,7 +31,7 @@
 
 /* Buttons */
 .lutra-hero-actions {
-  @apply flex gap-2;
+  @apply flex gap-2 items-center justify-center;
   @apply pt-8 pb-4;
 }
 

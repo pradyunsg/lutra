@@ -5,12 +5,14 @@
 <div class="lutra-hero">
   <div class="sb-page-width">
     <div class="lutra-hero-main">
-      {% if "brand" in theme_hero -%}
-        <h1 class="lutra-hero-brand">{{ theme_hero.brand }}</h1>
-      {%- endif %}
-      {% if "text" in theme_hero -%}
-        <p class="lutra-hero-text">{{ theme_hero.text }}</p>
-      {%- endif %}
+      <h1 class="lutra-hero-heading">
+        {% if "brand" in theme_hero -%}
+        <span class="lutra-hero-brand">{{ theme_hero.brand }}</span>
+        {%- endif %}
+        {% if "text" in theme_hero -%}
+        <span class="lutra-hero-text">{{ theme_hero.text }}</span>
+        {%- endif %}
+      </h1>
       {% if "tagline" in theme_hero -%}
         <p class="lutra-hero-tagline">{{ theme_hero.tagline }}</p>
       {%- endif %}
