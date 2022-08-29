@@ -37,133 +37,133 @@ html.dark {
 
 /* Colors! */
 html {
-  --color-slate-solid: theme("colors.slate.600");
+  --color-slate-solid: theme("colors.slate.500");
   --color-slate-solid_dark: theme("colors.slate.400");
   --color-slate-highlight: theme("colors.slate.500/40");
   --color-slate-target: theme("colors.slate.200/50");
   --color-slate-target_dark: theme("colors.slate.500/20");
 
-  --color-gray-solid: theme("colors.gray.600");
+  --color-gray-solid: theme("colors.gray.500");
   --color-gray-solid_dark: theme("colors.gray.400");
   --color-gray-highlight: theme("colors.gray.500/40");
   --color-gray-target: theme("colors.gray.200/50");
   --color-gray-target_dark: theme("colors.gray.500/20");
 
-  --color-zinc-solid: theme("colors.zinc.600");
+  --color-zinc-solid: theme("colors.zinc.500");
   --color-zinc-solid_dark: theme("colors.zinc.400");
   --color-zinc-highlight: theme("colors.zinc.500/40");
   --color-zinc-target: theme("colors.zinc.200/50");
   --color-zinc-target_dark: theme("colors.zinc.500/20");
 
-  --color-neutral-solid: theme("colors.neutral.600");
+  --color-neutral-solid: theme("colors.neutral.500");
   --color-neutral-solid_dark: theme("colors.neutral.400");
   --color-neutral-highlight: theme("colors.neutral.500/40");
   --color-neutral-target: theme("colors.neutral.200/50");
   --color-neutral-target_dark: theme("colors.neutral.500/20");
 
-  --color-stone-solid: theme("colors.stone.600");
+  --color-stone-solid: theme("colors.stone.500");
   --color-stone-solid_dark: theme("colors.stone.400");
   --color-stone-highlight: theme("colors.stone.500/40");
   --color-stone-target: theme("colors.stone.200/50");
   --color-stone-target_dark: theme("colors.stone.500/20");
 
-  --color-red-solid: theme("colors.red.600");
+  --color-red-solid: theme("colors.red.500");
   --color-red-solid_dark: theme("colors.red.400");
   --color-red-highlight: theme("colors.red.500/40");
   --color-red-target: theme("colors.red.200/50");
   --color-red-target_dark: theme("colors.red.500/20");
 
-  --color-orange-solid: theme("colors.orange.600");
+  --color-orange-solid: theme("colors.orange.500");
   --color-orange-solid_dark: theme("colors.orange.400");
   --color-orange-highlight: theme("colors.orange.500/40");
   --color-orange-target: theme("colors.orange.200/50");
   --color-orange-target_dark: theme("colors.orange.500/20");
 
-  --color-amber-solid: theme("colors.amber.600");
+  --color-amber-solid: theme("colors.amber.500");
   --color-amber-solid_dark: theme("colors.amber.400");
   --color-amber-highlight: theme("colors.amber.500/40");
   --color-amber-target: theme("colors.amber.200/50");
   --color-amber-target_dark: theme("colors.amber.500/20");
 
-  --color-yellow-solid: theme("colors.yellow.600");
+  --color-yellow-solid: theme("colors.yellow.500");
   --color-yellow-solid_dark: theme("colors.yellow.400");
   --color-yellow-highlight: theme("colors.yellow.500/40");
   --color-yellow-target: theme("colors.yellow.200/50");
   --color-yellow-target_dark: theme("colors.yellow.500/20");
 
-  --color-lime-solid: theme("colors.lime.600");
+  --color-lime-solid: theme("colors.lime.500");
   --color-lime-solid_dark: theme("colors.lime.400");
   --color-lime-highlight: theme("colors.lime.500/40");
   --color-lime-target: theme("colors.lime.200/50");
   --color-lime-target_dark: theme("colors.lime.500/20");
 
-  --color-green-solid: theme("colors.green.600");
+  --color-green-solid: theme("colors.green.500");
   --color-green-solid_dark: theme("colors.green.400");
   --color-green-highlight: theme("colors.green.500/40");
   --color-green-target: theme("colors.green.200/50");
   --color-green-target_dark: theme("colors.green.500/20");
 
-  --color-emerald-solid: theme("colors.emerald.600");
+  --color-emerald-solid: theme("colors.emerald.500");
   --color-emerald-solid_dark: theme("colors.emerald.400");
   --color-emerald-highlight: theme("colors.emerald.500/40");
   --color-emerald-target: theme("colors.emerald.200/50");
   --color-emerald-target_dark: theme("colors.emerald.500/20");
 
-  --color-teal-solid: theme("colors.teal.600");
+  --color-teal-solid: theme("colors.teal.500");
   --color-teal-solid_dark: theme("colors.teal.400");
   --color-teal-highlight: theme("colors.teal.500/40");
   --color-teal-target: theme("colors.teal.200/50");
   --color-teal-target_dark: theme("colors.teal.500/20");
 
-  --color-cyan-solid: theme("colors.cyan.600");
+  --color-cyan-solid: theme("colors.cyan.500");
   --color-cyan-solid_dark: theme("colors.cyan.400");
   --color-cyan-highlight: theme("colors.cyan.500/40");
   --color-cyan-target: theme("colors.cyan.200/50");
   --color-cyan-target_dark: theme("colors.cyan.500/20");
 
-  --color-sky-solid: theme("colors.sky.600");
+  --color-sky-solid: theme("colors.sky.500");
   --color-sky-solid_dark: theme("colors.sky.400");
   --color-sky-highlight: theme("colors.sky.500/40");
   --color-sky-target: theme("colors.sky.200/50");
   --color-sky-target_dark: theme("colors.sky.500/20");
 
-  --color-blue-solid: theme("colors.blue.600");
+  --color-blue-solid: theme("colors.blue.500");
   --color-blue-solid_dark: theme("colors.blue.400");
   --color-blue-highlight: theme("colors.blue.500/40");
   --color-blue-target: theme("colors.blue.200/50");
   --color-blue-target_dark: theme("colors.blue.500/20");
 
-  --color-indigo-solid: theme("colors.indigo.600");
+  --color-indigo-solid: theme("colors.indigo.500");
   --color-indigo-solid_dark: theme("colors.indigo.400");
   --color-indigo-highlight: theme("colors.indigo.500/40");
   --color-indigo-target: theme("colors.indigo.200/50");
   --color-indigo-target_dark: theme("colors.indigo.500/20");
 
-  --color-violet-solid: theme("colors.violet.600");
+  --color-violet-solid: theme("colors.violet.500");
   --color-violet-solid_dark: theme("colors.violet.400");
   --color-violet-highlight: theme("colors.violet.500/40");
   --color-violet-target: theme("colors.violet.200/50");
   --color-violet-target_dark: theme("colors.violet.500/20");
 
-  --color-purple-solid: theme("colors.purple.600");
+  --color-purple-solid: theme("colors.purple.500");
   --color-purple-solid_dark: theme("colors.purple.400");
   --color-purple-highlight: theme("colors.purple.500/40");
   --color-purple-target: theme("colors.purple.200/50");
   --color-purple-target_dark: theme("colors.purple.500/20");
 
-  --color-fuchsia-solid: theme("colors.fuchsia.600");
+  --color-fuchsia-solid: theme("colors.fuchsia.500");
   --color-fuchsia-solid_dark: theme("colors.fuchsia.400");
   --color-fuchsia-highlight: theme("colors.fuchsia.500/40");
   --color-fuchsia-target: theme("colors.fuchsia.200/50");
   --color-fuchsia-target_dark: theme("colors.fuchsia.500/20");
 
-  --color-pink-solid: theme("colors.pink.600");
+  --color-pink-solid: theme("colors.pink.500");
   --color-pink-solid_dark: theme("colors.pink.400");
   --color-pink-highlight: theme("colors.pink.500/40");
   --color-pink-target: theme("colors.pink.200/50");
   --color-pink-target_dark: theme("colors.pink.500/20");
 
-  --color-rose-solid: theme("colors.rose.600");
+  --color-rose-solid: theme("colors.rose.500");
   --color-rose-solid_dark: theme("colors.rose.400");
   --color-rose-highlight: theme("colors.rose.500/40");
   --color-rose-target: theme("colors.rose.200/50");
