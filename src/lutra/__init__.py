@@ -20,8 +20,13 @@ from sphinx.highlighting import PygmentsBridge
 from sphinx.locale import get_translation
 from sphinx.transforms.post_transforms import SphinxPostTransform
 
-from .errors import LutraError
-from .navigation import determine_navigation_information, should_hide_toc
+from ._directives import (
+    LutraDocumentDirective,
+    LutraDocumentPostTransform,
+    LutraToctreeDirective,
+)
+from ._errors import LutraError
+from ._navigation import determine_navigation_information, should_hide_toc
 
 THEME_PATH = (Path(__file__).parent / "theme" / "lutra").resolve()
 
@@ -308,6 +313,10 @@ def setup(app: sphinx.application.Sphinx) -> Dict[str, Any]:
     app.connect("build-finished", _build_finished)
 
     app.setup_extension("sphinxext.opengraph")
+
+    app.add_directive("lutra-toctree", LutraToctreeDirective)
+    app.add_directive("lutra-document", LutraDocumentDirective)
+    app.add_post_transform(LutraDocumentPostTransform)
 
     return {
         "parallel_read_safe": True,

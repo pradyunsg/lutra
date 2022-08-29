@@ -190,10 +190,10 @@ def _tabs_caption_navigation(
         # Validate that the toctree has the right structure: [title, bullet_list]*n
         if index % 2:
             if element.tagname != "bullet_list":
-                raise Exception("Bad toctree structure!")
+                raise Exception(f"Bad toctree structure at {index}!")
         else:
             if element.tagname != "title":
-                raise Exception("Bad toctree structure!")
+                raise Exception(f"Bad toctree structure at {index}!")
 
     documentation_sections = make_pairs(toctree)
 

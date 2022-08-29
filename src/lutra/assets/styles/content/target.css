@@ -19,7 +19,8 @@
   p.caption,
   figcaption p,
   table > caption,
-  .code-block-caption {
+  .code-block-caption,
+  .lutra-toctree-caption {
     /* Anchors! */
     > .headerlink {
       @apply ml-2;
@@ -126,5 +127,10 @@
       animation-duration: 1s;
       animation-delay: 250ms;
     }
+  }
+
+  /* When the custom toctree is selected */
+  .lutra-toctree-wrapper:target {
+    background-color: var(--color_bg-target);
   }
 }

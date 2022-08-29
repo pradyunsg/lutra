@@ -1,0 +1,32 @@
+/*
+  For Lutra's custom toctree implementation, that associates a description
+  with the subtree.
+*/
+
+/* Hide the Sphinx-injected caption. */
+.lutra-toctree-tree .toctree-wrapper > p.caption {
+  @apply hidden;
+}
+
+/* Stylise the text, extra nesting to get specificity */
+.lutra-toctree-context p.lutra-toctree-caption {
+  @apply font-bold text-xl;
+  @apply my-0;
+}
+
+/* Make the :target highlight look nicer. */
+.lutra-toctree-wrapper {
+  @apply rounded-lg p-2 -mx-2 px-2;
+}
+
+/* Layouting */
+.lutra-toctree-wrapper {
+  @apply flex flex-col;
+}
+
+@media (min-width: 42rem) {
+  /* Move to the two-column layout. */
+  .lutra-toctree-wrapper {
+    @apply flex-row;
+  }
+}

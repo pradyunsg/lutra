@@ -3,6 +3,7 @@
 @import "./blocks.css";
 @import "./code.css";
 @import "./definition-lists.css";
+@import "./document.css";
 @import "./genindex.css";
 @import "./hr.css";
 @import "./image.css";
@@ -12,4 +13,5 @@
 @import "./sidebar.css";
 @import "./tables.css";
 @import "./target.css";
+@import "./toctree.css";
 @import "./typography.css";

@@ -1,0 +1,96 @@
+/* lutra-document: Present a card for a document with a description.
+
+The card is stylised similarly to sphinx-design's cards
+*/
+
+.lutra-document-container {
+  @apply my-6;
+  @apply grid grid-cols-2 gap-3;
+}
+
+.lutra-document {
+  @apply p-4;
+}
+.lutra-document-with-child-pages {
+  @apply col-span-2 flex p-2;
+}
+
+.lutra-document-context {
+  @apply p-4;
+}
+
+.lutra-document,
+.lutra-document-with-child-pages {
+  @apply rounded;
+  @apply transition-shadow duration-[250ms] ease-in-out;
+
+  /* The last element will have the card padding below it */
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  border: 1px solid var(--sd-color-card-border);
+
+  /* Tweak the shadow on hover */
+  box-shadow: 0 0.125rem 0.25rem var(--sd-color-shadow) !important;
+  &:hover {
+    box-shadow: 0 0.25rem 0.5rem var(--sd-color-shadow) !important;
+  }
+}
+
+/* Remove unwanted behaviours from `.prose a[href]` */
+.prose a[href].reference.lutra-document {
+  @apply border-b text-inherit;
+
+  border: 1px solid var(--sd-color-card-border);
+  &:hover {
+    @apply text-inherit;
+    border-color: var(--sd-color-card-border);
+    /* border-color: var(--color_text-link_underline--hover); */
+    &:visited {
+      border-color: var(--sd-color-card-border);
+      /* border-color: var(--color_text-link_underline--visited--hover); */
+    }
+  }
+}
+
+.lutra-document-title-container {
+  @apply font-bold;
+
+  &::after {
+    @apply ml-2 font-light opacity-50;
+    content: "→";
+  }
+
+  /* Stylise like a link on hover */
+  .lutra-document:hover & {
+    color: var(--color_text-link--hover);
+  }
+  .lutra-document:hover:visited & {
+    color: var(--color_text-link--visited--hover);
+  }
+}
+.lutra-document-title {
+  @apply font-bold border-b-2;
+  .lutra-document & {
+    @apply border-b-transparent;
+  }
+  .lutra-document-title-link & {
+    border-bottom-color: var(--color_text-link_underline);
+  }
+  .lutra-document-title-link:visited & {
+    border-bottom-color: var(--color_text-link_underline--visited);
+  }
+}
+
+/* Hover state */
+.lutra-document:hover,
+.lutra-document-title-link:hover {
+  /* Stylise like a link on hover */
+  .lutra-document-title {
+    border-bottom-color: var(--color_text-link_underline--hover);
+  }
+  &:visited .lutra-document-title {
+    border-bottom-color: var(--color_text-link_underline--visited--hover);
+  }
+}
