@@ -62,7 +62,7 @@ def _styles_from_colors(colors: Dict[str, str]) -> Dict[Any, str]:
     base00 = colors["base00"]  # noqa
     base01 = colors["base01"]  # noqa
     base02 = colors["base02"]  # noqa
-    base03 = colors["base03"]
+    base03 = colors["base03"]  # noqa
     base04 = colors["base04"]
     base05 = colors["base05"]
     base06 = colors["base06"]  # noqa
@@ -135,7 +135,7 @@ def _styles_from_colors(colors: Dict[str, str]) -> Dict[Any, str]:
         Operator: yellow,
         Operator.Word: yellow,
         Punctuation: "",
-        Comment: f"italic {base03}",
+        Comment: f"italic {base04}",
         Comment.Hashbang: "",
         Comment.Multiline: "",
         Comment.Preproc: purple,
