@@ -2,7 +2,7 @@
 
 Sphinx is extremely flexible and allows documentation authors to override every part of the theme that they use. Lutra does not support many of these mechanisms -- it usually doesn't go out of its way to disallow them but they're also unsupported.
 
-Unsupported customisations may break with any new release and requests for changes to accommodate for them would be closed as "wontfix". See also {doc}`../stability` for more details.
+Unsupported customisations may break with any new release and requests for changes to accommodate for them would be closed as "wontfix". See also {doc}`../contributing/stability` for more details.
 
 ## Rationale
 

@@ -1,28 +1,32 @@
-# Getting Started
+# Tutorial
 
-Lutra is a theme for Sphinx, a static site generator geared towards technical documentation.
-
-If you're familiar with Python and Sphinx, you can install Lutra with pip, the Python package manager. If you're not, I'd recommend reading the [official Sphinx tutorial][sphinx-tutorial] which provides the necessary background.
-
-[sphinx-tutorial]: https://www.sphinx-doc.org/en/master/tutorial/
+...
 
 ## Installation
 
-Lutra is available on the {pypi}`Python Package Index (PyPI) <lutra>` and [GitHub](https://github.com/pradyunsg/lutra), as a Python package.
+Lutra is available as a Python package on PyPI.
 
+````{tab} Latest
 ```console
 $ pip install lutra
 ```
 
 This will install the latest stable release of Lutra, register all the right things for Sphinx to be able to find this theme and install the recommended helpers for documentation authors.
+````
 
-### In-development branch
-
+````{tab} In-development
 ```console
 $ pip install "lutra @ git+https://github.com/pradyunsg/lutra/"
 ```
 
-This will install the in-development version of Lutra, directly from the GitHub repository. Do this if you want to live on the bleeding edge, with no stability promises. Like the stable installation, Sphinx will be able to find this theme under the same name.
+This will install the in-development code for Lutra, register all the right things for Sphinx to be able to find this theme and install the recommended helpers for documentation authors.
+````
+
+```{hint}
+If you're not familiar with Sphinx, I'd recommend reading the [official tutorial][sphinx-tutorial] which provides the necessary background.
+```
+
+[sphinx-tutorial]: https://www.sphinx-doc.org/en/master/tutorial/
 
 ## Using this theme
 

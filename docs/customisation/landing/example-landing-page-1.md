@@ -1,6 +1,7 @@
 ---
 layout: page
 hero: true
+orphan: true
 ---
 
 # Example Landing Page 1

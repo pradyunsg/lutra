@@ -1,20 +1,26 @@
 # Customisation
 
+Lutra provides many knobs for documentation authors to tweak, to make the documentation site fit the brand that they have/want.
+
 ```{toctree}
 :hidden:
 
-unsupported
-landing-pages/index
-logo
-colors
-layouts/index
-sidebar
-derivative-themes
+aesthetic
+functional
+structural
 ```
 
-Hey Pradyun!
+```{lutra-document} aesthetic
+:show-child-pages:
+Related to the presentation and overall branding of the site.
+```
 
-You want to do the following before a public release:
+```{lutra-document} functional
+:show-child-pages:
+Related to the elements on page.
+```
 
-- Add a "back to top" thing that behaves like mkdocs-material's. It shows up at the top of the page, when the user scrolls upwards.
-- Figure out a way to have a feedback widget, that has faces as buttons, that open a new tab for the user to provide their feedback, with it pre-filled for them based on their response. This might be achievable as a form (or multiple)?
+```{lutra-document} structural
+:show-child-pages:
+Related to the layout elements and site navigation design.
+```

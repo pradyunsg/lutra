@@ -1,2 +1,3 @@
 myst-parser
 sphinx-inline-tabs
+sphinx-design

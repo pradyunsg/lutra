@@ -174,7 +174,7 @@ html_theme_options = {
     "source_repository": "https://github.com/pradyunsg/lutra/",
     "source_branch": "main",
     "source_directory": "docs/",
-    # "navigation_style": "tabs-caption",
+    "navigation_style": "tabs-document",
     "hero": lutra_hero,
     # Below are TODOs.
     # "feedback_form_url": (

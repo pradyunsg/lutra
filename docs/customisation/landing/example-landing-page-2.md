@@ -1,4 +1,5 @@
 ---
+orphan: true
 hero: true
 ---
 

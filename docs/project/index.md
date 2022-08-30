@@ -1,4 +1,4 @@
-# Development
+# Project
 
 Thank you for your interest in Lutra! ✨
 
@@ -6,19 +6,17 @@ This section of Lutra's documentation serves as a resource to help you to contri
 
 The [Code of Conduct] applies within all community spaces. If you are not familiar with our Code of Conduct policy, take a minute to read the policy before starting with your first contribution.
 
-```{toctree}
-:hidden:
-
-workflow
-kitchen-sink/index
+```{lutra-document} workflow
+Describes how to work on this project. Start here if you're a new contributor.
 ```
 
-<!-- prettier-ignore-start -->
-[Workflow](./workflow)
-: Describes how to work on this project. Start here if you're a new contributor.
+```{lutra-document} kitchen-sink/index
+All the things that Sphinx supports directly, as well as a curated selection of extensions.
+```
 
-[Kitchen Sink](./kitchen-sink/index)
-: A dump of all the things that Sphinx supports directly, as well as a few "blessed" extensions.
-<!-- prettier-ignore-end -->
+```{toctree}
+:hidden:
+faq
+```
 
 [code of conduct]: https://github.com/pradyunsg/lutra/blob/main/CODE_OF_CONDUCT.md
