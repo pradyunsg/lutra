@@ -1,14 +1,27 @@
-/* sphinx-design */
+/*
+  sphinx-design
+*/
 body {
-  --sd-color-card-border: var(--color_text-link_underline);
-  --sd-color-card-border-hover: var(--color_text-link_underline);
+  --sd-color-card-border: var(--border-site_sidebar);
+  --sd-color-card-border-hover: var(--color_text-link_underline--hover);
+  --sd-color-shadow: var(--border-site_sidebar);
 }
 
-/* Override some bad aesthetic choices. */
-.sd-card-hover:hover {
-  transition: transform 100ms linear;
-  transform: translateY(-1px);
+.dark body {
+  --sd-color-shadow: rgb(1, 4, 9);
 }
+
+/* Scaling on hover is a bad aesthetic -- get rid of it. */
+.sd-card-hover:hover {
+  transform: none;
+}
+
+/* Deal with the conflict of a[href] styling and how sphinx-design uses it */
+a[href].sd-stretched-link {
+  border-bottom: none;
+}
+
+/* Remove the not-necessary padding */
 .sd-container,
 .sd-container-fluid,
 .sd-container-lg,
