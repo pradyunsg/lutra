@@ -12,8 +12,8 @@
   }
 }
 
-.lutra-hero-main {
-  @apply pb-20 px-0 mx-auto text-center;
+.lutra-hero-text {
+  @apply pb-20 px-4;
   max-width: 36rem;
 }
 
@@ -31,7 +31,7 @@
 
 /* Buttons */
 .lutra-hero-actions {
-  @apply flex gap-2 items-center justify-center;
+  @apply flex gap-2 items-center;
   @apply pt-8 pb-4;
 }
 

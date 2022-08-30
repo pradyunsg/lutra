@@ -38,10 +38,11 @@ html:not(.dark) {
   --color_text-hero_button: theme("colors.gray.800");
 
   --border-hero_button--brand: transparent;
-  --color_bg-hero_button--brand: theme("colors.blue.500");
+  --color_bg-hero_button--brand: var(--theme-primary);
   --color_text-hero_button--brand: theme("colors.white");
 
-  --color_bg-hero_feature: theme("colors.gray.50");
+  --color_bg-hero_feature: var(--color_bg-header);
+  --color_text-hero-brand: var(--theme-primary);
 
   /* Footer */
   --color_bg-related_pages--hover: theme("colors.slate.100");
@@ -161,10 +162,11 @@ html.dark {
   --color_text-hero_button: theme("colors.gray.200");
 
   --border-hero_button--brand: transparent;
-  --color_bg-hero_button--brand: theme("colors.blue.500");
+  --color_bg-hero_button--brand: var(--theme-primary);
   --color_text-hero_button--brand: theme("colors.gray.100");
 
-  --color_bg-hero_feature: theme("colors.gray.900");
+  --color_bg-hero_feature: var(--color_bg-header);
+  --color_text-hero-brand: var(--theme-primary);
 
   /* Footer */
   --color_bg-related_pages--hover: theme("colors.gray.800");
