@@ -18,7 +18,9 @@ body {
   @apply px-0;
 }
 
-/* sphinx-inline-tabs */
+/*
+  sphinx-inline-tabs
+*/
 .tab-content {
   div[class^="highlight-"]:first-child {
     @apply mt-0;
@@ -31,16 +33,16 @@ body {
 html:not(.dark) {
   --tabs--label-text: theme("colors.gray.600");
   --tabs--label-text--hover: theme("colors.gray.600");
-  --tabs--label-text--active: theme("colors.blue.500");
-  --tabs--label-text--active--hover: theme("colors.blue.500");
+  --tabs--label-text--active: var(--theme-primary);
+  --tabs--label-text--active--hover: var(--theme-primary);
   --tabs--label-background: transparent;
   --tabs--label-background--hover: transparent;
   --tabs--label-background--active: transparent;
   --tabs--label-background--active--hover: transparent;
   --tabs--label-border: transparent;
   --tabs--label-border--hover: theme("colors.gray.300");
-  --tabs--label-border--active: theme("colors.blue.500");
-  --tabs--label-border--active--hover: theme("colors.blue.500");
+  --tabs--label-border--active: var(--theme-primary);
+  --tabs--label-border--active--hover: var(--theme-primary);
   --tabs--padding-x: 0.25em;
   --tabs--margin-x: 1em;
   --tabs--border: theme("colors.gray.200");
@@ -48,16 +50,16 @@ html:not(.dark) {
 html.dark {
   --tabs--label-text: theme("colors.gray.400");
   --tabs--label-text--hover: theme("colors.gray.400");
-  --tabs--label-text--active: theme("colors.blue.500");
-  --tabs--label-text--active--hover: theme("colors.blue.500");
+  --tabs--label-text--active: var(--theme-primary_dark);
+  --tabs--label-text--active--hover: var(--theme-primary_dark);
   --tabs--label-background: transparent;
   --tabs--label-background--hover: transparent;
   --tabs--label-background--active: transparent;
   --tabs--label-background--active--hover: transparent;
   --tabs--label-border: transparent;
   --tabs--label-border--hover: theme("colors.gray.600");
-  --tabs--label-border--active: theme("colors.blue.500");
-  --tabs--label-border--active--hover: theme("colors.blue.500");
+  --tabs--label-border--active: var(--theme-primary_dark);
+  --tabs--label-border--active--hover: var(--theme-primary_dark);
   --tabs--padding-x: 0.25em;
   --tabs--margin-x: 1em;
   --tabs--border: theme("colors.gray.800");
