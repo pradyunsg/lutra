@@ -12,22 +12,25 @@ The card is stylised similarly to sphinx-design's cards
   @apply p-4;
 }
 .lutra-document-with-child-pages {
-  @apply col-span-2 flex p-2;
+  @apply col-span-2 flex;
 }
 
 .lutra-document-context {
-  @apply p-4;
+  @apply pl-0 p-4;
 }
 
 .lutra-document,
 .lutra-document-with-child-pages {
   @apply rounded;
-  @apply transition-shadow duration-[250ms] ease-in-out;
 
   /* The last element will have the card padding below it */
   > :last-child {
     margin-bottom: 0;
   }
+}
+
+.lutra-document {
+  @apply transition-shadow duration-[250ms] ease-in-out;
 
   border: 1px solid var(--sd-color-card-border);
 
