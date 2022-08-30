@@ -1,7 +1,5 @@
 # Get Started
 
-Welcome to Lutra's documentation.
-
 ```{lutra-document} tutorial/index
 Start here, if you're new to Sphinx
 ```
