@@ -44,7 +44,7 @@
 }
 /* Properly locate next page */
 .next-page {
-  @apply justify-end self-end;
+  @apply justify-end;
   .page-info {
     @apply items-end text-right;
   }
