@@ -6,6 +6,7 @@ from docutils import nodes
 from docutils.parsers.rst import directives
 from sphinx import addnodes
 from sphinx.directives import SphinxDirective
+from sphinx.directives.other import TocTree as TocTreeDirective
 from sphinx.environment.adapters.toctree import TocTree
 from sphinx.transforms.post_transforms import SphinxPostTransform
 from sphinx.util import docname_join
@@ -14,7 +15,7 @@ from sphinx.util.nodes import clean_astext
 from ._errors import LutraError
 
 
-class LutraToctreeDirective(TocTree):
+class LutraToctreeDirective(TocTreeDirective):
     """Custom toctree that has a description and allows for two-column layout.
 
     This is inspired by the design of the Gatsby documentation, which groups
