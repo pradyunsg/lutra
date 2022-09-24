@@ -53,7 +53,7 @@
   }
 
   /* Links */
-  a {
+  a[href] {
     @apply cursor-pointer border-b-2;
     color: var(--color_text-link);
 
