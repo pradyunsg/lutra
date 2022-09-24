@@ -54,7 +54,7 @@ export class ScrollObserver {
       return position >= section.offsetTop - sectionMargin;
     });
     if (current === undefined) {
-      console.debug("[ScrollObserver] No relevant section is visible.");
+      // console.debug("[ScrollObserver] No relevant section is visible.");
       return;
     }
 
@@ -62,13 +62,13 @@ export class ScrollObserver {
       return anchor.hash === `#${current?.id}`;
     });
     if (currentLinkIndex === -1) {
-      console.debug("[ScrollObserver] No link found for section:", current);
+      // console.debug("[ScrollObserver] No link found for section:", current);
       return;
     }
 
     // Highlight the current link and mark the previous ones.
-    console.debug("[ScrollObserver] Current section:", current);
-    console.debug("[ScrollObserver] Current link index:", currentLinkIndex);
+    // console.debug("[ScrollObserver] Current section:", current);
+    // console.debug("[ScrollObserver] Current link index:", currentLinkIndex);
     this.links[currentLinkIndex]?.classList.add("current");
     this.links.slice(0, currentLinkIndex).forEach((anchor) => {
       anchor.classList.add("previous");
@@ -78,7 +78,7 @@ export class ScrollObserver {
   private updatePageTitleAndBackToTop(position: number) {
     if (position > this.show_page_title_offset) {
       document.documentElement.classList.add("show-page-title");
-      if (position < this.lastScrollTop) {
+      if (!location.hash && position < this.lastScrollTop) {
         document.documentElement.classList.add("show-back-to-top");
       } else if (position > this.lastScrollTop) {
         document.documentElement.classList.remove("show-back-to-top");
