@@ -32,7 +32,7 @@
   }
   /* Stylize links */
   a {
-    @apply px-3 transition-all duration-200 relative block rounded-md cursor-pointer;
+    @apply px-3 transition-all duration-100 relative block rounded-md cursor-pointer;
     color: var(--color_text-link-sidebar);
     background: var(--color_bg-link-sidebar);
 
@@ -87,10 +87,7 @@
 .site-navigation-container {
   @apply text-sm;
   .sidebar-scroll {
-    @apply pt-12 pb-12;
-    @media (min-width: 76rem) {
-      @apply pt-12 pb-12;
-    }
+    @apply pt-12 pb-16;
   }
   p.caption {
     @apply px-3 mb-1 tracking-wide font-semibold text-xxs uppercase;
@@ -302,16 +299,20 @@
   @apply pt-6;
 }
 
-/* Hide the first "top level" bullet. */
-.toc-container > ul > li:first-child {
-  @apply pt-0;
-  & > ul {
-    @apply ml-0;
-  }
-  & > a {
-    @apply hidden;
-  }
+/* Dedent the top level toctree's children. */
+.lutra-dedent-first-li-children > ul > li:first-child > ul {
+  @apply ml-0;
 }
+
+.lutra-highlight-top-bullet > ul > li:first-child > a {
+  @apply font-bold;
+}
+
+/* Hide the first "top level" bullet. */
+.lutra-hide-top-bullet-content > ul > li:first-child > a {
+  @apply hidden;
+}
+
 .sidebar-link-container {
   @apply text-xs mx-3;
   color: var(--color_text-link-sidebar);
