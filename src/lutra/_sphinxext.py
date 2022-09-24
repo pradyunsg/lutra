@@ -2,7 +2,10 @@
 
 NOTE: This is only for lutra's own documentation.
 
-This provides a single `lutra-demo` directive, which:
+This provides a single `private-*` directives, which are meant for use only in
+this project's own documentation.
+
+The example directive makes the following assumptions:
 
 - Only works when used in a MyST document.
 - Requires sphinx-inline-tabs' tab directive.
@@ -36,7 +39,7 @@ def _split_by_language(block_text: str) -> Tuple[str, str]:
         return a, b
 
 
-def _md_demo(block: str) -> StringList:
+def _md_example(block: str) -> StringList:
     lines = []
     if not block.strip("\n"):
         return StringList()
@@ -51,7 +54,7 @@ def _md_demo(block: str) -> StringList:
     return StringList(lines)
 
 
-def _rst_demo(block: str) -> StringList:
+def _rst_example(block: str) -> StringList:
     lines = []
     if not block.strip():
         return StringList()
@@ -69,29 +72,32 @@ def _rst_demo(block: str) -> StringList:
     return StringList(lines)
 
 
-def _translate_into_tab_demo(block_text: str) -> StringList:
+def _translate_into_tab_example(block_text: str) -> StringList:
     md, rst = _split_by_language(block_text)
 
     string_list = StringList()
 
-    string_list.extend(_md_demo(md))
-    string_list.extend(_rst_demo(rst))
+    string_list.extend(_md_example(md))
+    string_list.extend(_rst_example(rst))
 
     return string_list
 
 
-class _DemoDirective(SphinxDirective):
+class PrivateExampleDirective(SphinxDirective):
+    """A private for-this-project-documentation-only directive."""
+
     has_content = True
 
     def run(self) -> Any:
+        """Entrypoint for directive."""
         self.assert_has_content()
 
         container = nodes.container()
-        transated_content = _translate_into_tab_demo(self.block_text)
+        transated_content = _translate_into_tab_example(self.block_text)
         self.state.nested_parse(transated_content, 0, container)
         return [container]
 
 
 def setup(app: Sphinx) -> None:
     """For setting up the directive."""
-    app.add_directive("lutra-demo", _DemoDirective)
+    app.add_directive("private-example", PrivateExampleDirective)
