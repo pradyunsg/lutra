@@ -1,6 +1,5 @@
 .sb-header {
   @apply sticky top-0;
-  @apply backdrop-blur;
   z-index: 30;
   background: var(--color_bg-header);
 }
@@ -8,23 +7,23 @@
 .header-container {
   @apply h-12 px-2 flex items-center gap-4;
   .sb-header & {
-    @apply h-16;
+    @apply h-12;
   }
 }
 
 .header-logo-container {
-  @apply flex items-center gap-4;
+  @apply flex items-center gap-2;
 }
 .header-logo {
   @apply h-10;
 }
 
 .header-title {
-  @apply text-2xl leading-none font-bold h-full mx-0 relative flex items-center;
+  @apply text-xl pl-2 leading-none font-bold h-full mx-0 relative flex items-center;
 }
 
 .sb-header-article {
-  @apply sticky top-16;
+  @apply sticky top-12;
   @apply z-10;
 
   background: linear-gradient(
@@ -45,7 +44,7 @@
   @apply text-sm flex h-full;
 
   li {
-    @apply opacity-60 h-full;
+    @apply opacity-60 h-full transition-all;
 
     a {
       @apply flex items-center h-full px-2;
@@ -57,23 +56,29 @@
 
     &.current {
       @apply opacity-100;
+      color: var(--color_text-link--hover);
+      &::after {
+        content: "";
+        display: block;
+        border-top: 1px solid var(--color_text-link--hover);
+      }
     }
   }
 }
 
 /* Handle sticky tops to align with the header */
 .sidebar-sticky {
-  @apply sticky top-16;
+  @apply sticky top-12;
 }
 .sticky-secondary-header {
   .sb-header-secondary {
-    @apply sticky top-16;
+    @apply sticky top-12;
   }
   .sb-header-article,
   .sidebar-sticky {
-    @apply sticky top-28;
+    @apply sticky top-24;
   }
   .back-to-top {
-    @apply top-40;
+    @apply top-36;
   }
 }
