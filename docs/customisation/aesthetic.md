@@ -1,6 +1,8 @@
 # Aesthetic
 
 ```{toctree}
+:titlesonly:
+
 colors
 fonts
 icons

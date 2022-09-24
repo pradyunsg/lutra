@@ -1,6 +1,8 @@
 # Structural
 
 ```{toctree}
+:titlesonly:
+
 blog
 footer
 header

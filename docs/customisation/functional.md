@@ -1,6 +1,8 @@
 # Functional
 
 ```{toctree}
+:titlesonly:
+
 announcement-banner
 edit-history
 edit-view-buttons
