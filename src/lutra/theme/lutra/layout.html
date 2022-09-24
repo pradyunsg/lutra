@@ -4,7 +4,7 @@
   {%- if pagename == "index" -%}
     {{ _("Home") }} - {{ docstitle|striptags|e }}
   {%- else -%}
-    {{title|striptags|e }} - {{ docstitle|striptags|e }}
+    {{ title|striptags|e }} - {{ docstitle|striptags|e }}
   {%- endif -%}
 {%- endblock %}
 
