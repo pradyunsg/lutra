@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+<meta property="og:title" content="Adding edit/view buttons" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="customisation/edit-view-buttons/" />
+  
+<meta property="og:description" content="Heading 1: …" />
+  
+
+  <title>Adding edit/view buttons - Lutra</title><link rel="index" title="Index" href="../../genindex/" /><link rel="search" title="Search" href="../../search/" /><link rel="next" title="Adding feedback widget" href="../feedback/" /><link rel="prev" title="Adding edit history" href="../edit-history/" />
+<link rel="stylesheet" href="../../_static/skeleton.css" type="text/css" /><link rel="stylesheet" type="text/css" href="../../_static/pygments.css" /><link rel="stylesheet" type="text/css" href="../../_static/styles/lutra.css?digest=d24a8a9d4e3da621a8743778b0bc9813" /><link rel="stylesheet" type="text/css" href="../../_static/tabs.css" /><link rel="stylesheet" type="text/css" href="../../_static/styles/lutra-extensions.css?digest=cb0a2a27d38948a8faa936a2d3ead04a" />
+
+
+<style>
+html {
+  --theme-brand: var(--color-blue-brand);
+
+  --theme-primary: var(--color-blue-solid);
+  --theme-primary_dark: var(--color-blue-solid_dark);
+  --theme-primary-highlight: var(--color-blue-highlight);
+  --theme-primary-target: var(--color-blue-target);
+  --theme-primary-target_dark: var(--color-blue-target_dark);
+
+  --theme-secondary: var(--color-violet-solid);
+  --theme-secondary_dark: var(--color-violet-solid_dark);
+  --theme-secondary-highlight: var(--color-violet-highlight);
+  --theme-secondary-target: var(--color-violet-target);
+  --theme-secondary-target_dark: var(--color-violet-target_dark);
+}
+html:not(.dark) {
+  
+--color_bg-code_block: #f8f8f8;
+--color_text-code_block: #383a42;
+}
+html.dark {
+  
+--color_bg-code_block: #1d1f21;
+--color_text-code_block: #90afc0;
+}
+</style>
+
+  
+</head>
+<body class="antialiased">
+  
+<script>
+  // Eager dark-mode handling.
+  const currentTheme = localStorage.getItem("theme") || "auto";
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  document.body.dataset.theme = currentTheme;
+  if ((currentTheme === "auto" && prefersDark) || currentTheme === "dark") {
+    document.documentElement.classList.add("dark");
+  }
+  // Eager sidebar collapse
+  if ((localStorage.getItem("collapsed") || "false") === "true") {
+    document.body.classList.add("collapsed-site-navigation");
+  }
+</script>
+<a class="skip-to-content" href="#lutra-main-content">Skip to content</a>
+<svg style="display: none;">
+  <symbol id="icon-collapse" viewBox="0 0 24 24">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </symbol>
+  <symbol id="icon-secondary-collapse" viewBox="0 0 24 24">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+    </svg>
+  </symbol>
+  <symbol id="icon-theme-auto" viewBox="0 0 24 24">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24">
+      <path fill="none" d="M0 0h24v24H0z"></path>
+      <path
+        d="M10.85 12.65h2.3L12 9l-1.15 3.65zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM14.3 16l-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9z">
+      </path>
+    </svg>
+  </symbol>
+  <symbol id="icon-theme-dark" viewBox="0 0 24 24">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24">
+      <path fill="none" d="M0 0h24v24H0z"></path>
+      <path
+        d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z">
+      </path>
+    </svg>
+  </symbol>
+  <symbol id="icon-theme-light" viewBox="0 0 24 24">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24">
+      <path fill="none" d="M0 0h24v24H0z"></path>
+      <path
+        d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z">
+      </path>
+    </svg>
+  </symbol>
+</svg>
+
+
+<div class="sb-announcement">
+  
+</div>
+
+
+<header class="sb-header">
+  <div class="sb-header__inner sb-page-width">
+    <div class="header-container">
+  
+  <div class="hide-when-primary-sidebar-shown flex items-center">
+  
+  <label for="sb-sidebar-toggle--primary" class="hide-when-primary-sidebar-shown">
+  
+<svg class="h-6 w-6"><use href="#icon-collapse"></use></svg>
+
+</label>
+  
+</div>
+  <a class="header-logo-container" href="../../">
+  <div class="header-title">Lutra</div>
+</a>
+  
+  
+  <div class="flex-1"></div>
+  <div class="header-search-container">
+  <a id="lutra-header-search-link" href="../../search/">
+    <span class="header-search-icon"></span>
+  </a>
+  <div id="lutra-header-search-form">
+    <form class="search-form" method="get" action="../../search/" role="search">
+  <input type="text" name="q" value="" label="Search" placeholder="Search"
+    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus/>
+  <div class="search-guidance">
+    Press Enter to get search results
+    <noscript>(needs JavaScript to work)</noscript>
+  </div>
+</form>
+  </div>
+  <div id="lutra-header-search-overlay"></div>
+</div>
+
+  <button class="theme-toggle">
+  <div class="theme-icon-when-auto">
+    <svg><use href="#icon-theme-auto"></use></svg>
+  </div>
+  <div class="theme-icon-when-dark">
+    <svg><use href="#icon-theme-dark"></use></svg>
+  </div>
+  <div class="theme-icon-when-light">
+    <svg><use href="#icon-theme-light"></use></svg>
+  </div>
+</button>
+  
+</div>
+  </div>
+</header>
+
+
+<header class="sb-header-secondary">
+  <div class="sb-header-secondary__inner sb-page-width">
+    
+<div class="header-container">
+  <ul class="lutra-tabs">
+<li><a class="reference internal" href="../../get-started/">Get Started</a></li>
+<li class="current"><a class="reference internal" href="../">Customisation</a></li>
+<li><a class="reference internal" href="../../reference/">Reference</a></li>
+<li><a class="reference internal" href="../../project/">Project</a></li>
+<li><a class="reference internal" href="../../showcase/">Showcase</a></li>
+</ul>
+
+</div>
+
+  </div>
+</header>
+
+
+<input type="checkbox" class="sb-sidebar-toggle" name="sb-sidebar-toggle--primary" id="sb-sidebar-toggle--primary">
+<input type="checkbox" class="sb-sidebar-toggle" name="sb-sidebar-toggle--secondary" id="sb-sidebar-toggle--secondary">
+<label class="sb-sidebar-overlay" for="sb-sidebar-toggle--primary"></label>
+<label class="sb-sidebar-overlay" for="sb-sidebar-toggle--secondary"></label>
+
+
+<div class="sb-container">
+  <div class="sb-container__inner sb-page-width">
+    
+    <aside class="sb-sidebar-primary">
+      <div class="site-navigation-container sidebar-sticky">
+  <button id="lutra-site-navigation-collapse-icon" tabindex="0" aria-label="Toggle Sidebar"></button>
+  <div id="lutra-primary-sidebar-container" class="sidebar-scroll">
+    
+    
+    <div class="docs-header">
+      <a class="back-home-link" href="../../">
+        <span class="back-home-icon"></span><span class="back-home-text">Home</span>
+      </a>
+    </div>
+    
+    <div class="toctree-container">
+      <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../">Customisation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../aesthetic/">Aesthetic</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../functional/">Functional</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../announcement-banner/">Adding announcement banner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../edit-history/">Adding edit history</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Adding edit/view buttons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../feedback/">Adding feedback widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../repository-info/">Adding repository info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../page-layout/">Changing page layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../prev-next-page/">Changing previous/next navigation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../structural/">Structural</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    
+  </div>
+</div>
+    </aside>
+    
+    <main class="sb-main">
+      
+      <header class="sb-header-content">
+        <div class="sb-header-content__inner">
+          <a href="#" class="back-to-top">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</a>
+<div class="toc-toggle-container hide-when-secondary-sidebar-shown">
+  <label for="sb-sidebar-toggle--secondary" class="hide-when-secondary-sidebar-shown">
+  
+<svg class="h-6 w-6"><use href="#icon-secondary-collapse"></use></svg>
+
+</label>
+</div>
+        </div>
+      </header>
+      
+      <div class="sb-content">
+        
+<div class="sb-article-container"><header class="sb-header-article">
+    <div class="match-content-width">
+  
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+    <li class="breadcrumb-nav-list-item breadcrumb-nav-index-item"><a href="../../">Home</a><span class="breadcrumb-separator" role="presentation"></span></li>
+    <li class="breadcrumb-nav-list-item"><a href="../">Customisation</a><span class="breadcrumb-separator" role="presentation"></span></li>
+    <li class="breadcrumb-nav-list-item"><a href="../functional/">Functional</a><span class="breadcrumb-separator" role="presentation"></span></li>
+    <li class="breadcrumb-nav-list-item breadcrumb-nav-page-item"><span>Adding edit/view buttons</span><span class="breadcrumb-separator" role="presentation"></span></li>
+  </ol>
+</nav>
+  
+</div>
+  </header><article role="main">
+    <div id="lutra-main-content" class="prose"><section id="adding-edit-view-buttons">
+<h1>Adding edit/view buttons<a class="headerlink" href="#adding-edit-view-buttons" title="Permalink to this headline">#</a></h1>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Write this.</p>
+</div>
+<section id="heading-1">
+<h2>Heading 1<a class="headerlink" href="#heading-1" title="Permalink to this headline">#</a></h2>
+<p>…</p>
+</section>
+</section>
+</div>
+  </article>
+  <footer class="sb-footer-article">
+    <div class="related-pages match-content-width">
+  <a class="prev-page" href="../edit-history/">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      <div class="page-info">
+        <div class="context">
+          <span>Previous</span>
+        </div>
+        
+        <div class="title">Adding edit history</div>
+        
+      </div>
+    </a>
+  <a class="next-page" href="../feedback/">
+      <div class="page-info">
+        <div class="context">
+          <span>Next</span>
+        </div>
+        <div class="title">Adding feedback widget</div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </a>
+</div>
+  </footer>
+</div>
+
+        
+        <aside class="sb-sidebar-secondary">
+          <div class="page-navigation-container sidebar-sticky">
+  <div class="sidebar-scroll">
+    <div class="sidebar-link-container">
+      <span id="searchbox"></span>
+    </div>
+    
+    <div class="toc-container lutra-dedent-first-li-children lutra-hide-top-bullet-content">
+      <p class="page-navigation-prompt">On this page</p>
+      <ul>
+<li><a class="reference internal" href="#">Adding edit/view buttons</a><ul>
+<li><a class="reference internal" href="#heading-1">Heading 1</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    
+    
+  </div>
+</div>
+        </aside>
+        
+      </div>
+      
+      <footer class="sb-footer-content">
+        <div class="sb-footer-content__inner">
+          
+        </div>
+      </footer>
+      
+    </main>
+  </div>
+</div>
+
+
+
+<footer class="sb-footer">
+  <div class="sb-footer__inner sb-page-width">
+    <div>
+  <div class="footer-copyright">Copyright &copy; 2021 Pradyun Gedam</div>
+  
+  Made with <a href="https://github.com/pradyunsg/lutra">Lutra</a> theme for <a href="https://www.sphinx-doc.org/" target="_blank">Sphinx</a>.
+</div>
+<div>
+  <div class="footer-icons">
+    <!-- GitHub -->
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+  </div>
+</div>
+
+
+<!-- Mimick GSoC-style links at the bottom.
+
+Documents to link to, by default, if they exist:
+
+- bugs
+- donate
+- license
+- privacy
+
+Allow people to provide their own.
+
+-->
+  </div>
+</footer>
+
+
+<script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+  <script src="../../_static/jquery.js"></script>
+  <script src="../../_static/underscore.js"></script>
+  <script src="../../_static/doctools.js"></script>
+  <script src="../../_static/scripts/lutra.js"></script>
+  <script src="../../_static/tabs.js"></script>
+  </body>
+</html>

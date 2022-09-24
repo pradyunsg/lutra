@@ -1,43 +1,19 @@
----
-layout: page
-hide-related-pages: true
----
+# Lutra's documentation
 
-# Lutra
-
-Lutra is a theme for Sphinx, a static site generator geared towards technical documentation.
-
-```{important}
-This theme is still under development. Things will change without notice! :)
-```
+This page is overwritten by Sphinx, via the `html_additional_pages` configuration option. That is a part of how Lutra generates it's own pretty documentation landing page.
 
 ```{toctree}
-:hidden:
-:caption: Setup
-getting-started
-porting/index
+get-started
 ```
 
 ```{toctree}
 :caption: Usage
-:hidden:
 
-configuration/index
 customisation/index
+reference/index
 ```
 
 ```{toctree}
-:hidden:
-:caption: Project
-
-development/index
-governance
-stability
-changelog
+project/index
+showcase
 ```
-
-:::{todo}
-
-- TODO: Respect `prefers-reduced-motion`.
-
-:::

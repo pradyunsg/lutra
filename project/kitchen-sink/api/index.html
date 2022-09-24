@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+<meta property="og:title" content="API documentation" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="project/kitchen-sink/api/" />
+  
+<meta property="og:description" content="Using Sphinx’s sphinx.ext.autodoc plugin, it is possible to auto-generate documentation of a Python module. This is a demo module included in the docs in order to exercise autodoc." />
+  
+
+  <title>API documentation - Lutra</title><link rel="index" title="Index" href="../../../genindex/" /><link rel="search" title="Search" href="../../../search/" /><link rel="next" title="Blocks" href="../blocks/" /><link rel="prev" title="Admonitions" href="../admonitions/" />
+<link rel="stylesheet" href="../../../_static/skeleton.css" type="text/css" /><link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" /><link rel="stylesheet" type="text/css" href="../../../_static/styles/lutra.css?digest=d24a8a9d4e3da621a8743778b0bc9813" /><link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" /><link rel="stylesheet" type="text/css" href="../../../_static/styles/lutra-extensions.css?digest=cb0a2a27d38948a8faa936a2d3ead04a" />
+
+
+<style>
+html {
+  --theme-brand: var(--color-blue-brand);
+
+  --theme-primary: var(--color-blue-solid);
+  --theme-primary_dark: var(--color-blue-solid_dark);
+  --theme-primary-highlight: var(--color-blue-highlight);
+  --theme-primary-target: var(--color-blue-target);
+  --theme-primary-target_dark: var(--color-blue-target_dark);
+
+  --theme-secondary: var(--color-violet-solid);
+  --theme-secondary_dark: var(--color-violet-solid_dark);
+  --theme-secondary-highlight: var(--color-violet-highlight);
+  --theme-secondary-target: var(--color-violet-target);
+  --theme-secondary-target_dark: var(--color-violet-target_dark);
+}
+html:not(.dark) {
+  
+--color_bg-code_block: #f8f8f8;
+--color_text-code_block: #383a42;
+}
+html.dark {
+  
+--color_bg-code_block: #1d1f21;
+--color_text-code_block: #90afc0;
+}
+</style>
+
+  
+</head>
+<body class="antialiased">
+  
+<script>
+  // Eager dark-mode handling.
+  const currentTheme = localStorage.getItem("theme") || "auto";
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  document.body.dataset.theme = currentTheme;
+  if ((currentTheme === "auto" && prefersDark) || currentTheme === "dark") {
+    document.documentElement.classList.add("dark");
+  }
+  // Eager sidebar collapse
+  if ((localStorage.getItem("collapsed") || "false") === "true") {
+    document.body.classList.add("collapsed-site-navigation");
+  }
+</script>
+<a class="skip-to-content" href="#lutra-main-content">Skip to content</a>
+<svg style="display: none;">
+  <symbol id="icon-collapse" viewBox="0 0 24 24">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </symbol>
+  <symbol id="icon-secondary-collapse" viewBox="0 0 24 24">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+    </svg>
+  </symbol>
+  <symbol id="icon-theme-auto" viewBox="0 0 24 24">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24">
+      <path fill="none" d="M0 0h24v24H0z"></path>
+      <path
+        d="M10.85 12.65h2.3L12 9l-1.15 3.65zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM14.3 16l-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9z">
+      </path>
+    </svg>
+  </symbol>
+  <symbol id="icon-theme-dark" viewBox="0 0 24 24">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24">
+      <path fill="none" d="M0 0h24v24H0z"></path>
+      <path
+        d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z">
+      </path>
+    </svg>
+  </symbol>
+  <symbol id="icon-theme-light" viewBox="0 0 24 24">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24">
+      <path fill="none" d="M0 0h24v24H0z"></path>
+      <path
+        d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z">
+      </path>
+    </svg>
+  </symbol>
+</svg>
+
+
+<div class="sb-announcement">
+  
+</div>
+
+
+<header class="sb-header">
+  <div class="sb-header__inner sb-page-width">
+    <div class="header-container">
+  
+  <div class="hide-when-primary-sidebar-shown flex items-center">
+  
+  <label for="sb-sidebar-toggle--primary" class="hide-when-primary-sidebar-shown">
+  
+<svg class="h-6 w-6"><use href="#icon-collapse"></use></svg>
+
+</label>
+  
+</div>
+  <a class="header-logo-container" href="../../../">
+  <div class="header-title">Lutra</div>
+</a>
+  
+  
+  <div class="flex-1"></div>
+  <div class="header-search-container">
+  <a id="lutra-header-search-link" href="../../../search/">
+    <span class="header-search-icon"></span>
+  </a>
+  <div id="lutra-header-search-form">
+    <form class="search-form" method="get" action="../../../search/" role="search">
+  <input type="text" name="q" value="" label="Search" placeholder="Search"
+    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus/>
+  <div class="search-guidance">
+    Press Enter to get search results
+    <noscript>(needs JavaScript to work)</noscript>
+  </div>
+</form>
+  </div>
+  <div id="lutra-header-search-overlay"></div>
+</div>
+
+  <button class="theme-toggle">
+  <div class="theme-icon-when-auto">
+    <svg><use href="#icon-theme-auto"></use></svg>
+  </div>
+  <div class="theme-icon-when-dark">
+    <svg><use href="#icon-theme-dark"></use></svg>
+  </div>
+  <div class="theme-icon-when-light">
+    <svg><use href="#icon-theme-light"></use></svg>
+  </div>
+</button>
+  
+</div>
+  </div>
+</header>
+
+
+<header class="sb-header-secondary">
+  <div class="sb-header-secondary__inner sb-page-width">
+    
+<div class="header-container">
+  <ul class="lutra-tabs">
+<li><a class="reference internal" href="../../../get-started/">Get Started</a></li>
+<li><a class="reference internal" href="../../../customisation/">Customisation</a></li>
+<li><a class="reference internal" href="../../../reference/">Reference</a></li>
+<li class="current"><a class="reference internal" href="../../">Project</a></li>
+<li><a class="reference internal" href="../../../showcase/">Showcase</a></li>
+</ul>
+
+</div>
+
+  </div>
+</header>
+
+
+<input type="checkbox" class="sb-sidebar-toggle" name="sb-sidebar-toggle--primary" id="sb-sidebar-toggle--primary">
+<input type="checkbox" class="sb-sidebar-toggle" name="sb-sidebar-toggle--secondary" id="sb-sidebar-toggle--secondary">
+<label class="sb-sidebar-overlay" for="sb-sidebar-toggle--primary"></label>
+<label class="sb-sidebar-overlay" for="sb-sidebar-toggle--secondary"></label>
+
+
+<div class="sb-container">
+  <div class="sb-container__inner sb-page-width">
+    
+    <aside class="sb-sidebar-primary">
+      <div class="site-navigation-container sidebar-sticky">
+  <button id="lutra-site-navigation-collapse-icon" tabindex="0" aria-label="Toggle Sidebar"></button>
+  <div id="lutra-primary-sidebar-container" class="sidebar-scroll">
+    
+    
+    <div class="docs-header">
+      <a class="back-home-link" href="../../../">
+        <span class="back-home-icon"></span><span class="back-home-text">Home</span>
+      </a>
+    </div>
+    
+    <div class="toctree-container">
+      <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../">Project</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../workflow/">Workflow</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../">Kitchen Sink</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../admonitions/">Admonitions</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">API documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../blocks/">Blocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../generic/">Generic items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../images/">Images &amp; Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lists/">Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../really-long/">Really Long Page Title because we should test wrapping in various parts of the site to make sure this is handled correctly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structure/">Structural Elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structure/#structural-elements-2">Structural Elements 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tables/">Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../typography/">Typography</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq/">FAQs</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    
+  </div>
+</div>
+    </aside>
+    
+    <main class="sb-main">
+      
+      <header class="sb-header-content">
+        <div class="sb-header-content__inner">
+          <a href="#" class="back-to-top">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</a>
+<div class="toc-toggle-container hide-when-secondary-sidebar-shown">
+  <label for="sb-sidebar-toggle--secondary" class="hide-when-secondary-sidebar-shown">
+  
+<svg class="h-6 w-6"><use href="#icon-secondary-collapse"></use></svg>
+
+</label>
+</div>
+        </div>
+      </header>
+      
+      <div class="sb-content">
+        
+<div class="sb-article-container"><header class="sb-header-article">
+    <div class="match-content-width">
+  
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+    <li class="breadcrumb-nav-list-item breadcrumb-nav-index-item"><a href="../../../">Home</a><span class="breadcrumb-separator" role="presentation"></span></li>
+    <li class="breadcrumb-nav-list-item"><a href="../../">Project</a><span class="breadcrumb-separator" role="presentation"></span></li>
+    <li class="breadcrumb-nav-list-item"><a href="../">Kitchen Sink</a><span class="breadcrumb-separator" role="presentation"></span></li>
+    <li class="breadcrumb-nav-list-item breadcrumb-nav-page-item"><span>API documentation</span><span class="breadcrumb-separator" role="presentation"></span></li>
+  </ol>
+</nav>
+  
+</div>
+  </header><article role="main">
+    <div id="lutra-main-content" class="prose"><section id="api-documentation">
+<h1>API documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">#</a></h1>
+<p>Using Sphinx’s <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#module-sphinx.ext.autodoc" title="(in Sphinx v6.0.0)"><code class="xref any docutils literal notranslate"><span class="pre">sphinx.ext.autodoc</span></code></a> plugin, it is possible to auto-generate documentation of a Python module.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Avoid having in-function-signature type annotations with autodoc,
+by setting the following options:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -- Options for autodoc ----------------------------------------------------</span>
+<span class="c1"># https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#configuration</span>
+
+<span class="c1"># Automatically extract typehints when specified and place them in</span>
+<span class="c1"># descriptions of the relevant function/method.</span>
+<span class="n">autodoc_typehints</span> <span class="o">=</span> <span class="s2">&quot;description&quot;</span>
+
+<span class="c1"># Don&#39;t show class signature with the class&#39; name.</span>
+<span class="n">autodoc_class_signature</span> <span class="o">=</span> <span class="s2">&quot;separated&quot;</span>
+</pre></div>
+</div>
+</div>
+<span class="target" id="module-lutra._demo_module"></span><p>This is a demo module included in the docs in order to exercise autodoc.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="lutra._demo_module.RandomNumberGenerator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lutra._demo_module.</span></span><span class="sig-name descname"><span class="pre">RandomNumberGenerator</span></span><a class="headerlink" href="#lutra._demo_module.RandomNumberGenerator" title="Permalink to this definition">#</a></dt>
+<dd><p>A random number generator.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lutra._demo_module.RandomNumberGenerator.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lutra._demo_module.RandomNumberGenerator.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lutra._demo_module.RandomNumberGenerator.get_random_float">
+<span class="sig-name descname"><span class="pre">get_random_float</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lutra._demo_module.RandomNumberGenerator.get_random_float" title="Permalink to this definition">#</a></dt>
+<dd><p>Return a random float.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lutra._demo_module.RandomNumberGenerator.get_random_integer">
+<span class="sig-name descname"><span class="pre">get_random_integer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lutra._demo_module.RandomNumberGenerator.get_random_integer" title="Permalink to this definition">#</a></dt>
+<dd><p>Return a random integer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lutra._demo_module.RandomNumberGenerator.seed">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">seed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></em><a class="headerlink" href="#lutra._demo_module.RandomNumberGenerator.seed" title="Permalink to this definition">#</a></dt>
+<dd><p>Get seed for random number generation.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://xkcd.com/221/">https://xkcd.com/221/</a></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lutra._demo_module.show_warning">
+<span class="sig-prename descclassname"><span class="pre">lutra._demo_module.</span></span><span class="sig-name descname"><span class="pre">show_warning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lineno</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lutra._demo_module.show_warning" title="Permalink to this definition">#</a></dt>
+<dd><p>Show a warning to the end user.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">warnings</span><span class="o">.</span><span class="n">showwarning</span> <span class="o">=</span> <span class="n">show_warning</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><em>Union</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Warning" title="(in Python v3.10)"><em>Warning</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em>) – What you want to tell the user.</p></li>
+<li><p><strong>category</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.10)"><em>Type</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Warning" title="(in Python v3.10)"><em>Warning</em></a><em>]</em>) – The type of warning.</p></li>
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The file that the warning is for.</p></li>
+<li><p><strong>lineno</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The line that the warning is for.</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.TextIO" title="(in Python v3.10)"><em>TextIO</em></a><em>]</em>) – Where to write the warning.</p></li>
+<li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em>) – line of source code to be included in the warning message</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</div>
+  </article>
+  <footer class="sb-footer-article">
+    <div class="related-pages match-content-width">
+  <a class="prev-page" href="../admonitions/">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      <div class="page-info">
+        <div class="context">
+          <span>Previous</span>
+        </div>
+        
+        <div class="title">Admonitions</div>
+        
+      </div>
+    </a>
+  <a class="next-page" href="../blocks/">
+      <div class="page-info">
+        <div class="context">
+          <span>Next</span>
+        </div>
+        <div class="title">Blocks</div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </a>
+</div>
+  </footer>
+</div>
+
+        
+        <aside class="sb-sidebar-secondary">
+          <div class="page-navigation-container sidebar-sticky">
+  <div class="sidebar-scroll">
+    <div class="sidebar-link-container">
+      <span id="searchbox"></span>
+    </div>
+    
+    
+  </div>
+</div>
+        </aside>
+        
+      </div>
+      
+      <footer class="sb-footer-content">
+        <div class="sb-footer-content__inner">
+          
+        </div>
+      </footer>
+      
+    </main>
+  </div>
+</div>
+
+
+
+<footer class="sb-footer">
+  <div class="sb-footer__inner sb-page-width">
+    <div>
+  <div class="footer-copyright">Copyright &copy; 2021 Pradyun Gedam</div>
+  
+  Made with <a href="https://github.com/pradyunsg/lutra">Lutra</a> theme for <a href="https://www.sphinx-doc.org/" target="_blank">Sphinx</a>.
+</div>
+<div>
+  <div class="footer-icons">
+    <!-- GitHub -->
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+  </div>
+</div>
+
+
+<!-- Mimick GSoC-style links at the bottom.
+
+Documents to link to, by default, if they exist:
+
+- bugs
+- donate
+- license
+- privacy
+
+Allow people to provide their own.
+
+-->
+  </div>
+</footer>
+
+
+<script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+  <script src="../../../_static/jquery.js"></script>
+  <script src="../../../_static/underscore.js"></script>
+  <script src="../../../_static/doctools.js"></script>
+  <script src="../../../_static/scripts/lutra.js"></script>
+  <script src="../../../_static/tabs.js"></script>
+  </body>
+</html>
