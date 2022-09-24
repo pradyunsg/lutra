@@ -14,8 +14,14 @@ Describes how to work on this project. Start here if you're a new contributor.
 All the things that Sphinx supports directly, as well as a curated selection of extensions.
 ```
 
+```{lutra-document} faq
+with answers!
+```
+
 ```{toctree}
 :hidden:
+workflow
+kitchen-sink/index
 faq
 ```
 
