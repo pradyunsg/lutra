@@ -1,6 +1,7 @@
 {% if READTHEDOCS or versions -%}
 <div class="version-selector flex items-center gap-2">
   {% if versions %}
+  {#
   {% if current_version is undefined -%}
   {{ warning("Current version is not set. The version selector will not render correctly.") }}
   {%- endif -%}
@@ -12,6 +13,7 @@
       {% endfor %}
     </ul>
   </div>
+  #}
   {% elif READTHEDOCS %}
   <div class="lutra-readthedocs-versions rst-versions" data-toggle="rst-versions" role="note" aria-label="{{ _('Versions') }}" tabindex="0">
     <span class="rst-current-version" data-toggle="rst-current-version">
