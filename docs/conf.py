@@ -9,7 +9,7 @@ from typing import Any, Dict
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "Lutra"
+project = "Lutra (WIP)"
 copyright = "2021 Pradyun Gedam"
 author = "Pradyun Gedam"
 
