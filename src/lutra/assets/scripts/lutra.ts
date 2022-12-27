@@ -1,4 +1,5 @@
 import "instant.page";
+import * as Turbo from "@hotwired/turbo";
 import { ScrollObserver } from "./scrollspy";
 
 ////////////////////////////////////////////////////////////////////////////////
