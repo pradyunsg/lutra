@@ -9,14 +9,14 @@ export class ScrollObserver {
 
   constructor(
     back_to_top_offset: number = 64,
-    show_page_title_offset: number = 128
+    show_page_title_offset: number = 128,
   ) {
     this.back_to_top_offset = back_to_top_offset;
     this.show_page_title_offset = show_page_title_offset;
     this.links = Array.from(
       document.querySelectorAll<HTMLAnchorElement>(
-        ".toc-container ul a[href^='#']:not([href='#'])"
-      )
+        ".toc-container ul a[href^='#']:not([href='#'])",
+      ),
     );
     this.sections = Array.from(document.getElementsByTagName("section"));
   }
@@ -25,7 +25,7 @@ export class ScrollObserver {
     window.addEventListener(
       "scroll",
       debounceAnimationFrame(this.callback.bind(this)),
-      { passive: true }
+      { passive: true },
     );
 
     // Trigger it once, to populate the initial state.
