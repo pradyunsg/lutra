@@ -32,7 +32,7 @@ function setTheme(mode: Theme, class_to_set: Theme.DARK | Theme.LIGHT) {
   }
   if (![Theme.LIGHT, Theme.DARK].includes(class_to_set)) {
     console.error(
-      `Got invalid theme class: ${class_to_set}. Resetting to light.`
+      `Got invalid theme class: ${class_to_set}. Resetting to light.`,
     );
     class_to_set = Theme.LIGHT;
   }
@@ -108,7 +108,7 @@ function setupHeaderSearch() {
   }
   const search_container = document.getElementById("lutra-header-search-form")!;
   const search_overlay = document.getElementById(
-    "lutra-header-search-overlay"
+    "lutra-header-search-overlay",
   )!;
 
   function searchDeactivate() {

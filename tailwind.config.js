@@ -8,7 +8,7 @@ function injectOpacityNested(theme, color) {
     for (let opacity_key of Object.keys(opacity)) {
       new_color[`${key}/${opacity_key}`] = withOpacity(
         color[key],
-        opacity[opacity_key]
+        opacity[opacity_key],
       );
     }
   }
@@ -21,7 +21,7 @@ function injectOpacitySingle(theme, key, color) {
   for (let opacity_key of Object.keys(opacity)) {
     new_color[`${key}/${opacity_key}`] = withOpacity(
       color,
-      opacity[opacity_key]
+      opacity[opacity_key],
     );
   }
   return new_color;
