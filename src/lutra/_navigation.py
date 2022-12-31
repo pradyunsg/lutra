@@ -329,9 +329,10 @@ def determine_navigation_information(
         "tabs-document": _tabs_document_navigation,
     }
 
-    assert (
-        style in style_handlers
-    ), f"Got an invalid `navigation_style`: {style!r} (valid values: {list(style_handlers)})"
+    assert style in style_handlers, (
+        f"Got an invalid `navigation_style`: {style!r} "
+        f"(valid values: {list(style_handlers)})"
+    )
 
     toctree = _get_toctree(builder).get_toctree_for(
         docname, builder, collapse=True, titles_only=True

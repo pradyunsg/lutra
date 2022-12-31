@@ -139,9 +139,9 @@ lutra_hero = {
             "title": "Powerful yet easy to use",
             "details": (
                 """
-                The large set of [WIP: well-documented] features make it possible to create
-                documentation that works the way you want it to. A zero configuration
-                foundation makes it easy to get started.
+                The large set of [WIP: well-documented] features make it possible to
+                create documentation that works the way you want it to. A zero
+                configuration foundation makes it easy to get started.
                 """
             ),
         },
@@ -166,7 +166,8 @@ html_additional_pages = {
 
 html_theme_options = {
     # "announcement": (
-    #     "This theme is under development and not in a state that it can be used by 'real' projects."
+    #     "This theme is under development and not in a state that it can be "
+    #     "used by 'real' projects."
     # ),
     # "announcement_style": "warning",
     # "primary_color": "blue",

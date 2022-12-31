@@ -33,7 +33,8 @@ with open(filename) as f:
             variable_name, _, _ = line.partition(":")
             if variable_name in by_selector[current_selector]:
                 raise Exception(
-                    f"{lineno}: {variable_name!r} already in selector {current_selector!r}"
+                    f"{lineno}: {variable_name!r} already in selector "
+                    f"{current_selector!r}"
                 )
             by_selector[current_selector].append(variable_name)
 
