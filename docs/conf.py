@@ -83,7 +83,8 @@ html_title = "Lutra"
 lutra_hero = {
     "brand": "Lutra",
     "tagline": (
-        "Clean, modern, and powerful.<br>Meet the Sphinx theme you've always wanted."
+        "A work in progress Sphinx theme."
+        # "Clean, modern, and powerful.<br>Meet the Sphinx theme you've always wanted."
     ),
     "features": [
         {
