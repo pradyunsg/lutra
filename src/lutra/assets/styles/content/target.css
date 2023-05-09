@@ -25,7 +25,9 @@
     > .headerlink {
       @apply ml-2;
       @apply opacity-0;
-      transition: color 0.25s, opacity 125ms;
+      transition:
+        color 0.25s,
+        opacity 125ms;
       color: var(--color_text-link--hover);
       &:visited {
         color: var(--color_text-link--visited--hover);
