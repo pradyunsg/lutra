@@ -181,7 +181,8 @@ html_theme_options = {
     # Below are TODOs.
     # "feedback_form_url": (
     #     "https://docs.google.com/forms/d/e/1FAIpQLSfucp8AnLfSK-2M9kKCMyA5WMYIGPdeMaFa8eHo6ejGFq-nyA/viewform"
-    #     "?usp=pp_url&entry.1457058116={page_reference}&entry.702906409={rating}&entry.1161338183={additional_comments}"
+    #     "?usp=pp_url&entry.1457058116={page_reference}&entry.702906409={rating}
+    #      &entry.1161338183={additional_comments}"
     # ),
 }
 
