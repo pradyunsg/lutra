@@ -4,12 +4,15 @@ from functools import lru_cache
 from typing import Any, Dict, Iterable, List, NamedTuple, Optional, Tuple, TypeVar
 
 import docutils.nodes
+import sphinx.addnodes
 from sphinx.builders.html import StandaloneHTMLBuilder
 from sphinx.environment.adapters.toctree import TocTree
 from sphinx.locale import get_translation
+from typing_extensions import TypeAlias
 
 _ = get_translation("lutra")
 T = TypeVar("T")
+TocTreeNode: TypeAlias = sphinx.addnodes.compact_paragraph
 
 
 class NavigationInformation(NamedTuple):
@@ -41,7 +44,7 @@ def render_fragment(
 
 def _plain_navigation(
     builder: StandaloneHTMLBuilder,
-    toctree: docutils.nodes.Element,
+    toctree: TocTreeNode,
 ) -> NavigationInformation:
     """Use what Sphinx provides out-of-the-box. No tabs."""
     toctree_html = render_fragment(builder, toctree)
@@ -54,10 +57,10 @@ def _plain_navigation(
 
 
 def _get_fragment_for_current_top_level_bullet_list(
-    toctree: docutils.nodes.Element,
+    toctree: TocTreeNode,
 ) -> Optional[docutils.nodes.Element]:
     for index, element in enumerate(toctree):
-        if not element.attributes.get("iscurrent"):
+        if not element.attributes.get("iscurrent"):  # type: ignore[attr-defined]
             continue
 
         toctree_fragment = element
@@ -77,7 +80,7 @@ def _get_fragment_for_current_top_level_bullet_list(
 
 def _subtree_caption_navigation(
     builder: StandaloneHTMLBuilder,
-    toctree: docutils.nodes.Element,
+    toctree: TocTreeNode,
 ) -> NavigationInformation:
     """Show the top-level bullet list that the page is within, with caption. No tabs."""
     # Validation
@@ -116,7 +119,7 @@ def _subtree_caption_navigation(
 
 def _subtree_toctree_navigation(
     builder: StandaloneHTMLBuilder,
-    toctree: docutils.nodes.Element,
+    toctree: TocTreeNode,
 ) -> NavigationInformation:
     """Show the top-level bullet list that the page is within, with caption. No tabs.
 
@@ -139,7 +142,7 @@ def _subtree_toctree_navigation(
 
 def _subtree_document_navigation(
     builder: StandaloneHTMLBuilder,
-    toctree: docutils.nodes.Element,
+    toctree: TocTreeNode,
 ) -> NavigationInformation:
     """Show the top-level document that the page is under. No tabs."""
     # Determine which top-level document this falls under
@@ -180,7 +183,7 @@ def _subtree_document_navigation(
 
 def _tabs_caption_navigation(
     builder: StandaloneHTMLBuilder,
-    toctree: docutils.nodes.Element,
+    toctree: TocTreeNode,
 ) -> NavigationInformation:
     """Use captions of every toctree as tabs, and show current toctree in the sidebar.
 
@@ -252,7 +255,7 @@ def _tabs_caption_navigation(
 
 def _tabs_document_navigation(
     builder: StandaloneHTMLBuilder,
-    toctree: docutils.nodes.Element,
+    toctree: TocTreeNode,
 ) -> NavigationInformation:
     """Use top-level documents as tabs, and show their subtree in the sidebar.
 

@@ -24,6 +24,7 @@ dependencies = [
   "sphinxext-opengraph",
   "beautifulsoup4",
   "pygments-base16",
+  "typing-extensions",
 ]
 
 license = { file = "LICENSE"}
