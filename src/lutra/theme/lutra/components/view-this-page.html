@@ -1,0 +1,8 @@
+{% extends "basic-ng/components/view-this-page.html" %}
+{% from "basic-ng/components/view-this-page.html" import determine_page_view_link with context %}
+
+{% block link_available -%}
+<a href="{{ determine_page_view_link() }}" title="{{ _("View this page") }}">
+  <svg class="h-6 w-6"><use href="#icon-page-view"></use></svg>
+</a>
+{%- endblock %}

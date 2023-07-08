@@ -1,0 +1,8 @@
+{% extends "basic-ng/components/edit-this-page.html" %}
+{% from "basic-ng/components/edit-this-page.html" import determine_page_edit_link with context %}
+
+{% block link_available -%}
+<a href="{{ determine_page_edit_link() }}" title="{{ _("Edit this page") }}">
+  <svg class="h-6 w-6"><use href="#icon-page-edit"></use></svg>
+</a>
+{%- endblock %}

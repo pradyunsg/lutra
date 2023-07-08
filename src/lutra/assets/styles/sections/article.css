@@ -47,3 +47,13 @@
     width: 64rem;
   }
 }
+
+.content-icon-container {
+  @apply flex items-center m-2 gap-1 float-right mr-0;
+  svg {
+    color: var(--color_text-action_icons);
+    &:hover {
+      color: var(--color_text-action_icons--hover);
+    }
+  }
+}
