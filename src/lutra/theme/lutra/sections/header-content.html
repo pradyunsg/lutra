@@ -4,6 +4,9 @@
   </svg>
   <span>{% trans %}Back to top{% endtrans %}</span>
 </a>
+{#- Coupled with sections/sidebar-secondary.html -#}
+{% if not (lutra_hide_toc and not theme_sidebar_links) -%}
 <div class="toc-toggle-container hide-when-secondary-sidebar-shown">
   {% include "components/toggle-sidebar-secondary.html" %}
 </div>
+{%- endif %}
