@@ -62,4 +62,4 @@ repos:
         name: Check variable declarations
         entry: scripts/lint-css-variables.py
         language: script
-        always_run: true
+        files: src/.*/variables\.css
