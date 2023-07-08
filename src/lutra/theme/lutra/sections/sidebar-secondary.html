@@ -1,13 +1,12 @@
 <div class="page-navigation-container sidebar-sticky">
   <div class="sidebar-scroll">
+    {%- if theme_sidebar_links -%}
     <div class="sidebar-link-container">
-      <span id="searchbox"></span>
-      {%- if theme_sidebar_links -%}
         {%- for link in theme_sidebar_links -%}
           <a href="{{ link['href'] }}" alt="{{ link['alt']|e }}">{{ _(link['text'])|e }}</a>
         {%- endfor %}
-      {%- endif %}
-    </div>
+      </div>
+    {%- endif %}
     {% if not lutra_hide_toc %}
     <div class="toc-container lutra-dedent-first-li-children lutra-hide-top-bullet-content">
       <p class="page-navigation-prompt">{{ _("On this page") }}</p>
