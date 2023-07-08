@@ -171,7 +171,7 @@ html.dark {
 
   --border-hero_button--brand: transparent;
   --color_bg-hero_button--brand: var(--theme-brand);
-  --color_text-hero_button--brand: theme("colors.gray.100");
+  --color_text-hero_button--brand: theme("colors.gray.900");
 
   --color_bg-hero_feature: var(--color_bg-header);
   --color_text-hero-brand: var(--theme-brand);
