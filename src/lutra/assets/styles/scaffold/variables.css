@@ -155,12 +155,12 @@ html.dark {
   --color_bg-header: #171b22;
   --border-header_bottom: theme("colors.gray.800");
 
+  /* Back to top */
+  --shadow-back_to_top: rgba(16, 16, 16, 1) 0px 4px 10px 0px;
+
   /* Action icons */
   --color_text-action_icons: theme("colors.gray.400");
   --color_text-action_icons--hover: var(--color-text);
-
-  /* Back to top */
-  --shadow-back_to_top: rgba(16, 16, 16, 1) 0px 4px 10px 0px;
 
   /* Hero */
   --color_text-hero-tagline: theme("colors.neutral.400");
