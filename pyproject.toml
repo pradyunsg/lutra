@@ -20,7 +20,7 @@ readme = "README.md"
 requires-python = ">=3.7"
 dependencies = [
   "sphinx-basic-ng",
-  "sphinx ~= 4.0",
+  "sphinx >= 4.0",
   "sphinxext-opengraph",
   "beautifulsoup4",
   "pygments-base16",
