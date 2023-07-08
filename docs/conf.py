@@ -45,7 +45,7 @@ autodoc_class_signature = "separated"
 # https://www.sphinx-doc.org/en/master/usage/extensions/extlinks.html#configuration
 
 extlinks = {
-    "pypi": ("https://pypi.org/project/%s/", ""),
+    "pypi": ("https://pypi.org/project/%s/", "%s"),
 }
 
 # -- Options for intersphinx -------------------------------------------------
