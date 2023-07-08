@@ -1,5 +1,6 @@
 /* Various search-related inputs */
 .search-form {
+  @apply flex gap-2 items-center;
   input[type="text"] {
     @apply inline-block relative w-full p-2 rounded;
 
@@ -19,7 +20,7 @@
   [type="button"],
   [type="reset"],
   [type="submit"] {
-    @apply inline-block relative p-1 rounded border;
+    @apply inline-block relative p-2 rounded border;
 
     background: var(--color_bg-search);
     color: var(--color_text-search);

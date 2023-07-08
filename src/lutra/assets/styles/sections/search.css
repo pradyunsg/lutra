@@ -20,7 +20,6 @@
   }
 
   &:focus-within {
-    @apply bg-gray-900;
     .search-guidance {
       @apply visible;
     }

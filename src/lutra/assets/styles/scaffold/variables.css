@@ -124,7 +124,7 @@ html:not(.dark) {
   --color_bg-search_overlay: theme("colors.black/50");
 
   /* Highlights, from search */
-  --color_bg-highlighted: var(--theme-primary-highlight);
+  --color_bg-highlighted: theme("colors.yellow.200/50");
   --color_text-highlighted: inherit;
 
   /* Index pages */
@@ -248,7 +248,7 @@ html.dark {
   --color_bg-search_overlay: theme("colors.zinc.900/80");
 
   /* Highlights, from search */
-  --color_bg-highlighted: var(--theme-primary-highlight);
+  --color_bg-highlighted: theme("colors.blue.400/50");
   --color_text-highlighted: inherit;
 
   /* Index pages */
