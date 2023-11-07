@@ -1,3 +1,4 @@
 # Don't include generated files under version control
 *.js
 *.js.map
+*.LICENSE.txt
