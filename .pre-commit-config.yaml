@@ -63,3 +63,6 @@ repos:
         entry: scripts/lint-css-variables.py
         language: script
         files: src/.*/variables\.css
+
+ci:
+  autoupdate_schedule: quarterly
