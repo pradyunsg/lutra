@@ -9,6 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
       - run: pipx run nox -s docs
       - uses: actions/upload-pages-artifact@v1
         with:
