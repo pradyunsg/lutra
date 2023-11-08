@@ -113,9 +113,10 @@ def _asset_hash(path: str) -> str:
 
 
 def _add_asset_hashes(static: List[str], add_digest_to: List[str]) -> None:
-    for asset in add_digest_to:
-        index = static.index("_static/" + asset)
-        static[index].filename = _asset_hash(asset)  # type: ignore
+    if sphinx.version_info < (7, 1):
+        for asset in add_digest_to:
+            index = static.index("_static/" + asset)
+            static[index].filename = _asset_hash(asset)  # type: ignore
 
 
 def _html_page_context(
