@@ -47,7 +47,7 @@ To use the theme in your existing Sphinx documentation:
 
 For more information, visit [Lutra's documentation][quickstart-docs].
 
-[quickstart-docs]: https://pradyunsg.me/lutra/quickstart
+[quickstart-docs]: https://pradyunsg.me/lutra/quick-start/
 
 ## Contributing
 
