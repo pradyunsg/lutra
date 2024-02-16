@@ -14,7 +14,7 @@ The codebase contains Python code, [Jinja2]-based HTML pages, [PostCSS] styleshe
 
 ## Initial Setup
 
-To work on this project, you need to have git 2.17+ and Python 3.7+. You also need to be on a platform with official releases by the maintainers of NodeJS and Python.
+To work on this project, you need to have git 2.17+ and Python 3.8+. You also need to be on a platform with official releases by the maintainers of NodeJS and Python.
 
 - Clone this project using git:
 
