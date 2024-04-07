@@ -47,11 +47,11 @@ To use the theme in your existing Sphinx documentation:
 
 For more information, visit [Lutra's documentation][quickstart-docs].
 
-[quickstart-docs]: https://pradyunsg.me/lutra/quickstart
+[quickstart-docs]: https://pradyunsg.me/lutra/quick-start/
 
 ## Contributing
 
-Lutra is a volunteer maintained open source project, and we welcome contributions of all forms. Please take a look at our [Contributing Guide](https://pradyunsg.me/lutra/contributing/) for more information.
+Lutra is a volunteer maintained open source project, and we welcome contributions of all forms. Please take a look at our [Contributing Guide](https://pradyunsg.me/lutra/project/) for more information.
 
 ## Acknowledgements
 
