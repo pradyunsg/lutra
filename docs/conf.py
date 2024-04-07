@@ -1,5 +1,4 @@
-"""Configuration file for the Sphinx documentation builder.
-"""
+"""Configuration file for the Sphinx documentation builder."""
 
 import os
 from typing import Any, Dict
