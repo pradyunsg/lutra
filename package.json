@@ -2,8 +2,8 @@
   "devDependencies": {
     "@hotwired/turbo": "^8.0.4",
     "autoprefixer": "^10.4.0",
-    "css-loader": "^7.1.1",
-    "css-minimizer-webpack-plugin": "^6.0.0",
+    "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.0",
     "debounce-animation-frame": "^1.0.2",
     "instant.page": "^5.1.0",
     "mini-css-extract-plugin": "^2.9.0",
