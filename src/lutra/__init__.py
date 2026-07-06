@@ -172,12 +172,12 @@ def _builder_inited(app: sphinx.application.Sphinx) -> None:
 
     builder = app.builder
     assert builder, "what?"
-    assert (
-        builder.highlighter is not None
-    ), "there should be a default style known to Sphinx"
-    assert (
-        builder.dark_highlighter is None
-    ), "there shouldn't be a dark style known to Sphinx"
+    assert builder.highlighter is not None, (
+        "there should be a default style known to Sphinx"
+    )
+    assert builder.dark_highlighter is None, (
+        "there shouldn't be a dark style known to Sphinx"
+    )
     update_known_styles_state(app)
 
     def _update_default(key: str, /, *, new_default: Any) -> None:
