@@ -138,4 +138,5 @@ See the [custom colors](#custom-colors) section above for the specific configura
 [prefers-color-scheme]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
 
 [^body]: Why the `body` tag? Lutra's own CSS variable definitions are on the `html` tag. By setting custom values on the `body` tag, it ensures that the custom values take precedence over Lutra's CSS variable definitions.
+
 [^js]: "0.2% of pageviews from worldwide traffic across all devices in the fourth quarter 2016 had javascript disabled." according to <https://deliberatedigital.com/blockmetry/javascript-disabled>
