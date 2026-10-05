@@ -70,7 +70,7 @@ def _determine_versions(current_version, date):
         # number segment onto this to make it unique.
         return (
             today_version + f".{dev_num}",
-            today_version + f".dev{dev_num+1}",
+            today_version + f".dev{dev_num + 1}",
         )
     return (
         today_version,

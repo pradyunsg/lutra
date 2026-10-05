@@ -43,4 +43,5 @@ This makes it clearer what non-default behaviours the documentation depends on. 
 [sphinx configuration]: https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 [^broken-dreams]: To put it bluntly, there are going to be documentation sets that do all kinds of stuff in the `conf.py` file. When it's got that, it'll probably need changes in many places.
+
 [^one]: This is the style used by Sphinx's default generation, starting Sphinx 5.1.
