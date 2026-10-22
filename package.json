@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@hotwired/turbo": "^8.0.4",
+    "@hotwired/turbo": "^8.0.21",
     "@types/hotwired__turbo": "^8.0.16",
     "autoprefixer": "^10.4.0",
     "css-loader": "^7.1.1",
