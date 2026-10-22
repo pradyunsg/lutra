@@ -1,5 +1,5 @@
 [build-system]
-requires = ["sphinx-theme-builder >= 0.2.0a10"]
+requires = ["sphinx-theme-builder >= 0.3.2"]
 build-backend = "sphinx_theme_builder"
 
 [tool.sphinx-theme-builder]
@@ -20,7 +20,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
   "sphinx-basic-ng",
-  "sphinx >= 4.0",
+  "sphinx >= 9.0.4",
   "sphinxext-opengraph",
   "beautifulsoup4",
   "pygments-base16",
