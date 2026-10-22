@@ -1,18 +1,39 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: github-actions
+    directories:
+      - /
     schedule:
-      interval: "monthly"
-    groups:
-      npm:
-        patterns:
-          - "*"
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "monthly"
+      interval: monthly
     groups:
       github-actions:
+        applies-to: version-updates
         patterns:
           - "*"
+    cooldown:
+      default-days: 7
+  - package-ecosystem: pip
+    directories:
+      - /
+      - /docs
+    schedule:
+      interval: monthly
+    groups:
+      pip:
+        applies-to: version-updates
+        patterns:
+          - "*"
+    cooldown:
+      default-days: 7
+  - package-ecosystem: npm
+    directories:
+      - /
+    schedule:
+      interval: monthly
+    groups:
+      npm:
+        applies-to: version-updates
+        patterns:
+          - "*"
+    cooldown:
+      default-days: 7
