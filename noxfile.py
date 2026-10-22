@@ -70,7 +70,7 @@ def _determine_versions(current_version, date):
         # number segment onto this to make it unique.
         return (
             today_version + f".{dev_num}",
-            today_version + f".dev{dev_num+1}",
+            today_version + f".dev{dev_num + 1}",
         )
     return (
         today_version,
@@ -144,7 +144,6 @@ def release(session):
 
     # Tag the commit
     session.run(
-        # fmt: off
         "git",
         "tag",
         release_version,
@@ -152,7 +151,6 @@ def release(session):
         f"Release {release_version}",
         "-s",
         external=True,
-        # fmt: on
     )
 
     # Prepare back-to-development commit

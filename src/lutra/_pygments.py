@@ -1,5 +1,4 @@
 from functools import lru_cache
-from typing import Dict
 
 from pygments.formatters import HtmlFormatter
 from pygments.style import Style
@@ -8,8 +7,8 @@ from sphinx.highlighting import PygmentsBridge
 
 
 def get_pygments_style_colors(
-    style: Style, *, fallbacks: Dict[str, str]
-) -> Dict[str, str]:
+    style: Style, *, fallbacks: dict[str, str]
+) -> dict[str, str]:
     """Get background/foreground colors for given pygments style."""
     background = style.background_color
     text_colors = style.style_for_token(Text)
@@ -29,7 +28,7 @@ def get_pygments_style_colors(
 @lru_cache(maxsize=2)
 def get_colors_for_codeblocks(
     highlighter: PygmentsBridge, *, fg: str, bg: str
-) -> Dict[str, str]:
+) -> dict[str, str]:
     """Get background/foreground colors for given pygments style."""
     return get_pygments_style_colors(
         highlighter.formatter_args["style"],

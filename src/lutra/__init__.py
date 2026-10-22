@@ -7,7 +7,7 @@ import logging
 import os
 from functools import lru_cache
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 import sphinx.application
 import sphinx.config
@@ -33,12 +33,12 @@ _ = get_translation("lutra")
 logger = logging.getLogger(__name__)
 
 if "debugpy" in os.environ.get("LUTRA_DEBUG", ""):
-    import debugpy
+    import debugpy  # noqa: T100 -- explicitly enabled by LUTRA_DEBUG
 
-    debugpy.listen(5678)
+    debugpy.listen(5678)  # noqa: T100 -- explicitly enabled by LUTRA_DEBUG
 
 # GLOBAL STATE
-_KNOWN_STYLES_IN_USE: Dict[str, Optional[Style]] = {
+_KNOWN_STYLES_IN_USE: dict[str, Style | None] = {
     "light": None,
     "dark": None,
 }
@@ -78,7 +78,7 @@ def _asset_hash(path: str) -> str:
     return f"_static/{path}?digest={digest}"
 
 
-def _add_asset_hashes(static: List[str], add_digest_to: List[str]) -> None:
+def _add_asset_hashes(static: list[str], add_digest_to: list[str]) -> None:
     if sphinx.version_info < (7, 1):
         for asset in add_digest_to:
             index = static.index("_static/" + asset)
@@ -89,7 +89,7 @@ def _html_page_context(
     app: sphinx.application.Sphinx,
     pagename: str,
     templatename: str,
-    context: Dict[str, Any],
+    context: dict[str, Any],
     doctree: Any,
 ) -> None:
     assert app.builder
@@ -130,17 +130,17 @@ def _html_page_context(
     context["lutra_pygments"] = {
         "light": get_pygments_style_colors(
             _KNOWN_STYLES_IN_USE["light"],
-            fallbacks=dict(
-                foreground="black",
-                background="white",
-            ),
+            fallbacks={
+                "foreground": "black",
+                "background": "white",
+            },
         ),
         "dark": get_pygments_style_colors(
             _KNOWN_STYLES_IN_USE["dark"],
-            fallbacks=dict(
-                foreground="white",
-                background="black",
-            ),
+            fallbacks={
+                "foreground": "white",
+                "background": "black",
+            },
         ),
     }
 
@@ -172,12 +172,12 @@ def _builder_inited(app: sphinx.application.Sphinx) -> None:
 
     builder = app.builder
     assert builder, "what?"
-    assert (
-        builder.highlighter is not None
-    ), "there should be a default style known to Sphinx"
-    assert (
-        builder.dark_highlighter is None
-    ), "there shouldn't be a dark style known to Sphinx"
+    assert builder.highlighter is not None, (
+        "there should be a default style known to Sphinx"
+    )
+    assert builder.dark_highlighter is None, (
+        "there shouldn't be a dark style known to Sphinx"
+    )
     update_known_styles_state(app)
 
     def _update_default(key: str, /, *, new_default: Any) -> None:
@@ -212,7 +212,7 @@ def _get_dark_style(app: sphinx.application.Sphinx) -> Style:
 
 def _build_finished(
     app: sphinx.application.Sphinx,
-    exception: Optional[Exception],
+    exception: Exception | None,
 ) -> None:
     if exception is not None:
         return
@@ -229,7 +229,7 @@ def _build_finished(
         )
 
 
-def setup(app: sphinx.application.Sphinx) -> Dict[str, Any]:
+def setup(app: sphinx.application.Sphinx) -> dict[str, Any]:
     """Entry point for sphinx theming."""
     app.require_sphinx("4.0")
 

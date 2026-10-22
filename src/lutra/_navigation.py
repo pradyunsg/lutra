@@ -1,14 +1,14 @@
 """Transform the navigation tree, from Sphinx's toctree function's output."""
 
+from collections.abc import Iterable
 from functools import lru_cache
-from typing import Any, Dict, Iterable, List, NamedTuple, Optional, Tuple, TypeVar
+from typing import Any, NamedTuple, TypeAlias, TypeVar
 
 import docutils.nodes
 import sphinx.addnodes
 from sphinx.builders.html import StandaloneHTMLBuilder
 from sphinx.environment.adapters.toctree import TocTree
 from sphinx.locale import get_translation
-from typing_extensions import TypeAlias
 
 _ = get_translation("lutra")
 T = TypeVar("T")
@@ -23,7 +23,7 @@ class NavigationInformation(NamedTuple):
     tabs_html: str
 
 
-def make_pairs(iterable: Iterable[T]) -> List[Tuple[T, T]]:
+def make_pairs(iterable: Iterable[T]) -> list[tuple[T, T]]:
     """Given an iterable, make pairs of odd and even pair values."""
     double_iter = [iter(iterable)] * 2
     return list(zip(*double_iter))  # type: ignore
@@ -58,7 +58,7 @@ def _plain_navigation(
 
 def _get_fragment_for_current_top_level_bullet_list(
     toctree: TocTreeNode,
-) -> Optional[docutils.nodes.Element]:
+) -> docutils.nodes.Element | None:
     for index, element in enumerate(toctree):
         if not element.attributes.get("iscurrent"):  # type: ignore[attr-defined]
             continue
@@ -85,7 +85,7 @@ def _subtree_caption_navigation(
     """Show the top-level bullet list that the page is within, with caption. No tabs."""
     # Validation
     if len(toctree) <= 1:
-        raise Exception(
+        raise ValueError(
             "Do not have enough toctrees for the navigation style used. "
             "TODO: Improve this message."
         )
@@ -95,13 +95,15 @@ def _subtree_caption_navigation(
         # you don't add a caption for the first portion of toctree.
         if index == 0:
             continue
-        if toctree[index].tagname == "bullet_list":  # type: ignore
-            if toctree[index - 1].tagname != "title":  # type: ignore
-                raise Exception(
-                    "The declared toctree structure does not follow the style "
-                    "needed for this navigation style. Expect all `toctree` "
-                    "declarations to have a caption. TODO: improve this msg."
-                )
+        if (
+            element.tagname == "bullet_list"  # type: ignore
+            and toctree[index - 1].tagname != "title"  # type: ignore
+        ):
+            raise ValueError(
+                "The declared toctree structure does not follow the style "
+                "needed for this navigation style. Expect all `toctree` "
+                "declarations to have a caption. TODO: improve this msg."
+            )
 
     # Locate the current bullet_list, or use the entire tree.
     toctree_fragment = _get_fragment_for_current_top_level_bullet_list(toctree)
@@ -193,10 +195,10 @@ def _tabs_caption_navigation(
         # Validate that the toctree has the right structure: [title, bullet_list]*n
         if index % 2:
             if element.tagname != "bullet_list":
-                raise Exception(f"Bad toctree structure at {index}!")
+                raise ValueError(f"Bad toctree structure at {index}!")
         else:
             if element.tagname != "title":
-                raise Exception(f"Bad toctree structure at {index}!")
+                raise ValueError(f"Bad toctree structure at {index}!")
 
     documentation_sections = make_pairs(toctree)
 
@@ -361,18 +363,14 @@ def has_not_enough_items_to_show_toc(
 
 
 def should_hide_toc(
-    context: Dict[str, Any],
+    context: dict[str, Any],
     *,
     builder: StandaloneHTMLBuilder,
     docname: str,
 ) -> bool:
     """Check whether the table of contents should be hidden."""
     file_meta = context.get("meta", None) or {}
-    if "hide-toc" in file_meta:
-        return True
-    elif "toc" not in context:
-        return True
-    elif not context["toc"]:
+    if "hide-toc" in file_meta or "toc" not in context or not context["toc"]:
         return True
 
     return has_not_enough_items_to_show_toc(builder, docname)

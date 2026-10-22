@@ -1,6 +1,6 @@
 """Directives that make doing achieving certain design styles easier."""
 
-from typing import List
+from typing import Any, ClassVar
 
 from docutils import nodes
 from docutils.parsers.rst import directives
@@ -22,7 +22,7 @@ class LutraToctreeDirective(TocTreeDirective):
     the documentation into various sections and sub-sections.
     """
 
-    option_spec = {
+    option_spec: ClassVar[dict[str, Any]] = {
         "name": directives.unchanged,
         "caption": directives.unchanged_required,
         "description": directives.unchanged_required,
@@ -31,7 +31,7 @@ class LutraToctreeDirective(TocTreeDirective):
         "reversed": directives.flag,
     }
 
-    def run(self) -> List[nodes.Node]:
+    def run(self) -> list[nodes.Node]:
         """Actual core implementation of this directive."""
         # Load the values that get special handling.
         caption = self.options.get("caption", "[caption]")
@@ -129,11 +129,11 @@ class LutraDocumentDirective(SphinxDirective):
     required_arguments = 1
     optional_arguments = 0
     final_argument_whitespace = False
-    option_spec = {
+    option_spec: ClassVar[dict[str, Any]] = {
         "show-child-pages": directives.flag,
     }
 
-    def run(self) -> List[nodes.Node]:
+    def run(self) -> list[nodes.Node]:
         """Actual core implementation of this directive."""
         node = LutraDocumentNode(
             "",
