@@ -30,7 +30,7 @@ sphinx:
   configuration: docs/conf.py
 
 python:
-  version: 3.9
+  version: "3.11"
   install:
     - requirements: docs/requirements.txt
     - method: pip
