@@ -43,14 +43,14 @@ def docs(session):
 
 @nox.session(reuse_venv=True)
 def lint(session):
-    session.install("pre-commit")
+    session.install("prek")
 
     args = list(session.posargs)
     args.append("--all-files")
     if "CI" in os.environ:
         args.append("--show-diff-on-failure")
 
-    session.run("pre-commit", "run", *args)
+    session.run("prek", "run", *args)
 
 
 @nox.session
