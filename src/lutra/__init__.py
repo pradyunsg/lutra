@@ -181,7 +181,8 @@ def _builder_inited(app: sphinx.application.Sphinx) -> None:
     update_known_styles_state(app)
 
     def _update_default(key: str, /, *, new_default: Any) -> None:
-        app.config.values[key] = (new_default, *app.config.values[key][1:])
+        if key not in app.config._raw_config:
+            setattr(app.config, key, new_default)
 
     # Change the default permalinks icon
     _update_default("html_permalinks_icon", new_default="#")
