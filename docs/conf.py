@@ -1,7 +1,7 @@
 """Configuration file for the Sphinx documentation builder."""
 
 import os
-from typing import Any, Dict
+from typing import Any
 
 # from lutra import create_linkcode_resolve
 
@@ -199,7 +199,7 @@ html_theme_options = {
 html_css_files = []
 html_js_files = []
 html_static_path = []
-html_context: Dict[str, Any] = {
+html_context: dict[str, Any] = {
     # "current_version": 0,
     # "versions": [
     #     ("dev (3.12)", "/en/3.12/"),

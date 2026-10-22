@@ -23,7 +23,7 @@ with open(filename) as f:
         elif line.endswith(" {"):
             current_selector = line[:-2]
             if current_selector in by_selector:
-                raise Exception(
+                raise ValueError(
                     f"{lineno}: {current_selector!r} already in {by_selector}"
                 )
             by_selector[current_selector] = []
@@ -32,7 +32,7 @@ with open(filename) as f:
         elif line.startswith("--"):
             variable_name, _, _ = line.partition(":")
             if variable_name in by_selector[current_selector]:
-                raise Exception(
+                raise ValueError(
                     f"{lineno}: {variable_name!r} already in selector "
                     f"{current_selector!r}"
                 )
@@ -41,7 +41,7 @@ with open(filename) as f:
 
 def ensure_no_common(*, base, theme):
     if common := set(base) & set(theme):
-        raise Exception(f"Got theme-specific-override: {common}")
+        raise ValueError(f"Got theme-specific-override: {common}")
 
 
 def colorized(line):
@@ -64,7 +64,7 @@ def ensure_all_same(*, light, dark):
             light, dark, "only-in-light", "only-in-dark", lineterm="", n=5
         )
     )
-    raise Exception(f"Deviation between light and dark variables!\n\n{diff}")
+    raise ValueError(f"Deviation between light and dark variables!\n\n{diff}")
 
 
 assert set(by_selector) == {"html", "html:not(.dark)", "html.dark"}

@@ -20,7 +20,7 @@ The example directive makes the following assumptions:
 """
 
 from textwrap import indent
-from typing import Any, Tuple
+from typing import Any
 
 from docutils import nodes
 from docutils.statemachine import StringList
@@ -28,7 +28,7 @@ from sphinx.application import Sphinx
 from sphinx.directives import SphinxDirective
 
 
-def _split_by_language(block_text: str) -> Tuple[str, str]:
+def _split_by_language(block_text: str) -> tuple[str, str]:
     try:
         a, b = block_text.split("+++\n")
     except ValueError:
